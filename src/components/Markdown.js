@@ -7,7 +7,7 @@ class Markdown extends React.Component {
 
   componentWillMount() {
     this.setState({
-      markdown: "loading..."
+      markdown: ""
     })
     marked.setOptions({
 			renderer: new marked.Renderer(),
@@ -26,12 +26,9 @@ class Markdown extends React.Component {
       .then(res => res.text())
       .then(text => this.setState({ markdown: text }));
   }
-  // return <ReactMarkdown options={options} {...props} />;
   render() {
-    console.log(this.state.markdown)
     return (<div
       id="content"
-      className="article-detail"
       dangerouslySetInnerHTML={{
             __html: this.state.markdown !== null ? marked(this.state.markdown) : null,
         }}
