@@ -1,36 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import PrimarySearchAppBar from "../components/PrimarySearchAppBar";
+import AppActionBar from "./AppActionBar";
 import Typography from '@material-ui/core/Typography';
+import AppDrawer from './AppDrawer'
 
 const styles = theme => ({
-    layout: {
+    footer: {
         width: 'auto',
-        marginLeft: theme.spacing.unit * 3,
-        marginRight: theme.spacing.unit * 3,
+        margin: theme.spacing.unit * 3,
     },
 })
 
-const Layouts = (props) => {
-    const { classes, children } = props
+class Layouts extends React.Component {
 
-    return (
-        <React.Fragment   >
-            <PrimarySearchAppBar />
-            {children}
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
-                </Typography>
-            </footer>
-            {/* End footer */}
-        </React.Fragment>
-    )
+    constructor(props) {
+        super(props);
+        this.state = {
+            openDrawer: false,
+            view: {
+                name: 'index'
+            }
+        };
+    }
+
+    onDrawerClose = () => {
+        this.setState({
+            openDrawer: false,
+        })
+    }
+    
+    render() {
+        const { classes, children } = this.props
+
+        return (
+            <React.Fragment>
+                <AppActionBar
+                 menuClick={() => this.setState({ openDrawer: true})}
+                 view={this.state.view} />
+                <AppDrawer open={this.state.openDrawer} onClose={this.onDrawerClose}/>
+                {children}
+                {/* Footer */}
+                <footer className={classes.footer}>
+                    <Typography variant="h6" align="center" gutterBottom>
+                        Footer
+                    </Typography>
+                    <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+                        Something here to give the footer a purpose!
+                    </Typography>
+                </footer>
+                {/* End footer */}
+            </React.Fragment>
+        )
+    }
 }
 
 Layouts.propTypes = {

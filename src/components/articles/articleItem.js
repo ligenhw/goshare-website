@@ -4,16 +4,13 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MessageIcon from '@material-ui/icons/Message';
 import EyeIcon from '@material-ui/icons/RemoveRedEye';
-import { Link } from 'react-router-dom';
-import CardMedia from '@material-ui/core/CardMedia';
-import bg from '../../assets/bg.jpg';
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link';
+import Hidden from '@material-ui/core/Hidden';
 
 const styles = theme => ({
   root: {
@@ -23,10 +20,6 @@ const styles = theme => ({
   item: {
     marginTop: theme.spacing.unit * 2,
     marginBottom: theme.spacing.unit * 2,
-  },
-  img: {
-    width: '125px',
-    height: '100px',
   },
   meta: {
     margin: theme.spacing.unit * 2,
@@ -42,9 +35,10 @@ const Posts = [
       'This is a wider card with ...',
     views: 10,
     comments: 21,
+    likes: 15,
   },
   {
-    title: 'Post title',
+    title: '服务器小白的我,是如何将node+mongodb项目部署在服务器上并进行性能优化的',
     img_url: 'https://upload-images.jianshu.io/upload_images/12890819-d3e3d25d20095b54.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
     time: 'Nov 11',
     desc:
@@ -100,38 +94,48 @@ const Posts = [
 ];
 
 const ArticleItem = ({ classes, item }) => (
-  <ListItem>
-    <Link
+  <ListItem divider='Divider'>
+    <Link component={RouterLink}
+      className={classes.root}
       rel="noopener noreferrer"
       to={`/articleDetail?article_id=${item.id}`}
     >
-    <ListItemText primary={item.title} secondary={item.desc} />
-    
-    <Meta classes={classes} item={item} />
+      <ListItemText className={classes.item}
+      primary={item.title} 
+      primaryTypographyProps={{variant: "h5"}}
+      secondary={item.desc}
+      secondaryTypographyProps={{variant: "h7"}}
+      />
+
+      <Meta classes={classes} item={item} />
     </Link>
-    <img src={item.img_url} alt='img' style={{width: '125px', height: '100px'}}/>
+    <Hidden xsDown>
+      <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', position: 'relative', right: 0 }} />
+    </Hidden>
+
   </ListItem>
 )
 
 const Meta = ({ classes, item }) => (
-  <React.Fragment>
-    <Link className={classes.meta}
+  <React.Fragment className={classes.meta}>
+    <Link component={RouterLink}
+    className={classes.meta}
       rel="noopener noreferrer"
       to={`/articleDetail?article_id=${item.id}`}
     >
-      <EyeIcon/> {item.views}
+      <EyeIcon /> {item.views}
     </Link>{' '}
-    <Link className={classes.meta}
+    <Link component={RouterLink} className={classes.meta}
       to={`/articleDetail?article_id=${item.id}`}
     >
       <MessageIcon type="message" theme="outlined" /> {item.comments}
     </Link>{' '}
-    <Link className={classes.meta}
+    <Link component={RouterLink} className={classes.meta}
       to={`/articleDetail?article_id=${item.id}`}
     >
       <FavoriteIcon type="heart" theme="outlined" /> {item.likes}
     </Link>
-    <Typography variant="inherit">
+    <Typography variant="inherit" inline className={classes.meta}>
       {item.time}
     </Typography>
   </React.Fragment>
