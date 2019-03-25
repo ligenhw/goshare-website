@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -12,9 +9,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import { Link } from 'react-router-dom'
 import AlignItemsList from '../articles/articleItem'
 
 const styles = theme => ({
@@ -40,6 +34,7 @@ const styles = theme => ({
   mainFeaturedPost: {
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
+    marginTop: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 4,
   },
   mainFeaturedPostContent: {
@@ -77,19 +72,6 @@ const styles = theme => ({
   },
 });
 
-const sections = [
-  'Technology',
-  'Design',
-  'Culture',
-  'Business',
-  'Politics',
-  'Opinion',
-  'Science',
-  'Health',
-  'Style',
-  'Travel',
-];
-
 const featuredPosts = [
   {
     title: 'Featured post',
@@ -111,13 +93,6 @@ const archives = [
   'January 2020',
   'December 2019',
   'November 2019',
-  'October 2019',
-  'September 2019',
-  'August 2019',
-  'July 2019',
-  'June 2019',
-  'May 2019',
-  'April 2019',
 ];
 
 const social = ['GitHub', 'Twitter', 'Facebook'];
@@ -129,37 +104,6 @@ function Blog(props) {
     <React.Fragment>
       <CssBaseline />
       <div className={classes.layout}>
-        <Toolbar className={classes.toolbarMain}>
-          <Button size="small">Subscribe</Button>
-          <Typography
-            component="h2"
-            variant="h5"
-            color="inherit"
-            align="center"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            Blog
-          </Typography>
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-          <Link
-            rel="noopener noreferrer"
-            to={'/login'}
-          >
-            <Button variant="outlined" size="small">
-              Sign up
-            </Button>
-          </Link>
-        </Toolbar>
-        <Toolbar variant="dense" className={classes.toolbarSecondary}>
-          {sections.map(section => (
-            <Typography color="inherit" noWrap key={section}>
-              {section}
-            </Typography>
-          ))}
-        </Toolbar>
         <main>
           {/* Main featured post */}
           <Paper className={classes.mainFeaturedPost}>
@@ -214,16 +158,7 @@ function Blog(props) {
           <Grid container spacing={40} className={classes.mainGrid}>
             {/* Main content */}
             <Grid item xs={12} md={8}>
-              {/* <Typography variant="h6" gutterBottom>
-                From the Firehose
-              </Typography>
-              <Divider />
-              {posts.map(post => (
-                <Markdown className={classes.markdown} key={post.substring(0, 40)}
-                  file={post}>
-                </Markdown>
-              ))} */}
-              <AlignItemsList items={featuredPosts}/>
+              <AlignItemsList items={featuredPosts} />
             </Grid>
             {/* End main content */}
             {/* Sidebar */}
@@ -233,18 +168,17 @@ function Blog(props) {
                   About
                 </Typography>
                 <Typography>
-                  Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
-                  amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+                  分享web开发,移动开发。go, python, java, kotlin, js ...
                 </Typography>
               </Paper>
               <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-                Archives
+                归档
               </Typography>
               {archives.map(archive => (
                 <Typography key={archive}>{archive}</Typography>
               ))}
               <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-                Social
+                链接
               </Typography>
               {social.map(network => (
                 <Typography key={network}>{network}</Typography>
