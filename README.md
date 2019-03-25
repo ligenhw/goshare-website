@@ -32,9 +32,8 @@ highlight.js
 
 https://github.com/jamiebuilds/react-loadable
 
-## 待添加 
+## redux-thunk
 
-redux-thunk
 
 
 ## 参考
@@ -46,3 +45,15 @@ http://biaochenxuying.cn/articles
 
 markdown
 路由
+
+
+## 使用 create-react-app 配置代理服务器
+
+https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development#docsNav
+
+## 要保证 state 映射 到 新的对象
+
+const mapStateToProps = state => ({article: state.article})
+
+否则，如下 会导致不重新绘制。 
+const mapStateToProps = state => state.article

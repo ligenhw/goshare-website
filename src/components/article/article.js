@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Markdown from '../Markdown';
-import post from './blog-post.3.md';
+import { connect } from 'react-redux';
+import { queryArticle } from '../../store/actions/articles'
 
 const styles = theme => ({
     title: {
@@ -31,25 +32,48 @@ const styles = theme => ({
     }
   });
 
-const Article = ({classes}) => (
-    <React.Fragment>
-        <p className={classes.title}></p>
-        <Typography variant="h3" align="center">
-        vue移动端复杂表格表头
-        </Typography>
-        <Typography className={classes.author} variant="h5" align="center" color="textSecondary">
-         gen
-        </Typography>
-        <div className={classes.content}>
-        <Markdown className={classes.markdown}
-                  file={post}>
-        </Markdown>
-        </div>
-    </React.Fragment>
-)
+class Article extends Component {
+
+  componentWillMount() {
+    console.log(this.props.location.pathname)
+    this.props.queryArticle(1)
+  }
+
+  render() {
+    const {classes, article} = this.props
+    console.log('article ........  ', this.props)
+
+    return (
+      <React.Fragment>
+          <p className={classes.title}></p>
+          <Typography variant="h3" align="center">
+            {article.title}
+          </Typography>
+          <Typography className={classes.author} variant="h5" align="center" color="textSecondary">
+           gen
+          </Typography>
+          <div className={classes.content}>
+          <Markdown className={classes.markdown}
+                    markdown={article.content}>
+          </Markdown>
+          </div>
+      </React.Fragment>
+    )
+  }
+}
 
 Article.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Article);
+
+const mapStateToProps = state => ({article: state.article})
+
+const mapDispatchToProps = { queryArticle }
+
+const ArticleContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(Article))
+
+export default ArticleContainer;
