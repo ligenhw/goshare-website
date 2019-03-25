@@ -5,10 +5,9 @@ import './markdown.css'
 
 class Markdown extends React.Component {
 
-  componentWillMount() {
-    this.setState({
-      markdown: ""
-    })
+  constructor(props) {
+    super(props)
+    
     marked.setOptions({
 			renderer: new marked.Renderer(),
 			gfm: true,
@@ -22,15 +21,15 @@ class Markdown extends React.Component {
 				return hljs.highlightAuto(code).value;
 			},
 		});
-    fetch(this.props.file)
-      .then(res => res.text())
-      .then(text => this.setState({ markdown: text }));
   }
+
   render() {
+    const { markdown } = this.props
+
     return (<div
       id="content"
       dangerouslySetInnerHTML={{
-            __html: this.state.markdown !== null ? marked(this.state.markdown) : null,
+            __html: markdown !== null ? marked(markdown) : null,
         }}
       />)
   }

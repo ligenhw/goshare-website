@@ -9,7 +9,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
-import AlignItemsList from '../articles/articleItem'
+import ArticleItem from '../articles/articleItem'
 
 const styles = theme => ({
   layout: {
@@ -158,7 +158,7 @@ function Blog(props) {
           <Grid container spacing={40} className={classes.mainGrid}>
             {/* Main content */}
             <Grid item xs={12} md={8}>
-              <AlignItemsList items={featuredPosts} />
+              <ArticleItem />
             </Grid>
             {/* End main content */}
             {/* Sidebar */}
