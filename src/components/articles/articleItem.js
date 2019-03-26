@@ -28,31 +28,44 @@ const styles = theme => ({
   }
 });
 
-const ArticleItem = ({ classes, item }) => (
-  <ListItem divider='Divider'>
-    <Link component={RouterLink}
-      className={classes.root}
-      rel="noopener noreferrer"
-      to={`/articleDetail?article_id=${item.id}`}
-    >
-      <ListItemText className={classes.item}
-        primary={item.title}
-        primaryTypographyProps={{ variant: "h5" }}
-        secondary={item.desc}
-        secondaryTypographyProps={{ variant: "h7" }}
+const ListItemLink = ({ primary, secondary, to, classes, item }) => (
+    <ListItem divider='Divider' button component={props => <RouterLink to={to} {...props} />}>
+      <ListItemText inset 
+      primary={primary}
+      primaryTypographyProps={{ variant: "h5" }}
+      secondary={secondary} 
+      secondaryTypographyProps={{ variant: "h7" }}
       />
-
       <Meta classes={classes} item={item} />
-    </Link>
-    <Hidden xsDown>
-      <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', position: 'relative', right: 0 }} />
-    </Hidden>
+    </ListItem>
+);
 
-  </ListItem>
+const ArticleItem = ({ classes, item }) => (
+  <ListItemLink classes={classes} item={item} primary={item.title} secondary={item.desc} to={`/articleDetail?article_id=${item.id}`}/>
+  // <ListItem divider='Divider'>
+  //   <Link component={RouterLink}
+  //     className={classes.root}
+  //     rel="noopener noreferrer"
+  //     to={`/articleDetail?article_id=${item.id}`}
+  //   >
+  //     <ListItemText className={classes.item}
+  //       primary={item.title}
+  //       primaryTypographyProps={{ variant: "h5" }}
+  //       secondary={item.desc}
+  //       secondaryTypographyProps={{ variant: "h7" }}
+  //     />
+
+  //     <Meta classes={classes} item={item} />
+  //   </Link>
+  //   <Hidden xsDown>
+  //     <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', position: 'relative', right: 0 }} />
+  //   </Hidden>
+
+  // </ListItem>
 )
 
 const Meta = ({ classes, item }) => (
-  <React.Fragment className={classes.meta}>
+  <React.Fragment>
     <Link component={RouterLink}
       className={classes.meta}
       rel="noopener noreferrer"

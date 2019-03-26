@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Markdown from '../Markdown';
 import { connect } from 'react-redux';
 import { queryArticle } from '../../store/actions/articles'
+import { getQueryStringByName } from '../../utils/url'
 
 const styles = theme => ({
     title: {
@@ -35,13 +36,11 @@ const styles = theme => ({
 class Article extends Component {
 
   componentWillMount() {
-    console.log(this.props.location.pathname)
-    this.props.queryArticle(1)
+    this.props.queryArticle(getQueryStringByName('article_id'))
   }
 
   render() {
     const {classes, article} = this.props
-    console.log('article ........  ', this.props)
 
     return (
       <React.Fragment>
