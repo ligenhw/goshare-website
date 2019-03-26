@@ -1,43 +1,17 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 
-class Test extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            blogs: []
-        }
-    }
 
-    componentWillMount() {
-        this.loading()
-    }
+const ListItemLink = ({ icon, primary, secondary, to }) => (
+  <li>
+    <ListItem button component={props => <Link to={to} {...props} />}>
+      {icon && <ListItemIcon>{icon}</ListItemIcon>}
+      <ListItemText inset primary={primary} secondary={secondary} />
+    </ListItem>
+  </li>
+);
 
-    loading() {
-        fetch('/api/blog/')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("HTTP error, status = " + response.status);
-            }
-            return response.json()
-        })
-        .then(json => this.setState({blogs: json}))
-        .catch(error => console.log(error))
-    }
-
-    render() {
-        return (
-            <ul>{
-                this.state.blogs.map(blog => 
-                    (<li>
-                        <div>
-                        <h3>{blog.title}</h3>
-                        <h5>{blog.content}</h5>
-                        </div>
-                    </li>)
-                )}
-            </ul>
-        )
-    }
-}
-
-export default Test
+export default ListItemLink

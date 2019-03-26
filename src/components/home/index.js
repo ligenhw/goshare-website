@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import ArticleItem from '../articles/articleItem'
+import SocialLinks from '../SocialLinks'
 
 const styles = theme => ({
   layout: {
@@ -21,15 +22,6 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-  },
-  toolbarMain: {
-    borderBottom: `1px solid ${theme.palette.grey[300]}`,
-  },
-  toolbarTitle: {
-    flex: 1,
-  },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
   },
   mainFeaturedPost: {
     backgroundColor: theme.palette.grey[800],
@@ -55,20 +47,12 @@ const styles = theme => ({
   cardMedia: {
     width: 160,
   },
-  markdown: {
-    padding: `${theme.spacing.unit * 3}px 0`,
-  },
   sidebarAboutBox: {
     padding: theme.spacing.unit * 2,
     backgroundColor: theme.palette.grey[200],
   },
   sidebarSection: {
     marginTop: theme.spacing.unit * 3,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing.unit * 8,
-    padding: `${theme.spacing.unit * 6}px 0`,
   },
 });
 
@@ -94,8 +78,6 @@ const archives = [
   'December 2019',
   'November 2019',
 ];
-
-const social = ['GitHub', 'Twitter', 'Facebook'];
 
 function Blog(props) {
   const { classes } = props;
@@ -165,10 +147,10 @@ function Blog(props) {
             <Grid item xs={12} md={4}>
               <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <Typography variant="h6" gutterBottom>
-                  About
+                  公告
                 </Typography>
                 <Typography>
-                  分享web开发,移动开发。go, python, java, kotlin, js ...
+                  分享web开发,移动开发。go, python, java, kotlin, js ... 目前持续开发中..
                 </Typography>
               </Paper>
               <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
@@ -177,12 +159,7 @@ function Blog(props) {
               {archives.map(archive => (
                 <Typography key={archive}>{archive}</Typography>
               ))}
-              <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-                链接
-              </Typography>
-              {social.map(network => (
-                <Typography key={network}>{network}</Typography>
-              ))}
+              <SocialLinks />
             </Grid>
             {/* End sidebar */}
           </Grid>
