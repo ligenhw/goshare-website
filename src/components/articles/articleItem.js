@@ -9,7 +9,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MessageIcon from '@material-ui/icons/Message';
 import EyeIcon from '@material-ui/icons/RemoveRedEye';
 import { Link as RouterLink } from 'react-router-dom'
-import Link from '@material-ui/core/Link';
 import Hidden from '@material-ui/core/Hidden';
 import { connect } from 'react-redux';
 import { queryAllArticles } from '../../store/actions/articles'
@@ -29,61 +28,25 @@ const styles = theme => ({
 });
 
 const ListItemLink = ({ primary, secondary, to, classes, item }) => (
-    <ListItem divider='Divider' button component={props => <RouterLink to={to} {...props} />}>
-      <ListItemText inset 
+  <ListItem divider button component={props => <RouterLink to={to} {...props} />}>
+    <ListItemText inset
       primary={primary}
       primaryTypographyProps={{ variant: "h5" }}
-      secondary={secondary} 
-      secondaryTypographyProps={{ variant: "h7" }}
-      />
-      <Meta classes={classes} item={item} />
-    </ListItem>
+      secondary={secondary}
+    />
+    {item.img_url ?
+      (<Hidden xsDown>
+        <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', position: 'relative', right: 0 }} />
+      </Hidden>) : ''}
+  </ListItem>
 );
-
-const ArticleItem = ({ classes, item }) => (
-  <ListItemLink classes={classes} item={item} primary={item.title} secondary={item.desc} to={`/articleDetail?article_id=${item.id}`}/>
-  // <ListItem divider='Divider'>
-  //   <Link component={RouterLink}
-  //     className={classes.root}
-  //     rel="noopener noreferrer"
-  //     to={`/articleDetail?article_id=${item.id}`}
-  //   >
-  //     <ListItemText className={classes.item}
-  //       primary={item.title}
-  //       primaryTypographyProps={{ variant: "h5" }}
-  //       secondary={item.desc}
-  //       secondaryTypographyProps={{ variant: "h7" }}
-  //     />
-
-  //     <Meta classes={classes} item={item} />
-  //   </Link>
-  //   <Hidden xsDown>
-  //     <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', position: 'relative', right: 0 }} />
-  //   </Hidden>
-
-  // </ListItem>
-)
 
 const Meta = ({ classes, item }) => (
   <React.Fragment>
-    <Link component={RouterLink}
-      className={classes.meta}
-      rel="noopener noreferrer"
-      to={`/articleDetail?article_id=${item.id}`}
-    >
-      <EyeIcon /> {item.views}
-    </Link>{' '}
-    <Link component={RouterLink} className={classes.meta}
-      to={`/articleDetail?article_id=${item.id}`}
-    >
-      <MessageIcon type="message" theme="outlined" /> {item.comments}
-    </Link>{' '}
-    <Link component={RouterLink} className={classes.meta}
-      to={`/articleDetail?article_id=${item.id}`}
-    >
-      <FavoriteIcon type="heart" theme="outlined" /> {item.likes}
-    </Link>
-    <Typography variant="inherit" inline className={classes.meta}>
+    <EyeIcon /> {item.views}
+    <MessageIcon type="message" /> {item.comments}
+    <FavoriteIcon type="heart" /> {item.likes}
+    <Typography inline component="span" className={classes.meta}>
       {item.time}
     </Typography>
   </React.Fragment>
@@ -97,27 +60,36 @@ class ArticleList extends Component {
 
   render() {
     const { classes, articles } = this.props;
-
-    console.log(' list .... ', this.props)
+    console.log(this.props)
 
     return (
       <List className={classes.root}>
         {
           articles.map((item, i) => (
-            <ArticleItem classes={classes} item={item} />
+            <ListItemLink key={item.id}
+              classes={classes} item={item}
+              primary={item.title}
+              secondary={
+                <React.Fragment>
+                  <Typography component="span">
+                    {item.desc}
+                  </Typography>
+                  <Meta classes={classes} item={item} />
+                </React.Fragment>
+              }
+              to={`/articleDetail?article_id=${item.id}`} />
           ))
         }
       </List>
     );
   }
-
 }
 
 ArticleList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({articles : state.articles})
+const mapStateToProps = state => ({ articles: state.articles })
 
 const mapDispatchToProps = { queryAllArticles }
 

@@ -29,9 +29,11 @@ const SocialLinks = ({ classes }) => (
         <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
             链接
         </Typography>
-        {social.map(s => (
-            <Link className={classes.link} underline='none'
-            block='true' href={s.link}>{s.name}</Link>
+        {social.map((s, i) => (
+            <div>
+                <Link gutterBottom component={Link} key={i} inline={false} className={classes.link} underline='none' href={s.link}>{s.name}
+                </Link>
+            </div>
         ))}
     </React.Fragment>
 )

@@ -12,9 +12,9 @@ const theme = createMuiTheme({
 const App = ({ history }) => {
   return (
     <ConnectedRouter history={history}>
-      <Switch>
-        <MuiThemeProvider theme={theme}>
-          <Layouts>
+      <MuiThemeProvider theme={theme}>
+        <Layouts>
+          <Switch>
             {routers.map((r, key) => (
               <Route
                 component={r.component}
@@ -23,9 +23,9 @@ const App = ({ history }) => {
                 path={r.path}
               />
             ))}
-          </Layouts>
-        </MuiThemeProvider>
-      </Switch>
+          </Switch>
+        </Layouts>
+      </MuiThemeProvider>
     </ConnectedRouter>
   )
 }
