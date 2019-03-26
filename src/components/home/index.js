@@ -165,7 +165,6 @@ function Blog(props) {
           </Grid>
         </main>
       </div>
-
     </React.Fragment>
   );
 }

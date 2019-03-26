@@ -46,7 +46,7 @@ class Layouts extends React.Component {
                         Footer
                     </Typography>
                     <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                        Something here to give the footer a purpose!
+                    全栈分享 ©2019 Created by gen
                     </Typography>
                 </footer>
                 {/* End footer */}

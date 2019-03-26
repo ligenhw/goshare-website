@@ -41,6 +41,7 @@ class Article extends Component {
 
   render() {
     const {classes, article} = this.props
+    console.log(this.props)
 
     return (
       <React.Fragment>
