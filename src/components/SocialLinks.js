@@ -30,7 +30,7 @@ const SocialLinks = ({ classes }) => (
             链接
         </Typography>
         {social.map((s, i) => (
-            <Link gutterBottom inline={false} className={classes.link} underline='none' href={s.link}>{s.name}
+            <Link key={i} gutterBottom inline={false} className={classes.link} underline='none' href={s.link}>{s.name}
             </Link>
         ))}
     </React.Fragment>

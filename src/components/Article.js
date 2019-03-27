@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Markdown from '../Markdown';
+import Markdown from './markdown/Markdown';
 import { connect } from 'react-redux';
-import { queryArticle } from '../../store/actions/articles'
-import { getQueryStringByName } from '../../utils/url'
+import { queryArticle } from '../store/actions/articles'
+import { getQueryStringByName } from '../utils/url'
 
 const styles = theme => ({
     title: {

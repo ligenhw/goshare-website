@@ -10,8 +10,6 @@ import MessageIcon from '@material-ui/icons/Message';
 import EyeIcon from '@material-ui/icons/RemoveRedEye';
 import { Link as RouterLink } from 'react-router-dom'
 import Hidden from '@material-ui/core/Hidden';
-import { connect } from 'react-redux';
-import { queryAllArticles } from '../../store/actions/articles'
 
 const styles = theme => ({
   root: {
@@ -54,10 +52,6 @@ const Meta = ({ classes, item }) => (
 
 class ArticleList extends Component {
 
-  componentWillMount() {
-    this.props.queryAllArticles()
-  }
-
   render() {
     const { classes, articles } = this.props;
     console.log(this.props)
@@ -89,13 +83,4 @@ ArticleList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({ articles: state.articles })
-
-const mapDispatchToProps = { queryAllArticles }
-
-const ArticleListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(ArticleList))
-
-export default ArticleListContainer;
+export default withStyles(styles)(ArticleList);
