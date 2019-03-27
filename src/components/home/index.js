@@ -11,6 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import ArticleItem from '../articles/articleItem'
 import SocialLinks from '../SocialLinks'
+import { Link } from '@material-ui/core';
 
 const styles = theme => ({
   layout: {
@@ -157,7 +158,7 @@ function Blog(props) {
                 归档
               </Typography>
               {archives.map(archive => (
-                <Typography key={archive}>{archive}</Typography>
+                <Link inline={false} key={archive}>{archive}</Link>
               ))}
               <SocialLinks />
             </Grid>
@@ -165,6 +166,7 @@ function Blog(props) {
           </Grid>
         </main>
       </div>
+
     </React.Fragment>
   );
 }
