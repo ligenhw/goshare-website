@@ -1,6 +1,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import LinearQuery from '../components/progress/progress'
+import LinearQuery from '../components/Progress'
 
 const Loading = (props) => {
     if (props.error) {
@@ -38,7 +38,7 @@ export default [
         path: '/articleDetail',
         exact: true,
         component: Loadable({
-          loader: () => import('../components/article/article.js'),
+          loader: () => import('../components/Article.js'),
           loading: Loading,
           delay: 300,
         }),
