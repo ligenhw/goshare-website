@@ -29,7 +29,7 @@ class Markdown extends React.Component {
     return (<div
       id="content"
       dangerouslySetInnerHTML={{
-            __html: markdown !== null ? marked(markdown) : null,
+            __html: markdown ? marked(markdown) : null,
         }}
       />)
   }

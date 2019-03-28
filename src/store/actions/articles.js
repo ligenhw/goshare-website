@@ -33,3 +33,22 @@ export const queryArticle = (id) => dispatch => {
         .then(json => dispatch(article(json)))
         .catch(error => console.error(error))
 }
+
+
+export const createArticle = article => dispatch => {
+    fetch('/api/blog/', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(article)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error, status = " + response.status);
+        }
+        return response.json()
+    })
+    .then(json => console.log('create success', json)) //TODO: change it
+    .catch(error => console.error(error))
+}
