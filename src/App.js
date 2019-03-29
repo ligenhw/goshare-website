@@ -3,7 +3,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import { Route, Switch } from 'react-router'
 import routers from './router/index.js';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Layouts from './views/layouts'
+import Layouts from './views/Layout'
 
 const theme = createMuiTheme({
   typography: { useNextVariants: true },

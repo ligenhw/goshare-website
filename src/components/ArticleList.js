@@ -27,14 +27,15 @@ const styles = theme => ({
 
 const ListItemLink = ({ primary, secondary, to, classes, item }) => (
   <ListItem divider button component={props => <RouterLink to={to} {...props} />}>
-    <ListItemText inset
+    <ListItemText
       primary={primary}
       primaryTypographyProps={{ variant: "h5" }}
       secondary={secondary}
     />
     {item.img_url ?
       (<Hidden xsDown>
-        <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', position: 'relative', right: 0 }} />
+        <img src={item.img_url} alt='img' style={{ width: '125px', height: '100px', }} />
+        {/* position: 'relative', right: 0  */}
       </Hidden>) : ''}
   </ListItem>
 );

@@ -20,6 +20,10 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  button: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
 };
 
 function ButtonAppBar(props) {
@@ -35,7 +39,8 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             {view.name}
           </Typography>
-          <Link color='inherit' component={RouterLink} to={'/login'}>登录</Link>
+          <Link color='inherit' className={classes.button} component={RouterLink} to={'/signup'}>注册</Link>
+          <Link color='inherit' className={classes.button} component={RouterLink} to={'/login'}>登录</Link>
         </Toolbar>
       </AppBar>
     </div>
