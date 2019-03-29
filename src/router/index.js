@@ -34,6 +34,16 @@ export default [
         }),
     },
     {
+        name: 'signup',
+        path: '/signup',
+        exact: true,
+        component: Loadable({
+          loader: () => import('../components/SignUp.js'),
+          loading: Loading,
+          delay: 300,
+        }),
+    },
+    {
         name: 'articleDetail',
         path: '/articleDetail',
         exact: true,

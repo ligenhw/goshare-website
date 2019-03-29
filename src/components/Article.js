@@ -31,7 +31,7 @@ const styles = theme => ({
       backgroundColor: theme.primary
     },
     }
-  });
+});
 
 class Article extends Component {
 
@@ -65,7 +65,6 @@ class Article extends Component {
 Article.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 
 const mapStateToProps = state => ({article: state.article})
 
