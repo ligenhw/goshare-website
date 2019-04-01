@@ -4,7 +4,6 @@ export const articles = (state=[], action) => {
     switch(action.type) {
         case LIST_ARTICLES:
           const lists = action.payload.map(a=> prepareArticle(a))
-          console.log(lists)
           return lists
         default:
           return state

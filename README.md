@@ -46,6 +46,10 @@ https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-develo
 
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions
 
+## Fetch API
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch
+
 ## 要保证 state 映射 到 新的对象
 
 const mapStateToProps = state => ({article: state.article})
