@@ -14,7 +14,7 @@ import SocialLinks from '../SocialLinks'
 import { Link } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom'
 import { queryAllArticles } from '../../store/actions/articles'
-import { getUser } from '../../store/actions/user'
+
 import { connect } from 'react-redux';
 
 const styles = theme => ({
@@ -70,7 +70,6 @@ const archives = [
 class Index extends Component {
 
   componentWillMount() {
-    this.props.getUser()
     this.props.queryAllArticles()
   }
 
@@ -189,8 +188,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = { 
-  queryAllArticles,
-  getUser
+  queryAllArticles
 }
 
 const IndexContainer = connect(

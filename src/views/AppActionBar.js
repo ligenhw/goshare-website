@@ -10,7 +10,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import Link from '@material-ui/core/Link';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { logout } from '../store/actions/user'
+import { logout, getUser } from '../store/actions/user'
 import { history } from '../store/configureStore'
 
 const styles = {
@@ -31,6 +31,10 @@ const styles = {
 };
 
 class ButtonAppBar extends Component {
+
+  componentWillMount() {
+    this.props.getUser()
+  }
 
   render() {
     const { classes, view, menuClick, user, logout } = this.props;
@@ -84,7 +88,7 @@ ButtonAppBar.propTypes = {
 };
 const mapStateToProps = state => ({ user: state.user })
 
-const mapDispatchToProps = { logout }
+const mapDispatchToProps = { logout, getUser }
 
 const ButtonAppBarContainer = connect(
   mapStateToProps,
