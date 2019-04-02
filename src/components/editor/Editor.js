@@ -58,7 +58,7 @@ class Editor extends Component {
     publish = () => this.props.createArticle({
         title: this.state.title,
         content: this.state.content,
-        user_id: 1, // TODO change it.
+        user_id: this.props.user.id,
     })
 
     render() {
@@ -94,7 +94,7 @@ class Editor extends Component {
                         variant="filled"
                     />
                     <Fab color="secondary" aria-label="Edit" className={classes.fab}>
-                        <SaveIcon onClick={this.publish}/>
+                        <SaveIcon onClick={this.publish} />
                     </Fab>
                 </Grid>
                 <Grid item className={classes.pannel} xs={12} md={6}>
@@ -109,11 +109,13 @@ Editor.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = state => ({ user: state.user })
+
 const mapDispatchToProps = { createArticle }
 
 const EditorContainer = connect(
-  null,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(withStyles(styles)(Editor))
 
 export default withStyles(styles)(EditorContainer);

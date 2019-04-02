@@ -37,6 +37,23 @@ export const signIn = user => dispatch => {
         .catch(error => console.error(error))
 }
 
+export const logout = () => dispatch => {
+    fetch('/api/logout/', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error, status = " + response.status);
+            }
+            return response
+        })
+        .then(response => dispatch(user(null)))
+        .catch(error => console.error(error))
+}
+
 const user = (data) => ({
     type: GET_USER,
     payload: data,
@@ -52,6 +69,6 @@ export const getUser = () => dispatch => {
             }
             return response.json()
         })
-        .then(json => {dispatch(user(json)) ; console.log(json)})
+        .then(json => dispatch(user(json)))
         .catch(error => console.error(error))
 }
