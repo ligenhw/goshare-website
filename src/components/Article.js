@@ -47,14 +47,14 @@ class Article extends Component {
       <React.Fragment>
           <p className={classes.title}></p>
           <Typography variant="h3" align="center">
-            {article.title}
+            {article.blog.title}
           </Typography>
           <Typography className={classes.author} variant="h5" align="center" color="textSecondary">
-           gen
+           {article.user.username}
           </Typography>
           <div className={classes.content}>
           <Markdown className={classes.markdown}
-                    markdown={article.content}>
+                    markdown={article.blog.content}>
           </Markdown>
           </div>
       </React.Fragment>
