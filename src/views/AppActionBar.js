@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +8,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@material-ui/core/Link';
+import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import { logout } from '../store/actions/user'
+import { history } from '../store/configureStore'
 
 const styles = {
   root: {
@@ -26,29 +30,65 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
-  const { classes, view, menuClick } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton onClick={menuClick}
-          className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            {view.name}
-          </Typography>
-          <Link color='inherit' className={classes.button} component={RouterLink} to={'/signup'}>注册</Link>
-          <Link color='inherit' className={classes.button} component={RouterLink} to={'/login'}>登录</Link>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+class ButtonAppBar extends Component {
+
+  render() {
+    const { classes, view, menuClick, user, logout } = this.props;
+
+    const renderSign = classes => (
+      <React.Fragment>
+        <Link color='inherit' className={classes.button} component={RouterLink} to={'/signup'}>注册</Link>
+        <Link color='inherit' className={classes.button} component={RouterLink} to={'/login'}>登录</Link>
+      </React.Fragment>
+    )
+
+    const renderUser = () => (
+      <React.Fragment>
+      <Typography variant="h6" color="inherit" >
+        {user.username}
+      </Typography>
+      <Button color="inherit" onClick={() => {
+        history.push('/editor')
+      }}>
+      写文章
+      </Button>
+      <Button color="inherit" onClick={logout}>
+      登出
+      </Button>
+      </React.Fragment>
+    )
+
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton onClick={menuClick}
+              className={classes.menuButton} color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              {view.name}
+            </Typography>
+            {
+              user === null ? renderSign(classes) : renderUser()
+            }
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+const mapStateToProps = state => ({ user: state.user })
 
-export default withStyles(styles)(ButtonAppBar);
+const mapDispatchToProps = { logout }
+
+const ButtonAppBarContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(ButtonAppBar))
+
+export default ButtonAppBarContainer;

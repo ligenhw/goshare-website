@@ -56,3 +56,9 @@ const mapStateToProps = state => ({article: state.article})
 
 否则，如下 会导致不重新绘制。 
 const mapStateToProps = state => state.article
+
+## TODO:
+
+* es6 decorator语法 替换 connect()
+
+

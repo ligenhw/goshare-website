@@ -1,4 +1,5 @@
 import { LIST_ARTICLES, QUERY_ARTICLE } from '../types.js';
+import { history } from '../configureStore'
 
 const listArticles = (data) => ({
     type: LIST_ARTICLES,
@@ -47,8 +48,8 @@ export const createArticle = article => dispatch => {
         if (!response.ok) {
             throw new Error("HTTP error, status = " + response.status);
         }
-        return response.json()
+        return response
     })
-    .then(json => console.log('create success', json)) //TODO: change it
+    .then(json => history.push('/')) //TODO: change it
     .catch(error => console.error(error))
 }

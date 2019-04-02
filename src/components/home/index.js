@@ -101,7 +101,7 @@ class Index extends Component {
     const readerSubFeature = (
       <Grid container spacing={40} className={classes.cardGrid}>
         {subFeature.map(post => (
-          <Grid item key={post.title} xs={12} md={6}>
+          <Grid item key={post.id} xs={12} md={6}>
             <Card className={classes.card}>
               <div className={classes.cardDetails}>
                 <CardContent>
