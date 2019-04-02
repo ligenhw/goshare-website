@@ -11,13 +11,12 @@ export const articles = (state=[], action) => {
 }
 
 export const article = (state={
-  title: '',
-  content: '',
+  user: '',
+  blog: '',
 }, action) => {
     switch(action.type) {
         case QUERY_ARTICLE:
-          const article = prepareArticle(action.payload)
-          return article
+          return action.payload
         default:
           return state
     }
