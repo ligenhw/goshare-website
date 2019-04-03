@@ -53,3 +53,21 @@ export const createArticle = article => dispatch => {
     .then(json => history.push('/')) //TODO: change it
     .catch(error => console.error(error))
 }
+
+export const modifyArticle = article => dispatch => {
+    fetch('/api/blog/' + article.id, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(article)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error, status = " + response.status);
+        }
+        return response
+    })
+    .then(json => history.push('/articleDetail?article_id=' + article.id)) //TODO: change it
+    .catch(error => console.error(error))
+}
