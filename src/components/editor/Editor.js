@@ -4,14 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import SaveIcon from '@material-ui/icons/Save';
-import Button from '@material-ui/core/Button';
-import classNames from 'classnames';
 import Markdown from '../markdown/Markdown';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
 import { connect } from 'react-redux';
-import { createArticle } from '../../store/actions/articles'
+import { createArticle, queryArticle, modifyArticle } from '../../store/actions/articles'
+import { getQueryStringByName } from '../../utils/url'
 
 const styles = theme => ({
     container: {
@@ -51,15 +48,42 @@ class Editor extends Component {
         content: '',
     };
 
+    componentWillMount() {
+        const id = getQueryStringByName('article_id')
+        if (id !== '') {
+            this.props.queryArticle(id)
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        const { blog } = props
+        this.setState({
+            title: blog.title,
+            content: blog.content
+        })
+    }
+
     onChange = name => event => this.setState({
         [name]: event.target.value
     })
 
-    publish = () => this.props.createArticle({
-        title: this.state.title,
-        content: this.state.content,
-        user_id: this.props.user.id,
-    })
+    publish = () => {
+        let id = getQueryStringByName('article_id')
+        id = parseInt(id)
+        if (isNaN(id)) {
+            this.props.createArticle({
+                title: this.state.title,
+                content: this.state.content,
+                user_id: this.props.user.id,
+            })
+        } else {
+            this.props.modifyArticle({
+                id,
+                title: this.state.title,
+                content: this.state.content
+            })
+        }
+    }
 
     render() {
         const { classes } = this.props
@@ -71,6 +95,7 @@ class Editor extends Component {
                 <Grid item xs={12} md={6}>
                     <TextField
                         id="title"
+                        value={this.state.title}
                         onChange={this.onChange('title')}
                         label="题目"
                         fullWidth
@@ -78,12 +103,9 @@ class Editor extends Component {
                         margin="normal"
                         variant="outlined"
                     />
-                    {/* <Button variant="contained" size="small" className={classes.button}>
-                        <SaveIcon className={classNames(classes.leftIcon, classes.iconSmall)} />
-                        保存
-                    </Button> */}
                     <TextField
                         id="content"
+                        value={this.state.content}
                         onChange={this.onChange('content')}
                         label="正文"
                         multiline
@@ -109,9 +131,16 @@ Editor.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({ user: state.user })
+const mapStateToProps = state => ({
+    user: state.user,
+    blog: state.article.blog,
+})
 
-const mapDispatchToProps = { createArticle }
+const mapDispatchToProps = {
+    createArticle,
+    queryArticle,
+    modifyArticle,
+}
 
 const EditorContainer = connect(
     mapStateToProps,

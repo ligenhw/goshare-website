@@ -11,8 +11,8 @@ export const articles = (state=[], action) => {
 }
 
 export const article = (state={
-  user: '',
-  blog: '',
+  user: {},
+  blog: {},
 }, action) => {
     switch(action.type) {
         case QUERY_ARTICLE:

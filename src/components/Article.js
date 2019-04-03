@@ -13,6 +13,7 @@ import Avatar from '@material-ui/core/Avatar';
 import deepOrange from '@material-ui/core/colors/deepOrange';
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import { history } from '../store/configureStore'
 
 const styles = theme => ({
   title: {
@@ -21,6 +22,7 @@ const styles = theme => ({
   },
   author: {
     marginTop: theme.spacing.unit * 2,
+    'align-items': 'center',
   },
   markdown: {
     width: 'auto',
@@ -46,9 +48,6 @@ const styles = theme => ({
   },
   edite: {
     float: 'right'
-  },
-  author: {
-    'align-items': 'center'
   },
   orangeAvatar: {
     margin: 10,
@@ -81,7 +80,7 @@ const Author = ({ classes, article, edite }) => (
     </Grid>
     {edite ?
       (<Grid item xs>
-        <Button className={classes.edite}>
+        <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id) }>
           编辑文章
     </Button>
       </Grid>) : ''}
