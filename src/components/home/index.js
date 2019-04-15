@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -114,8 +114,8 @@ class Index extends Component {
                     {post.desc}
                   </Typography>
                   <Link variant="subtitle1"
-                   component={RouterLink}
-                   to={`/articleDetail?article_id=${post.id}`}>
+                    component={RouterLink}
+                    to={`/articleDetail?article_id=${post.id}`}>
                     继续阅读...
                   </Link>
                 </CardContent>
@@ -187,7 +187,7 @@ const mapStateToProps = state => ({
   articles: state.articles
 })
 
-const mapDispatchToProps = { 
+const mapDispatchToProps = {
   queryAllArticles
 }
 
