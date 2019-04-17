@@ -14,6 +14,7 @@ import deepOrange from '@material-ui/core/colors/deepOrange';
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { history } from '../store/configureStore'
+import CommentList from './comment/CommentList'
 
 const styles = theme => ({
   title: {
@@ -114,6 +115,8 @@ class Article extends Component {
             markdown={article.blog.content}>
           </Markdown>
         </div>
+
+        <CommentList blogID={article.blog.id}/>
       </React.Fragment>
     )
   }
