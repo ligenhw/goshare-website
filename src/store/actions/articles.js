@@ -71,3 +71,20 @@ export const modifyArticle = article => dispatch => {
     .then(json => history.push('/articleDetail?article_id=' + article.id)) //TODO: change it
     .catch(error => console.error(error))
 }
+
+export const deleteArticle = id => dispatch => {
+    fetch('/api/blog/' + id, {
+        method: 'delete',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error, status = " + response.status);
+        }
+        return response
+    })
+    .then(json => history.push('/')) //TODO: change it
+    .catch(error => console.error(error))
+}

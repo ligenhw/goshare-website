@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Markdown from './markdown/Markdown';
 import { connect } from 'react-redux';
-import { queryArticle } from '../store/actions/articles'
+import { queryArticle, deleteArticle } from '../store/actions/articles'
 import { getQueryStringByName } from '../utils/url'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MessageIcon from '@material-ui/icons/Message';
@@ -67,7 +67,7 @@ const Meta = ({ classes, meta }) => (
   </React.Fragment>
 )
 
-const Author = ({ classes, article, edite }) => (
+const Author = ({ classes, article, edite, deleteArticle }) => (
   <Grid container alignItems="center">
     <Avatar className={classes.orangeAvatar}>N</Avatar>
     <Grid item xs>
@@ -80,9 +80,13 @@ const Author = ({ classes, article, edite }) => (
     </Grid>
     {edite ?
       (<Grid item xs>
-        <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id) }>
-          编辑文章
-    </Button>
+        <Button className={classes.edite}
+          onClick={event => deleteArticle(article.blog.id) }>
+            删除
+        </Button>
+        <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id)}>
+          编辑
+        </Button>
       </Grid>) : ''}
   </Grid >
 )
@@ -94,7 +98,7 @@ class Article extends Component {
   }
 
   render() {
-    const { classes, article, user } = this.props
+    const { classes, article, user, deleteArticle } = this.props
     const edite = user !== null && user.id === article.user.id
 
     return (
@@ -105,7 +109,7 @@ class Article extends Component {
         </Typography>
 
         <div className={classes.content}>
-          <Author classes={classes} article={article} edite={edite} />
+          <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle}/>
           <Markdown className={classes.markdown}
             markdown={article.blog.content}>
           </Markdown>
@@ -124,7 +128,7 @@ const mapStateToProps = state => ({
   user: state.user,
 })
 
-const mapDispatchToProps = { queryArticle }
+const mapDispatchToProps = { queryArticle, deleteArticle }
 
 const ArticleContainer = connect(
   mapStateToProps,
