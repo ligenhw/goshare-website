@@ -33,7 +33,10 @@ export const signIn = user => dispatch => {
             }
             return response
         })
-        .then(response => history.push('/')) //TODO: change it
+        .then(response => {
+            history.push('/')
+            getUser()(dispatch)()
+        }) //TODO: change it
         .catch(error => console.error(error))
 }
 
