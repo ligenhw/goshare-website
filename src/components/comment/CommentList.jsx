@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { queryComments } from '../../store/actions/comments'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = theme => ({
     title: {
-      marginLeft: theme.spacing.unit * 3,
-      marginRight: theme.spacing.unit * 3,
+        marginLeft: theme.spacing.unit * 3,
+        marginRight: theme.spacing.unit * 3,
     }
 });
 
@@ -22,24 +25,26 @@ class CommentList extends Component {
 
     render() {
         console.log(this.props)
-        const {blogID, comments, users} = this.props
+        const { blogID, comments, users } = this.props
         if (!blogID) {
             return (<div>没有评论!</div>)
         }
         return (
-            <ul>
-            {
-                comments.map((comment, i) => (
-                    <li key={comment.id}>
-                        author: {
-                            users.filter(u => u.id === comment.userId)[0].username
-                        }
-                        <br/>
-                        {comment.content}
-                    </li>
-                ))
-            }
-            </ul>
+            <List>
+                {
+                    comments.map((comment, i) => (
+                        <ListItem key={comment.id}>
+                            <ListItemText>
+                                author: {
+                                    users.filter(u => u.id === comment.userId)[0].username
+                                }
+                                <br />
+                                {comment.content}
+                            </ListItemText>
+                        </ListItem>
+                    ))
+                }
+            </List>
         )
     }
 }
@@ -56,8 +61,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = { queryComments }
 
 const CommentListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(withStyles(styles)(CommentList))
 
 export default CommentListContainer;

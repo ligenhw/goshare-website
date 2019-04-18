@@ -28,12 +28,12 @@ const styles = theme => ({
   markdown: {
     width: 'auto',
     marginTop: theme.spacing.unit * 100,
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 2,
   },
   content: {
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 2,
     [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
       width: 900,
       marginLeft: 'auto',
@@ -82,8 +82,8 @@ const Author = ({ classes, article, edite, deleteArticle }) => (
     {edite ?
       (<Grid item xs>
         <Button className={classes.edite}
-          onClick={event => deleteArticle(article.blog.id) }>
-            删除
+          onClick={event => deleteArticle(article.blog.id)}>
+          删除
         </Button>
         <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id)}>
           编辑
@@ -104,19 +104,22 @@ class Article extends Component {
 
     return (
       <React.Fragment>
-        <p className={classes.title}></p>
-        <Typography variant="h3" align="center">
-          {article.blog.title}
-        </Typography>
-
         <div className={classes.content}>
-          <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle}/>
+          <p className={classes.title}></p>
+          <Typography variant="h3" align="center">
+            {article.blog.title}
+          </Typography>
+
+
+          <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
           <Markdown className={classes.markdown}
             markdown={article.blog.content}>
           </Markdown>
+
+
+          <CommentList blogID={article.blog.id} />
         </div>
 
-        <CommentList blogID={article.blog.id}/>
       </React.Fragment>
     )
   }
