@@ -18,7 +18,7 @@ export default [
     path: '/',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/home/index.js'),
+      loader: () => import('../components/home/index'),
       loading: Loading,
       delay: 300,
     }),
@@ -28,7 +28,7 @@ export default [
     path: '/login',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/SignIn.js'),
+      loader: () => import('../components/SignIn'),
       loading: Loading,
       delay: 300,
     }),
@@ -38,7 +38,7 @@ export default [
     path: '/signup',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/SignUp.js'),
+      loader: () => import('../components/SignUp'),
       loading: Loading,
       delay: 300,
     }),
@@ -48,7 +48,7 @@ export default [
     path: '/articleDetail',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/Article.js'),
+      loader: () => import('../components/Article'),
       loading: Loading,
       delay: 300,
     }),
@@ -58,7 +58,7 @@ export default [
     path: '/editor',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/editor/Editor.js'),
+      loader: () => import('../components/editor/Editor'),
       loading: Loading,
       delay: 300,
     }),
@@ -68,7 +68,7 @@ export default [
     path: '/test',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/test.js'),
+      loader: () => import('../components/test'),
       loading: Loading,
       delay: 300,
     }),
