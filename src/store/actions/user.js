@@ -35,7 +35,7 @@ export const signIn = user => dispatch => {
         })
         .then(response => {
             history.push('/')
-            getUser()(dispatch)()
+            dispatch(getUser())
         }) //TODO: change it
         .catch(error => console.error(error))
 }
