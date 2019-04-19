@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppActionBar from "./AppActionBar";
 import Typography from '@material-ui/core/Typography';
 import AppDrawer from './AppDrawer'
+import SimpleSnackbar from './SimpleSnackbar'
 
 const styles = theme => ({
     footer: {
@@ -39,6 +40,7 @@ class Layouts extends React.Component {
                  menuClick={() => this.setState({ openDrawer: true})}
                  view={this.state.view} />
                 <AppDrawer open={this.state.openDrawer} onClose={this.onDrawerClose}/>
+                <SimpleSnackbar />
                 {children}
                 {/* Footer */}
                 <footer className={classes.footer}>

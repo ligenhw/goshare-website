@@ -48,23 +48,23 @@ class ButtonAppBar extends Component {
 
     const renderUser = () => (
       <React.Fragment>
-      <Typography variant="h6" color="inherit" >
-        {user.username}
-      </Typography>
-      <Button color="inherit" onClick={() => {
-        history.push('/editor')
-      }}>
-      写文章
+        <Typography variant="h6" color="inherit" >
+          {user.username}
+        </Typography>
+        <Button color="inherit" onClick={() => {
+          history.push('/editor')
+        }}>
+          写文章
       </Button>
-      <Button color="inherit" onClick={logout}>
-      登出
+        <Button color="inherit" onClick={logout}>
+          登出
       </Button>
       </React.Fragment>
     )
 
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="sticky">
           <Toolbar>
             <IconButton onClick={menuClick}
               className={classes.menuButton} color="inherit" aria-label="Menu">

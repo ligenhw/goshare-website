@@ -47,9 +47,6 @@ const styles = theme => ({
   inline: {
     display: 'inline'
   },
-  edite: {
-    float: 'right'
-  },
   orangeAvatar: {
     margin: 10,
     color: '#fff',
@@ -70,23 +67,23 @@ const Meta = ({ classes, meta }) => (
 
 const Author = ({ classes, article, edite, deleteArticle }) => (
   <Grid container alignItems="center">
-    <Avatar className={classes.orangeAvatar}>N</Avatar>
+    <Avatar className={classes.orangeAvatar}>{
+      article.user.username ? article.user.username.slice(-1).toUpperCase() : ''
+    }</Avatar>
     <Grid item xs>
-      <div className={classes.inline}>
-        <Typography className={classes.author} variant="h5" color="textSecondary">
-          {article.user.username}
-        </Typography>
-        <Meta classes={classes} meta={article.blog} />
-      </div>
+      <Typography className={classes.author} variant="h5" color="textSecondary">
+        {article.user.username}
+      </Typography>
+      <Meta classes={classes} meta={article.blog} />
     </Grid>
     {edite ?
-      (<Grid item xs>
+      (<Grid container xs justify='flex-end'>
+        <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id)}>
+          编辑
+        </Button>
         <Button className={classes.edite}
           onClick={event => deleteArticle(article.blog.id)}>
           删除
-        </Button>
-        <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id)}>
-          编辑
         </Button>
       </Grid>) : ''}
   </Grid >

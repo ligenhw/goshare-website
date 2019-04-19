@@ -1,4 +1,5 @@
 import { GET_COMMENTS } from "../types"
+import { publishMsg } from './msg'
 
 const comments = (data) => ({
     type: GET_COMMENTS,
@@ -17,14 +18,24 @@ export const queryComments = (blogId) => dispatch => {
     .catch(error => console.error(error))
 }
 
-export const createComment = (data) => dispatch => {
-    fetch('/api/comments/', {
+export const createComment = (blogId, data) => dispatch => {
+    if (data.trim() === '') {
+        dispatch(publishMsg("请输入评论内容"))
+        return
+    }
+
+    fetch('/api/comments/' + blogId, {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+            content: data
+        })
     })
-    .then(json => console.log("create success")) // TODO : requery comments
-    .catch(error => console.error(error))
+    .then(json => {
+        dispatch(publishMsg("评论发布成功"))
+        dispatch(queryComments(blogId))
+    })
+    .catch(error => dispatch(publishMsg("评论发布失败")))
 }

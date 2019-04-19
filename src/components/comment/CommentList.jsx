@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { queryComments } from '../../store/actions/comments'
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import CommentInput from './CommentInput'
+import Comment from './Comment'
 
 const styles = theme => ({
     title: {
@@ -30,21 +30,17 @@ class CommentList extends Component {
             return (<div>没有评论!</div>)
         }
         return (
-            <List>
-                {
-                    comments.map((comment, i) => (
-                        <ListItem key={comment.id}>
-                            <ListItemText>
-                                author: {
-                                    users.filter(u => u.id === comment.userId)[0].username
-                                }
-                                <br />
-                                {comment.content}
-                            </ListItemText>
-                        </ListItem>
-                    ))
-                }
-            </List>
+            <React.Fragment>
+                <CommentInput />
+                {/* <Divider variant="middle" /> */}
+                <List>
+                    {
+                        comments.map((comment, i) => (
+                            <Comment key={comment.id} user={users.filter(u => u.id === comment.userId)[0]} comment={comment} />
+                        ))
+                    }
+                </List>
+            </React.Fragment>
         )
     }
 }

@@ -3,6 +3,7 @@ import { connectRouter } from 'connected-react-router';
 import { articles, article } from './articles'
 import { user } from "./user";
 import { comments } from './comments'
+import { msg } from './msg'
 
 const rootReducer = history =>
   combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = history =>
     articles,
     article,
     comments,
+    msg,
     router: connectRouter(history),
   });
 
