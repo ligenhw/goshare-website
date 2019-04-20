@@ -15,6 +15,7 @@ import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { history } from '../store/configureStore'
 import CommentList from './comment/CommentList'
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const styles = theme => ({
   title: {
@@ -100,24 +101,18 @@ class Article extends Component {
     const edite = user !== null && user.id === article.user.id
 
     return (
-      <React.Fragment>
         <div className={classes.content}>
+        <CssBaseline />
           <p className={classes.title}></p>
           <Typography variant="h3" align="center">
             {article.blog.title}
           </Typography>
-
-
           <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
           <Markdown className={classes.markdown}
             markdown={article.blog.content}>
           </Markdown>
-
-
           <CommentList blogID={article.blog.id} />
         </div>
-
-      </React.Fragment>
     )
   }
 }

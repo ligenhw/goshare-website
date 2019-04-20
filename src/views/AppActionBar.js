@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { logout, getUser } from '../store/actions/user'
 import { history } from '../store/configureStore'
+import InvertColors from '@material-ui/icons/InvertColors'
 
 const styles = {
   root: {
@@ -48,6 +49,9 @@ class ButtonAppBar extends Component {
 
     const renderUser = () => (
       <React.Fragment>
+        <IconButton>
+        <InvertColors />
+        </IconButton>
         <Typography variant="h6" color="inherit" >
           {user.username}
         </Typography>

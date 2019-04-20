@@ -33,7 +33,13 @@ export const createComment = (blogId, data) => dispatch => {
             content: data
         })
     })
-    .then(json => {
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("HTTP error, status = " + response.status);
+        }
+        return response
+    })
+    .then(resp => {
         dispatch(publishMsg("评论发布成功"))
         dispatch(queryComments(blogId))
     })

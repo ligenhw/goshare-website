@@ -17,7 +17,7 @@ const styles = theme => ({
 })
 
 const Comment = ({ classes, user, comment }) => (
-    <ListItem container divider>
+    <ListItem divider>
         <ListItemText primary={
             <Grid container>
                 <Avatar className={classes.orangeAvatar}>

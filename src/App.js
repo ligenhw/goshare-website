@@ -6,6 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Layouts from './views/Layout'
 
 const theme = createMuiTheme({
+  
   typography: { useNextVariants: true },
 });
 
