@@ -32,11 +32,18 @@ highlight.js
 
 https://github.com/jamiebuilds/react-loadable
 
+## pdf
+
+https://pdfobject.com/
+
+
 
 ## 参考
 
 https://github.com/biaochenxuying/blog-react
 http://biaochenxuying.cn/articles
+
+https://github.com/RoyTimes/materialize_blog
 
 ## 使用 create-react-app 配置代理服务器
 
