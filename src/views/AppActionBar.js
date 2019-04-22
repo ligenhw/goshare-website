@@ -38,7 +38,7 @@ class ButtonAppBar extends Component {
   }
 
   render() {
-    const { classes, view, menuClick, user, logout } = this.props;
+    const { classes, view, menuClick, user, logout, onThemeChanged } = this.props;
 
     const renderSign = classes => (
       <React.Fragment>
@@ -49,8 +49,8 @@ class ButtonAppBar extends Component {
 
     const renderUser = () => (
       <React.Fragment>
-        <IconButton>
-        <InvertColors />
+        <IconButton onClick={onThemeChanged}>
+          <InvertColors />
         </IconButton>
         <Typography variant="h6" color="inherit" >
           {user.username}

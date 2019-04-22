@@ -1,5 +1,6 @@
 import { history } from '../configureStore'
-import { GET_USER } from "../types";
+import { GET_USER } from "../types"
+import { publishMsg } from './msg'
 
 export const signUp = user => dispatch => {
     fetch('/api/user/', {
@@ -37,7 +38,7 @@ export const signIn = user => dispatch => {
             history.push('/')
             dispatch(getUser())
         }) //TODO: change it
-        .catch(error => console.error(error))
+        .catch(error => dispatch(publishMsg('用户名或密码错误')))
 }
 
 export const logout = () => dispatch => {
@@ -54,7 +55,7 @@ export const logout = () => dispatch => {
             return response
         })
         .then(response => dispatch(user(null)))
-        .catch(error => console.error(error))
+        .catch(error => dispatch(publishMsg('登出失败')))
 }
 
 const user = (data) => ({
