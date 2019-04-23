@@ -14,6 +14,7 @@ import SocialLinks from '../SocialLinks'
 import { Link } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom'
 import { queryAllArticles } from '../../store/actions/articles'
+import Button from '@material-ui/core/Button';
 
 import { connect } from 'react-redux';
 
@@ -27,6 +28,17 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+  },
+  heroUnit: {
+    backgroundColor: theme.palette.primary[500],
+  },
+  heroContent: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+  },
+  heroButtons: {
+    marginTop: theme.spacing.unit * 4,
   },
   mainFeaturedPost: {
     backgroundColor: theme.palette.grey[800],
@@ -42,6 +54,14 @@ const styles = theme => ({
   },
   mainGrid: {
     marginTop: theme.spacing.unit * 3,
+  },
+  cardGrid: {
+    marginTop: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1300 + theme.spacing.unit * 3 * 2)]: {
+      width: 1300,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   },
   card: {
     display: 'flex',
@@ -80,21 +100,32 @@ class Index extends Component {
     const subFeature = haveImgArticle.slice(0, 2)
 
     const readerMainFeatured = (
-      <Paper className={classes.mainFeaturedPost}>
-        <Grid container>
-          <Grid item md={6}>
-            <div className={classes.mainFeaturedPostContent}>
-              <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                Title of a longer featured blog post
-              </Typography>
-              <Typography variant="h5" color="inherit" paragraph>
-                Multiple lines of text that form the lede, informing new readers quickly and
-                efficiently about what&apos;s most interesting in this post&apos;s contents…
-              </Typography>
+      <div className={classes.heroUnit}>
+          <div className={classes.heroContent}>
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+              Album layout
+            </Typography>
+            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+              Something short and leading about the collection below—its contents, the creator, etc.
+              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+              entirely.
+            </Typography>
+            <div className={classes.heroButtons}>
+              <Grid container spacing={16} justify="center">
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    Main call to action
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="inherit">
+                    Secondary action
+                  </Button>
+                </Grid>
+              </Grid>
             </div>
-          </Grid>
-        </Grid>
-      </Paper>
+          </div>
+        </div>
     )
 
     const readerSubFeature = (
@@ -136,14 +167,15 @@ class Index extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <div className={classes.layout}>
-          <main>
-            {/* Main featured post */}
-            {readerMainFeatured}
+        {/* Main featured post */}
+        {readerMainFeatured}
             {/* End main featured post */}
             {/* Sub featured posts */}
             {readerSubFeature}
             {/* End sub featured posts */}
+        <div className={classes.layout}>
+          <main>
+            
             <Grid container spacing={40} className={classes.mainGrid}>
               {/* Main content */}
               <Grid item xs={12} md={8}>

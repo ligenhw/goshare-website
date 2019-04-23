@@ -4,6 +4,8 @@ import { Route, Switch } from 'react-router'
 import routers from './router/index.js';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Layouts from './views/Layout'
+import cyan from '@material-ui/core/colors/cyan'
+import pink from '@material-ui/core/colors/pink'
 
 class App extends Component {
   state = {
@@ -11,7 +13,7 @@ class App extends Component {
   }
 
   onThemeChanged = () => {
-    this.setState( state => ({
+    this.setState(state => ({
       theme: state.theme === 'light' ? 'dark' : 'light'
     }))
   }
@@ -25,6 +27,8 @@ class App extends Component {
           createMuiTheme({
             palette: {
               type: this.state.theme,
+              primary: cyan,
+              secondary: pink,
             },
             typography: { useNextVariants: true },
           })

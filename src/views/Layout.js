@@ -51,10 +51,10 @@ class Layouts extends React.Component {
                 {/* Footer */}
                 <Paper className={classes.footer} >
                     <Typography variant="h6" align="center" gutterBottom color="inherit">
-                        Footer
+                       Built with ❤️ by gen
                     </Typography>
                     <Typography variant="subtitle1" align="center" color="inherit" >
-                    全栈分享 ©2019 Created by gen
+                    全栈分享 ©2019
                     </Typography>
                 </Paper>
                 {/* End footer */}

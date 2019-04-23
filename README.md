@@ -57,6 +57,10 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expression
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch
 
+## github develop
+
+https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
+
 ## 要保证 state 映射 到 新的对象
 
 const mapStateToProps = state => ({article: state.article})
