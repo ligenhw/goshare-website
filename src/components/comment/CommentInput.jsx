@@ -62,7 +62,9 @@ class CommentInput extends Component {
                                 margin="normal"
                                 variant="filled"
                             />
-                            <Button variant="contained" color="secondary" className={classes.button} onClick={e => history.push('/login')}>
+                            <Button variant="contained" color="secondary" className={classes.button} onClick={e => this.setState({
+                                content: ''
+                            })}>
                                 取消
                             </Button>
                             <Button variant="contained" color="secondary" className={classes.button} onClick={this.onPublish}>
