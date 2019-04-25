@@ -111,10 +111,10 @@ class Index extends Component {
             采用流行的前后分离实现
             </Typography>
           <Typography variant="h6" align="center" color="textSecondary" paragraph>
-            前端页面基于 React + Material-UI 实现
+            前端页面基于 React + Material-UI
             </Typography>
           <Typography variant="h6" align="center" color="textSecondary" paragraph>
-            后端 API 服务基于 go 标准库实现
+            后端 API 服务基于 go 标准库
             </Typography>
           <div className={classes.heroButtons}>
             <Grid container spacing={16} justify="center">
