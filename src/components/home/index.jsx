@@ -15,6 +15,8 @@ import { Link } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom'
 import { queryAllArticles } from '../../store/actions/articles'
 import Button from '@material-ui/core/Button';
+import ghsvg from '../../assets/github.svg'
+import './App.css';
 
 import { connect } from 'react-redux';
 
@@ -101,31 +103,41 @@ class Index extends Component {
 
     const readerMainFeatured = (
       <div className={classes.heroUnit}>
-          <div className={classes.heroContent}>
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+        <div className={classes.heroContent}>
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            开源博客
             </Typography>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+          <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            采用流行的前后分离实现
             </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                <Grid item>
+          <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            前端页面基于 React + Material-UI 实现
+            </Typography>
+          <Typography variant="h6" align="center" color="textSecondary" paragraph>
+            后端 API 服务基于 go 标准库实现
+            </Typography>
+          <div className={classes.heroButtons}>
+            <Grid container spacing={16} justify="center">
+              <Grid item>
+                <Link color='inherit' underline='none' href={'https://github.com/ligenhw/goshare'}>
                   <Button variant="contained" color="primary">
-                    Main call to action
+                    前端单页 goshare-website 项目
+                  <img src={ghsvg} alt='logo' className='App-logo' />
                   </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="inherit">
-                    Secondary action
-                  </Button>
-                </Grid>
+                </Link>
               </Grid>
-            </div>
+              <Grid item>
+                <Link underline='none' href={'https://github.com/ligenhw/goshare'}>
+                  <Button variant="contained" color="primary">
+                    后端 goshare 项目
+                  <img src={ghsvg} alt='logo' className='App-logo' />
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
           </div>
         </div>
+      </div>
     )
 
     const readerSubFeature = (
@@ -169,13 +181,13 @@ class Index extends Component {
         <CssBaseline />
         {/* Main featured post */}
         {readerMainFeatured}
-            {/* End main featured post */}
-            {/* Sub featured posts */}
-            {readerSubFeature}
-            {/* End sub featured posts */}
+        {/* End main featured post */}
+        {/* Sub featured posts */}
+        {readerSubFeature}
+        {/* End sub featured posts */}
         <div className={classes.layout}>
           <main>
-            
+
             <Grid container spacing={40} className={classes.mainGrid}>
               {/* Main content */}
               <Grid item xs={12} md={8}>

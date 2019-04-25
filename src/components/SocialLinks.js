@@ -7,7 +7,7 @@ import { Link } from '@material-ui/core';
 const social = [
     {
         name: 'github',
-        link: 'https://github.com/ligenhw/goshare-website',
+        link: 'https://github.com/ligenhw/',
     },
     {
         name: '简书',
