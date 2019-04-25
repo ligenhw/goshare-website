@@ -25,7 +25,7 @@ class Layouts extends React.Component {
         this.state = {
             openDrawer: false,
             view: {
-                name: 'index'
+                name: '文章'
             }
         };
     }
