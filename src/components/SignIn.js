@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
 import { signIn } from '../store/actions/user'
+import GhLogin from './third/GhLogin'
 
 const styles = theme => ({
   main: {
@@ -105,6 +106,7 @@ class SignIn extends Component {
               登录
           </Button>
           </form>
+          <GhLogin />
         </Paper>
       </main>
     );
