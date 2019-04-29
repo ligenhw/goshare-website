@@ -4,11 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import {getQueryStringByName} from '../../utils/url'
+import {ghSignIn} from '../../store/actions/user'
 
 const styles = theme => ({
     title: {
-        marginLeft: theme.spacing.unit * 3,
-        marginRight: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 3,
     }
 });
 
@@ -20,11 +20,16 @@ class GhLogin extends Component {
         const code = getQueryStringByName('code')
         console.log("back from gh")
         console.log(code)
+        if (code !== '') {
+            this.props.ghSignIn(code)
+        }
     }
 
     render() {
+        const {classes} = this.props
+
         return (
-            <Link color='primary' rel ="noopener"
+            <Link className={classes.title}  color='primary' rel ="noopener"
              href={loginUrl}>github login</Link>
         )
     }
@@ -34,12 +39,10 @@ GhLogin.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({ article: state.article })
-
-const mapDispatchToProps = {}
+const mapDispatchToProps = { ghSignIn }
 
 const GhLoginContainer = connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(withStyles(styles)(GhLogin))
 
