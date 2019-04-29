@@ -121,7 +121,7 @@ class Index extends Component {
               <Grid item>
                 <Link color='inherit' underline='none' href={'https://github.com/ligenhw/goshare'}>
                   <Button variant="contained" color="primary">
-                    前端单页 goshare-website 项目
+                    前端 goshare-website 项目
                   <img src={ghsvg} alt='logo' className='App-logo' />
                   </Button>
                 </Link>
