@@ -9,7 +9,7 @@ import { getQueryStringByName } from '../utils/url'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MessageIcon from '@material-ui/icons/Message';
 import EyeIcon from '@material-ui/icons/RemoveRedEye';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from './Avatar'
 import deepOrange from '@material-ui/core/colors/deepOrange';
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -53,6 +53,9 @@ const styles = theme => ({
     color: '#fff',
     backgroundColor: deepOrange[500],
   },
+  picAvatar: {
+    objectFit: 'cover'
+  }
 });
 
 const Meta = ({ classes, meta }) => (
@@ -68,9 +71,8 @@ const Meta = ({ classes, meta }) => (
 
 const Author = ({ classes, article, edite, deleteArticle }) => (
   <Grid container alignItems="center">
-    <Avatar className={classes.orangeAvatar}>{
-      article.user.username ? article.user.username.slice(-1).toUpperCase() : ''
-    }</Avatar>
+    <Avatar user={article.user} />
+
     <Grid item xs>
       <Typography className={classes.author} variant="h5" color="textSecondary">
         {article.user.username}
@@ -102,18 +104,18 @@ class Article extends Component {
     const edite = user !== null && user.id === article.user.id
 
     return (
-        <div className={classes.content}>
+      <div className={classes.content}>
         <CssBaseline />
-          <p className={classes.title}></p>
-          <Typography variant="h3" align="center">
-            {article.blog.title}
-          </Typography>
-          <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
-          <Markdown className={classes.markdown}
-            markdown={article.blog.content}>
-          </Markdown>
-          <CommentList blogID={article.blog.id} />
-        </div>
+        <p className={classes.title}></p>
+        <Typography variant="h3" align="center">
+          {article.blog.title}
+        </Typography>
+        <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
+        <Markdown className={classes.markdown}
+          markdown={article.blog.content}>
+        </Markdown>
+        <CommentList blogID={article.blog.id} />
+      </div>
     )
   }
 }

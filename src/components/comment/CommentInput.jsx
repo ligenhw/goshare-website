@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '../Avatar'
 import indigo from '@material-ui/core/colors/indigo';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -44,9 +44,7 @@ class CommentInput extends Component {
         const { classes, user } = this.props
         return (
             <Grid container>
-                <Avatar className={classes.orangeAvatar}>
-                {user ? user.username.slice(-1).toUpperCase() : '?'}
-                </Avatar>
+                {user ? <Avatar user={user} /> : ''}
                 <Grid item xs>
                     {user ?
                         <Grid container justify='flex-end' >
