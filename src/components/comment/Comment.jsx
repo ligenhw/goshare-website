@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '../Avatar'
 import teal from '@material-ui/core/colors/teal';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -20,9 +20,7 @@ const Comment = ({ classes, user, comment }) => (
     <ListItem divider>
         <ListItemText primary={
             <Grid container>
-                <Avatar className={classes.orangeAvatar}>
-                    {user.username ? user.username.slice(-1).toUpperCase() : ''}
-                </Avatar>
+                <Avatar className={classes.orangeAvatar} user={user} />
                 <ListItemText
                     primary={user.username}
                     primaryTypographyProps={{ variant: "h5" }}
