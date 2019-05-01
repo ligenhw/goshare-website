@@ -77,7 +77,9 @@ const mapStateToProps = state => state.article
 
 ## TODO:
 
-* es6 decorator语法 替换 connect()
+* 添加关于界面
+> https://broqiang.com/about
+> 
 
 
 ## 部署
