@@ -1,5 +1,7 @@
 # react + material-ui
 
+[![Build Status](https://travis-ci.org/ligenhw/goshare-website.svg?branch=master)](https://travis-ci.org/ligenhw/goshare-website)
+
 ## react
 
 https://zh-hans.reactjs.org/docs/getting-started.html
