@@ -78,3 +78,7 @@ const mapStateToProps = state => state.article
 * es6 decorator语法 替换 connect()
 
 
+## 部署
+
+docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
+
