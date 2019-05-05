@@ -1,6 +1,12 @@
-# react + material-ui
+# goshare-website
+
+基于 React + Material-ui 实现的 博客前端 
 
 [![Build Status](https://travis-ci.org/ligenhw/goshare-website.svg?branch=master)](https://travis-ci.org/ligenhw/goshare-website)
+
+后端项目: https://github.com/ligenhw/goshare
+
+> 项目参考 以下开源库 及 文档:
 
 ## react
 
@@ -8,18 +14,22 @@ https://zh-hans.reactjs.org/docs/getting-started.html
 
 ## material-ui
  
- https://material-ui.com/getting-started/installation/
- icon:
- https://material.io/tools/icons/
+https://material-ui.com/getting-started/installation/
+
+icon:
+
+https://material.io/tools/icons/
 
 ## redux
 
 https://www.redux.org.cn/
+
 https://redux.js.org/introduction/getting-started
 
 ## react-router
 
 http://react-guide.github.io/react-router-cn/docs/Introduction.html
+
 https://github.com/ReactTraining/react-router
 
 ## connected-react-router
@@ -27,25 +37,16 @@ https://github.com/ReactTraining/react-router
 https://github.com/supasate/connected-react-router
 
 
-Markd
-highlight.js
+## Markd
+
+https://marked.js.org/#/README.md
+
+## highlight.js
 
 ## React Loadable
 
 https://github.com/jamiebuilds/react-loadable
 
-## pdf
-
-https://pdfobject.com/
-
-
-
-## 参考
-
-https://github.com/biaochenxuying/blog-react
-http://biaochenxuying.cn/articles
-
-https://github.com/RoyTimes/materialize_blog
 
 ## 使用 create-react-app 配置代理服务器
 
@@ -74,13 +75,6 @@ const mapStateToProps = state => state.article
 ## 防盗链
 
 <meta name="referrer" content="never">
-
-## TODO:
-
-* 添加关于界面
-> https://broqiang.com/about
-> 
-
 
 ## 部署
 

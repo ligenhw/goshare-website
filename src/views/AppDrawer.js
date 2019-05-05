@@ -8,7 +8,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import MailIcon from '@material-ui/icons/Mail'
+import { mainPages } from '../router/index'
+import { history } from '../store/configureStore'
 
 const styles = {
   list: {
@@ -22,16 +24,18 @@ const styles = {
 class AppDrawer extends React.Component {
 
   render() {
-    const { classes, open, onClose } = this.props;
-    console.log(open)
+    const { classes, open, onClose, onMenuClick } = this.props;
 
     const sideList = (
       <div className={classes.list}>
         <List>
-          {['文章', '书籍', '关于'].map((text, index) => (
-            <ListItem button key={text}>
+          { mainPages.map((page, index) => (
+            <ListItem button key={index} onClick={ e => {
+              onMenuClick(page.title)
+              history.push(page.path)
+            }}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={page.title} />
             </ListItem>
           ))}
         </List>
