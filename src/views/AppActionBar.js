@@ -38,7 +38,7 @@ class ButtonAppBar extends Component {
   }
 
   render() {
-    const { classes, view, menuClick, user, logout, onThemeChanged } = this.props;
+    const { classes, title, menuClick, user, logout, onThemeChanged } = this.props;
 
     const renderSign = classes => (
       <React.Fragment>
@@ -75,7 +75,7 @@ class ButtonAppBar extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              {view.name}
+              {title}
             </Typography>
             {
               user === null ? renderSign(classes) : renderUser()

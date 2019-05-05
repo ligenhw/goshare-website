@@ -108,7 +108,7 @@ class Index extends Component {
             开源博客
             </Typography>
           <Typography variant="h6" align="center" color="textSecondary" paragraph>
-            采用流行的前后分离实现
+            采用前后分离实现
             </Typography>
           <Typography variant="h6" align="center" color="textSecondary" paragraph>
             前端页面基于 React + Material-UI

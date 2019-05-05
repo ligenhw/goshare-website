@@ -12,7 +12,7 @@ const styles = theme => ({
     }
 });
 
-const loginUrl = "https://github.com/login/oauth/authorize?client_id=6f8ed9e6e9fc7b14cbc2&scope=user:email"
+const loginUrl = "https://github.com/login/oauth/authorize?client_id=bb7525d0a2624d0d43f5&scope=user:email"
 
 class GhLogin extends Component {
 

@@ -12,7 +12,7 @@ const Loading = (props) => {
   }
 }
 
-export default [
+export const mainPages = [
   {
     name: '/',
     path: '/',
@@ -22,7 +22,22 @@ export default [
       loading: Loading,
       delay: 300,
     }),
+    title: '文章'
   },
+  {
+    name: 'about',
+    path: '/about',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../components/about/About'),
+      loading: Loading,
+      delay: 300,
+    }),
+    title: '关于'
+  },
+];
+
+const subPages = [
   {
     name: 'login',
     path: '/login',
@@ -74,3 +89,5 @@ export default [
     }),
   },
 ]
+
+export default mainPages.concat(subPages)

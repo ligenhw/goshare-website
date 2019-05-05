@@ -20,41 +20,35 @@ const styles = theme => ({
 
 class Layouts extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            openDrawer: false,
-            view: {
-                name: '文章'
-            }
-        };
+    state = {
+        openDrawer: false,
+        title: '文章'
     }
 
-    onDrawerClose = () => {
-        this.setState({
-            openDrawer: false,
-        })
-    }
-    
     render() {
         const { classes, children, onThemeChanged } = this.props
+        const buildBy = 'Built with ❤️ by gen'
 
         return (
             <React.Fragment>
                 <AppActionBar
-                 menuClick={() => this.setState({ openDrawer: true})}
-                 onThemeChanged = {onThemeChanged}
-                 view={this.state.view} />
-                <AppDrawer open={this.state.openDrawer} onClose={this.onDrawerClose}/>
+                    menuClick={() => this.setState({ openDrawer: true })}
+                    onThemeChanged={onThemeChanged}
+                    title={this.state.title} />
+                <AppDrawer
+                    open={this.state.openDrawer}
+                    onClose={ () => this.setState({ openDrawer: false }) }
+                    onMenuClick={ (title) => this.setState({ title })}
+                />
                 <SimpleSnackbar />
                 {children}
                 {/* Footer */}
                 <Paper className={classes.footer} >
                     <Typography variant="h6" align="center" gutterBottom color="inherit">
-                       Built with ❤️ by gen
+                        {buildBy}
                     </Typography>
                     <Typography variant="subtitle1" align="center" color="inherit" >
-                    全栈分享 ©2019
+                        全栈分享 ©2019
                     </Typography>
                 </Paper>
                 {/* End footer */}

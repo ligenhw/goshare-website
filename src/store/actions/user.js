@@ -14,10 +14,13 @@ export const signUp = user => dispatch => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);
             }
-            return response.json()
+            return response
         })
-        .then(json => console.log('signup success', json)) //TODO: change it
-        .catch(error => console.error(error))
+        .then(json => {
+            dispatch(publishMsg('注册成功,请登录'))
+            history.replace('/login')
+        }) //TODO: change it
+        .catch(error => dispatch(publishMsg('注册失败')))
 }
 
 export const signIn = user => dispatch => {

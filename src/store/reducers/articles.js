@@ -25,8 +25,15 @@ export const article = (state={
 // ![...](url) get first img url in the markdown 
 const re_img = /!\S+\((\S+)\)/
 
+//
+const re_subTitle=/#\s?前言\n+([^\n]+)/
+
 const prepareArticle = (a) => ({
   ...a,
-  desc: a.content.length > 100 ? a.content.substring(0, 100) + ' ...' : a.content.substring(100),
+  desc: getDesc(a.content),
   img_url: a.content.match(re_img) ? a.content.match(re_img)[1] : null
 })
+
+const getDesc = (content) => {
+  return content.match(re_subTitle) ? content.match(re_subTitle)[1] : ''
+}
