@@ -15,7 +15,7 @@ const styles = theme => ({
 class SimpleSnackbar extends React.Component {
 
   render() {
-    const { classes, msg, removeMsg } = this.props;
+    const { msg, removeMsg } = this.props;
     return (
       <div>
         <Snackbar

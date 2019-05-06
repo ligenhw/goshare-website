@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Avatar as MAvatar } from '@material-ui/core';
 
@@ -6,7 +6,6 @@ const styles = theme => ({
     orangeAvatar: {
         margin: 10,
         color: '#fff',
-
     },
 })
 
