@@ -85,6 +85,10 @@ class CommentInput extends Component {
     }
 }
 
+CommentInput.propTypes = {
+    classes: PropTypes.object.isRequired,
+}
+
 const mapStateToProps = state => ({
     user: state.user,
     blog: state.article.blog,
