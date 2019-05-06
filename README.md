@@ -3,6 +3,7 @@
 基于 React + Material-ui 实现的 博客前端 
 
 [![Build Status](https://travis-ci.org/ligenhw/goshare-website.svg?branch=master)](https://travis-ci.org/ligenhw/goshare-website)
+[![codecov](https://codecov.io/gh/ligenhw/goshare-website/branch/master/graph/badge.svg)](https://codecov.io/gh/ligenhw/goshare-website)
 
 后端项目: https://github.com/ligenhw/goshare
 
