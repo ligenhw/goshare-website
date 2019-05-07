@@ -81,3 +81,4 @@ const mapStateToProps = state => state.article
 
 docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
 
+
