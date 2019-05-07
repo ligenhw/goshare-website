@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - npm run build
-  - npm test
+  - npm test -- --coverage
 after_success:
   - npm install -g codecov
   - codecov
