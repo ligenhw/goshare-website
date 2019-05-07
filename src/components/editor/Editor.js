@@ -11,9 +11,8 @@ import { createArticle, queryArticle, modifyArticle } from '../../store/actions/
 import { getQueryStringByName } from '../../utils/url'
 
 const styles = theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
+    layout: {
+        height: '100vh',
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -23,6 +22,10 @@ const styles = theme => ({
         marginTop: 16,
     },
     pannel: {
+        height: '100%',
+    },
+    rightPannel: {
+        overflowY: 'auto',
         height: '100%',
     },
     leftIcon: {
@@ -91,8 +94,8 @@ class Editor extends Component {
         const md = this.state.title !== '' ? '# ' + this.state.title + '\n' + this.state.content : this.state.content
 
         return (
-            <Grid container spacing={16}>
-                <Grid item xs={12} md={6}>
+            <Grid container spacing={16} className={classes.layout}>
+                <Grid item xs={12} md={6} className={classes.pannel} >
                     <TextField
                         id="title"
                         value={this.state.title}
@@ -119,7 +122,7 @@ class Editor extends Component {
                         <SaveIcon onClick={this.publish} />
                     </Fab>
                 </Grid>
-                <Grid item className={classes.pannel} xs={12} md={6}>
+                <Grid item className={classes.rightPannel} xs={12} md={6}>
                     <Markdown markdown={md} />
                 </Grid>
             </Grid>
