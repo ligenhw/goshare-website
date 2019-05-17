@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import AppDrawer from './AppDrawer'
 import SimpleSnackbar from './SimpleSnackbar'
 import Paper from '@material-ui/core/Paper';
+import IPCLink from '../components/IPCLink';
 
 const styles = theme => ({
     footer: {
@@ -47,9 +48,11 @@ class Layouts extends React.Component {
                     <Typography variant="h6" align="center" gutterBottom color="inherit">
                         {buildBy}
                     </Typography>
-                    <Typography variant="subtitle1" align="center" color="inherit" >
+                    <Typography variant="subtitle1" align="center" gutterBottom
+                     color="inherit" >
                         全栈分享 ©2019
                     </Typography>
+                    <IPCLink />
                 </Paper>
                 {/* End footer */}
             </React.Fragment>

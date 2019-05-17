@@ -77,6 +77,12 @@ const mapStateToProps = state => state.article
 
 <meta name="referrer" content="never">
 
+## icon
+
+https://www.flaticon.com
+http://www.faviconico.org/
+https://icons8.com
+
 ## 部署
 
 docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
