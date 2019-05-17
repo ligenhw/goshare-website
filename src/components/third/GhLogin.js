@@ -12,15 +12,16 @@ const styles = theme => ({
     }
 });
 
-const loginUrl = "https://github.com/login/oauth/authorize?client_id=bb7525d0a2624d0d43f5&scope=user:email"
+const loginUrl = "https://github.com/login/oauth/authorize?client_id=bb7525d0a2624d0d43f5&scope=user:email&state=gh"
 
 class GhLogin extends Component {
 
     componentWillMount() {
         const code = getQueryStringByName('code')
-        console.log("back from gh")
-        console.log(code)
-        if (code !== '') {
+        const state = getQueryStringByName('state')
+        
+        console.log('check ghlogin ', code, state)
+        if (code !== '' && state === 'gh') {
             this.props.ghSignIn(code)
         }
     }

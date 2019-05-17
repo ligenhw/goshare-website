@@ -22,7 +22,7 @@ const styles = theme => ({
 })
 
 const IPCLink = ({ classes, user }) => (
-    <Typography align="center">
+    <div align="center">
         <Link href={'http://www.miitbeian.gov.cn/'}>
           <img className={classes.img}
            alt={'img'}
@@ -31,7 +31,7 @@ const IPCLink = ({ classes, user }) => (
           京ICP备19021303号
           </Typography>
         </Link>
-    </Typography>
+    </div>
 )
 
 export default withStyles(styles)(IPCLink)
