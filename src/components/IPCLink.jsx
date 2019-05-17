@@ -23,10 +23,14 @@ const styles = theme => ({
 
 const IPCLink = ({ classes, user }) => (
     <Typography align="center">
-          <img className={classes.img} src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" />
+        <Link href={'http://www.miitbeian.gov.cn/'}>
+          <img className={classes.img}
+           alt={'img'}
+           src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" />
           <Typography inline align="center" className={classes.content}>
           京ICP备19021303号
           </Typography>
+        </Link>
     </Typography>
 )
 
