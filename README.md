@@ -83,6 +83,10 @@ https://www.flaticon.com
 http://www.faviconico.org/
 https://icons8.com
 
+## qq登录
+
+http://wiki.connect.qq.com/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C_oauth2-0
+
 ## 部署
 
 docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
