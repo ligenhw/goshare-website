@@ -15,7 +15,8 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
 import { signIn } from '../store/actions/user'
 import GhLogin from './third/GhLogin'
-import QQLogin from './third/QQLogin';
+import QQLogin from './third/QQLogin'
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   main: {
@@ -47,6 +48,12 @@ const styles = theme => ({
   submit: {
     marginTop: theme.spacing.unit * 3,
   },
+  more: {
+    marginTop: theme.spacing.unit * 8,
+  },
+  item: {
+    display: 'inline-block'
+  }
 });
 
 class SignIn extends Component {
@@ -79,15 +86,15 @@ class SignIn extends Component {
           </Avatar>
           <Typography component="h1" variant="h5">
             登录
-        </Typography>
+          </Typography>
           <form className={classes.form}>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="email">用户名</InputLabel>
-              <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.onChange('username')}/>
+              <Input id="email" name="email" autoComplete="email" autoFocus onChange={this.onChange('username')} />
             </FormControl>
             <FormControl margin="normal" required fullWidth>
               <InputLabel htmlFor="password">密码</InputLabel>
-              <Input name="password" type="password" id="password" autoComplete="current-password"  onChange={this.onChange('password')}/>
+              <Input name="password" type="password" id="password" autoComplete="current-password" onChange={this.onChange('password')} />
             </FormControl>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -107,10 +114,22 @@ class SignIn extends Component {
               登录
           </Button>
           </form>
-          <GhLogin />
-          <QQLogin />
+          <div className={classes.more}>
+            <Typography variant="h6" color="textSecondary" gutterBottom>
+              ------ 社交账号登录 ------
+            </Typography>
+            <Grid
+              container
+              direction="row"
+              justify="space-around"
+              alignItems="center"
+            >
+              <GhLogin />
+              <QQLogin />
+            </Grid>
+          </div>
         </Paper>
-      </main>
+      </main >
     );
   }
 }
