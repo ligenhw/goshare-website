@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import {getQueryStringByName} from '../../utils/url'
-import {ghSignIn} from '../../store/actions/user'
-import ghsvg from '../../assets/github.svg'
+import {qqSignIn} from '../../store/actions/user'
+import qqpng from '../../assets/qq.png'
 
 const styles = theme => ({
     title: {
@@ -17,17 +17,17 @@ const styles = theme => ({
     }
 });
 
-const loginUrl = "https://github.com/login/oauth/authorize?client_id=bb7525d0a2624d0d43f5&scope=user:email&state=gh"
+const loginUrl = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101576375&redirect_uri=http%3a%2f%2fbestlang.cn%2flogin&state=qq"
 
-class GhLogin extends Component {
+class QQLogin extends Component {
 
     componentWillMount() {
         const code = getQueryStringByName('code')
         const state = getQueryStringByName('state')
         
-        console.log('check ghlogin ', code, state)
-        if (code !== '' && state === 'gh') {
-            this.props.ghSignIn(code)
+        console.log('check qqlogin ', code, state)
+        if (code !== '' && state === 'qq') {
+            this.props.qqSignIn(code)
         }
     }
 
@@ -35,23 +35,23 @@ class GhLogin extends Component {
         const {classes} = this.props
 
         return (
-            <Link className={classes.title}  color='primary' rel ="noopener"
+            <Link className={classes.title} color='primary' 
              href={loginUrl}>
-                 <img className={classes.icon} src={ghsvg} alt='github'/>
-             </Link>
+                 <img className={classes.icon} src={qqpng} alt='logo'/>
+            </Link>
         )
     }
 }
 
-GhLogin.propTypes = {
+QQLogin.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const mapDispatchToProps = { ghSignIn }
+const mapDispatchToProps = { qqSignIn }
 
-const GhLoginContainer = connect(
+const QQLoginContainer = connect(
     null,
     mapDispatchToProps
-)(withStyles(styles)(GhLogin))
+)(withStyles(styles)(QQLogin))
 
-export default GhLoginContainer;
+export default QQLoginContainer;
