@@ -151,7 +151,7 @@ class Index extends Component {
                     {post.title}
                   </Typography>
                   <Typography variant="subtitle1" color="textSecondary">
-                    {post.time}
+                    {new Date(post.time).toLocaleString()}
                   </Typography>
                   <Typography variant="subtitle1" paragraph>
                     {post.desc}
@@ -187,7 +187,6 @@ class Index extends Component {
         {/* End sub featured posts */}
         <div className={classes.layout}>
           <main>
-
             <Grid container spacing={40} className={classes.mainGrid}>
               {/* Main content */}
               <Grid item xs={12} md={8}>
