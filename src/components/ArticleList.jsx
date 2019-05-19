@@ -46,7 +46,7 @@ const Meta = ({ classes, item }) => (
     <MessageIcon type="message" /> {item.comments}
     <FavoriteIcon type="heart" /> {item.likes}
     <Typography inline component="span" className={classes.meta}>
-      {item.time}
+      {new Date(item.time).toLocaleString()}
     </Typography>
   </React.Fragment>
 )

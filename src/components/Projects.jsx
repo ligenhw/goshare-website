@@ -13,8 +13,25 @@ import { withStyles } from '@material-ui/core/styles';
 import { Link } from '@material-ui/core';
 
 const styles = theme => ({
+  appBar: {
+    position: 'relative',
+  },
+  icon: {
+    marginRight: theme.spacing.unit * 2,
+  },
+  heroUnit: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  heroContent: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+  },
+  heroButtons: {
+    marginTop: theme.spacing.unit * 4,
+  },
   layout: {
-    width: '600px',
+    width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
@@ -27,23 +44,15 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0`,
   },
   card: {
+    height: '100%',
     display: 'flex',
-  },
-  cardDetail: {
-      display: 'flex',
-      flexDirection: 'column',
+    flexDirection: 'column',
   },
   cardMedia: {
-    margin: theme.spacing.unit * 2,
-    height: '310px',
-    width: '250px',
+    paddingTop: '56.25%', // 16:9
   },
   cardContent: {
-    marginLeft: theme.spacing.unit * 5,
-    width: '400px',
-  },
-  action: {
-      align: 'bottom',
+    flexGrow: 1,
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -53,19 +62,15 @@ const styles = theme => ({
 
 const cards = [
   {
-    img: "//img13.360buyimg.com/n1/jfs/t12760/325/2026027119/30837/eb145850/5a30cc28Ncba23a2e.jpg",
+    img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558194989693&di=343b695986bfc99bb4771d2bdd8101cb&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171105%2Fb3b2e00d91d14081b995f9ac14b2c4c8.jpeg",
     title: "goshare",
-    subTitle: `Kotlin in Action 教你将 Kotlin 语言用于生产级应用。写给有经验的 Java 开发者的示例丰富的这本书比大多数语言书籍更深入，其中涵盖了一些有趣的话题，例如使用自然语言的语法构建 DSL。
-
-    这本书是由 Kotlin 团队的开发者 Dmitry Jemerov 和 Svetlana Isakova 合著的。
-    
-    涵盖了 Kotlin 类型系统的第 6 章、涵盖了 DSL 的第 11 章可作为 出版社网站上的免费样章取得。`,
+    subTitle: "基于go标准库的api后台服务",
     href: "https://github.com/ligenhw/goshare",
   },
   {
-    img: "//img10.360buyimg.com/n1/jfs/t28996/317/185501197/59681/3c7e1ade/5bea770cNce1ad221.jpg",
-    title: "Go 语言实战",
-    subTitle: `  作为学习Go语言的入门书籍，非常适合Go语言的初学者。今年年初，想学习下Go，于是找到了这本书，看完之后非常有帮助。`,
+    img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558195156306&di=bcfb5fa21ea9bbf56c67e20fd5c5a526&imgtype=0&src=http%3A%2F%2Fstatic.open-open.com%2Flib%2FuploadImg%2F20141203%2F20141203221548_850.jpg",
+    title: "goshare-website",
+    subTitle: "基于 React + Material-ui 实现的 博客前端",
     href: "https://github.com/ligenhw/goshare-website",
   },
   {
@@ -85,11 +90,11 @@ function Projects(props) {
       <main>
         <div className={classNames(classes.layout, classes.cardGrid)}>
           {/* End hero unit */}
-          <Grid container spacing={40} justify='center'>
+          <Grid container spacing={40}>
             {cards.map(card => (
-              <Grid item key={card} >
+              <Grid item key={card} sm={6} md={4} lg={3}>
                 <Card className={classes.card}>
-                 <CardMedia
+                  <CardMedia
                     className={classes.cardMedia}
                     image={card.img} // eslint-disable-line max-len
                     title="Image title"
@@ -101,15 +106,14 @@ function Projects(props) {
                     <Typography>
                       {card.subTitle}
                     </Typography>
-
-                    <CardActions className={classes.action}>
+                  </CardContent>
+                  <CardActions>
                     <Link underline='none' target='_blank' href={card.href}>
                       <Button size="small" color="primary">
-                        Download
+                        Star
                     </Button>
                     </Link>
-                    </CardActions>
-                  </CardContent>
+                  </CardActions>
                 </Card>
               </Grid>
             ))}

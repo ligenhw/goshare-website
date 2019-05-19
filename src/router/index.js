@@ -25,6 +25,28 @@ export const mainPages = [
     title: '文章'
   },
   {
+    name: 'projects',
+    path: '/projects',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../components/Projects'),
+      loading: Loading,
+      delay: 300,
+    }),
+    title: '项目'
+  },
+  {
+    name: 'books',
+    path: '/books',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../components/Books'),
+      loading: Loading,
+      delay: 300,
+    }),
+    title: '书籍'
+  },
+  {
     name: 'about',
     path: '/about',
     exact: true,

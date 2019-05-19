@@ -23,7 +23,7 @@ const Comment = ({ classes, user, comment }) => (
                 <ListItemText
                     primary={user.username}
                     primaryTypographyProps={{ variant: "h5" }}
-                    secondary={comment.time}
+                    secondary={new Date(comment.time).toLocaleString()}
                 />
             </Grid>}
             secondary={<Typography variant="h5">
