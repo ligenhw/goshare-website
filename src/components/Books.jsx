@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from '@material-ui/core';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   layout: {
@@ -53,31 +54,23 @@ const styles = theme => ({
 
 const cards = [
   {
-    img: "//img13.360buyimg.com/n1/jfs/t12760/325/2026027119/30837/eb145850/5a30cc28Ncba23a2e.jpg",
-    title: "goshare",
-    subTitle: `Kotlin in Action 教你将 Kotlin 语言用于生产级应用。写给有经验的 Java 开发者的示例丰富的这本书比大多数语言书籍更深入，其中涵盖了一些有趣的话题，例如使用自然语言的语法构建 DSL。
-
-    这本书是由 Kotlin 团队的开发者 Dmitry Jemerov 和 Svetlana Isakova 合著的。
-    
-    涵盖了 Kotlin 类型系统的第 6 章、涵盖了 DSL 的第 11 章可作为 出版社网站上的免费样章取得。`,
-    href: "https://github.com/ligenhw/goshare",
-  },
-  {
     img: "//img10.360buyimg.com/n1/jfs/t28996/317/185501197/59681/3c7e1ade/5bea770cNce1ad221.jpg",
     title: "Go 语言实战",
-    subTitle: `  作为学习Go语言的入门书籍，非常适合Go语言的初学者。今年年初，想学习下Go，于是找到了这本书，看完之后非常有帮助。`,
-    href: "https://github.com/ligenhw/goshare-website",
+    subTitle: `  作为学习Go语言的入门书籍，非常适合Go语言的初学者。起初，想学习Go语言，就是读的这本书，看完之后非常有帮助。整体上内容不多，但是包含了入门需要的重点知识。`,
+    href: "https://pan.baidu.com/s/1iLNSfPR_qiq9XAw4FxysjA",
+    code: "7i4p",
   },
   {
-    img: "https://developer.android.google.cn/images/landing/kotlin-logo.svg",
-    title: "pwstore",
-    subTitle: "android密码管理应用， 基于kotlin",
-    href: "https://github.com/ligenhw/pwstore",
+    img: "//img12.360buyimg.com/n1/jfs/t14041/131/1394076398/260731/c200a40e/5a1f647aNe56a9273.jpg",
+    title: "Go Web 编程",
+    subTitle: "熟悉Go语言的基础语法之后，想使用Go开发Web应用的人，推荐读下这本书。书中完整的介绍了基于Go 语言标准库开发Web应用所需要的知识。",
+    href: 'https://pan.baidu.com/s/1MWuScaCblRv-8QGSZKIH8Q',
+    code: 'cqyk',
   }
 ];
 
 function Projects(props) {
-  const { classes } = props;
+  const { classes, user } = props;
 
   return (
     <React.Fragment>
@@ -105,8 +98,11 @@ function Projects(props) {
                     <CardActions className={classes.action}>
                     <Link underline='none' target='_blank' href={card.href}>
                       <Button size="small" color="primary">
-                        Download
-                    </Button>
+                        下载地址
+                      </Button>
+                      <Typography>
+                      提取码: { user === null ? '登录后可见' : card.code }
+                      </Typography>
                     </Link>
                     </CardActions>
                   </CardContent>
@@ -124,4 +120,13 @@ Projects.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Projects)
+const mapStateToProps = state => ({
+  user: state.user,
+})
+
+const ProjectsContainer = connect(
+  mapStateToProps,
+  null
+)(withStyles(styles)(Projects))
+
+export default ProjectsContainer

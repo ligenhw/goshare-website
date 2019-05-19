@@ -66,17 +66,6 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch
 https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
 https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
 
-## 要保证 state 映射 到 新的对象
-
-const mapStateToProps = state => ({article: state.article})
-
-否则，如下 会导致不重新绘制。 
-const mapStateToProps = state => state.article
-
-## 防盗链
-
-<meta name="referrer" content="never">
-
 ## icon
 
 https://www.flaticon.com
