@@ -90,6 +90,29 @@ export const qqSignIn = code => dispatch => {
         .catch(error => dispatch(publishMsg('QQ 登录失败, 请重试')))
 }
 
+export const alipaySignIn = code => dispatch => {
+    fetch('/api/alipaylogin/', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            code: code
+        })
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error, status = " + response.status);
+            }
+            return response
+        })
+        .then(response => {
+            history.push('/')
+            dispatch(getUser())
+        }) //TODO: change it
+        .catch(error => dispatch(publishMsg('支付宝 登录失败, 请重试')))
+}
+
 export const logout = () => dispatch => {
     fetch('/api/logout/', {
         method: 'post',

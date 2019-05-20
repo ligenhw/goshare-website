@@ -17,6 +17,7 @@ import { signIn } from '../store/actions/user'
 import GhLogin from './third/GhLogin'
 import QQLogin from './third/QQLogin'
 import Grid from '@material-ui/core/Grid';
+import AlipayLogin from './third/AlipayLogin';
 
 const styles = theme => ({
   main: {
@@ -126,6 +127,7 @@ class SignIn extends Component {
             >
               <GhLogin />
               <QQLogin />
+              <AlipayLogin />
             </Grid>
           </div>
         </Paper>
