@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import {getQueryStringByName} from '../../utils/url'
 import { alipaySignIn } from '../../store/actions/user'
-import qqpng from '../../assets/qq.png'
+import alipaypng from '../../assets/qq.png'
 
 const styles = theme => ({
     title: {
@@ -37,7 +37,7 @@ class AlipayLogin extends Component {
         return (
             <Link className={classes.title} color='primary' 
              href={loginUrl}>
-                 <img className={classes.icon} src={"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558343354960&di=7d5a7d0f39f3d1f03d48ff43d152c7fb&imgtype=0&src=http%3A%2F%2Fimg1.2345.com%2Fduoteimg%2FsoftImg%2Fsoft%2F1%2F1436404574_13.jpeg%3F1457612070"} alt='logo'/>
+                 <img className={classes.icon} src={alipaypng} alt='logo'/>
             </Link>
         )
     }
