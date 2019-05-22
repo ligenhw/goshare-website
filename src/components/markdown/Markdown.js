@@ -65,17 +65,17 @@ class Markdown extends React.Component {
     })
     console.log(this.state.headerTextArr)
   }
-  
+
   render() {
     const { markdown } = this.props
 
     if (!this.state.index) {
-    setTimeout(() => {
-      this.getHeaderTextArr()
-    }, 2000)
-    this.setState({
-      index: true
-    })
+      setTimeout(() => {
+        this.getHeaderTextArr()
+      }, 2000)
+      this.setState({
+        index: true
+      })
     }
 
     return (
