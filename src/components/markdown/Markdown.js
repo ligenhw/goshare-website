@@ -3,7 +3,6 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import './markdown.css'
 import './article.css'
-import ReactDOM from 'react-dom';
 import Typography from '@material-ui/core/Typography';
 
 const handleScroll = () => {
@@ -83,7 +82,7 @@ class Markdown extends React.Component {
   }
 
   render() {
-    const { markdown, classes } = this.props
+    const { markdown } = this.props
 
     if (!this.state.index) {
     setTimeout(() => {
