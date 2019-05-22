@@ -19,12 +19,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 const styles = theme => ({
   title: {
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    margin: theme.spacing.unit * 3,
   },
   author: {
-    marginTop: theme.spacing.unit * 2,
-    'align-items': 'center',
+    margin: theme.spacing.unit * 2,
   },
   markdown: {
     width: 'auto',
@@ -39,14 +37,11 @@ const styles = theme => ({
       width: 900,
       marginLeft: 'auto',
       marginRight: 'auto',
-      backgroundColor: theme.primary
+      backgroundColor: 'theme.primary'
     },
   },
   meta: {
     margin: theme.spacing.unit * 2,
-  },
-  inline: {
-    display: 'inline'
   },
   orangeAvatar: {
     margin: 10,
@@ -73,8 +68,8 @@ const Author = ({ classes, article, edite, deleteArticle }) => (
   <Grid container alignItems="center">
     <Avatar user={article.user} />
 
-    <Grid item xs>
-      <Typography className={classes.author} variant="h5" color="textSecondary">
+    <Grid item xs className={classes.author}>
+      <Typography  variant="h5" color="textSecondary">
         {article.user.username}
       </Typography>
       <Meta classes={classes} meta={article.blog} />

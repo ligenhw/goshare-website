@@ -1,5 +1,5 @@
 .article-nav {
-    position: absolute;
+    position: fixed;
     box-sizing: border-box;
     right: 40px;
     top: 80px;
