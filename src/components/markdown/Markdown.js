@@ -5,13 +5,6 @@ import './markdown.css'
 import './article.css'
 import Typography from '@material-ui/core/Typography';
 
-const handleScroll = () => {
-  const articleNav = document.querySelector('.article-nav')
-  if (articleNav !== null) {
-    articleNav.style['top'] = `${document.scrollingElement.scrollTop + 80}px`
-  }
-}
-
 const getOffsetToPage = (elem) => {
   let top = elem.offsetTop
   let left = elem.offsetLeft
@@ -72,15 +65,7 @@ class Markdown extends React.Component {
     })
     console.log(this.state.headerTextArr)
   }
-
-  componentDidMount() {
-    window.addEventListener('scroll', handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', handleScroll)
-  }
-
+  
   render() {
     const { markdown } = this.props
 

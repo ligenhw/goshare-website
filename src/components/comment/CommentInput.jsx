@@ -12,6 +12,10 @@ import { history } from '../../store/configureStore'
 import { createComment } from '../../store/actions/comments'
 
 const styles = theme => ({
+    content: {
+        marginTop: theme.spacing.unit * 10,
+        marginBottom: theme.spacing.unit * 10,
+    },
     orangeAvatar: {
         margin: 10,
         color: '#fff',
@@ -43,7 +47,7 @@ class CommentInput extends Component {
     render() {
         const { classes, user } = this.props
         return (
-            <Grid container>
+            <Grid container className={classes.content}>
                 {user ? <Avatar user={user} /> : ''}
                 <Grid item xs>
                     {user ?
