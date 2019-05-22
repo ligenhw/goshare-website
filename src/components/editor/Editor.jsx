@@ -22,7 +22,7 @@ const styles = theme => ({
         marginTop: 16,
     },
     pannel: {
-        height: '100%',
+        overflow: 'auto',
     },
     rightPannel: {
         overflowY: 'auto',
