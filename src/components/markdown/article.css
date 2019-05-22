@@ -1,0 +1,20 @@
+.article-nav {
+    position: absolute;
+    box-sizing: border-box;
+    right: 40px;
+    top: 80px;
+    border-left: 4px solid #1e88e5;
+    padding-left: 12px;
+  }
+
+  .article-nav-anchor {
+    list-style: none;
+    font-size: 14px;
+    line-height: 18px;
+    word-wrap: break-word;
+    word-break: normal;
+    cursor: pointer;
+    font-family: "Roboto";
+    margin-top: 8px;
+    transition: all .2s ease-out;
+  }

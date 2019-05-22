@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import {getQueryStringByName} from '../../utils/url'
 import { alipaySignIn } from '../../store/actions/user'
-import alipaypng from '../../assets/qq.png'
+import alipaypng from '../../assets/alipay.png'
 
 const styles = theme => ({
     title: {

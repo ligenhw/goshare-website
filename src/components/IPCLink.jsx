@@ -23,7 +23,7 @@ const styles = theme => ({
 
 const IPCLink = ({ classes, user }) => (
     <div align="center">
-        <Link href={'http://www.miitbeian.gov.cn/'}>
+        <Link href={'https://www.miitbeian.gov.cn/'}>
           <img className={classes.img}
            alt={'img'}
            src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" />

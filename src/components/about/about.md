@@ -6,7 +6,7 @@
 
  后续会持续优化更新。
 
-![](http://bestlang.cn:8080/)
+![](https://www.bestlang.cn/)
 
 # 其他社区
 
