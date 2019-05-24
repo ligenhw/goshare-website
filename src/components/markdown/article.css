@@ -3,6 +3,7 @@
     box-sizing: border-box;
     right: 40px;
     top: 80px;
+    max-width: 150px;
     border-left: 4px solid #1e88e5;
     padding-left: 12px;
   }

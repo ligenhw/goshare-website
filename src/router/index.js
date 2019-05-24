@@ -75,7 +75,7 @@ const subPages = [
     path: '/signup',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/SignUp'),
+      loader: () => import('../components/sign/SignUp'),
       loading: Loading,
       delay: 300,
     }),
