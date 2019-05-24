@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -76,7 +76,7 @@ function Projects(props) {
     <React.Fragment>
       <CssBaseline />
       <main>
-        <div className={classNames(classes.layout, classes.cardGrid)}>
+        <div className={{...classes.layout, ...classes.cardGrid}}>
           {/* End hero unit */}
           <Grid container spacing={40} justify='center'>
             {cards.map(card => (

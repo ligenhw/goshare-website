@@ -14,7 +14,9 @@ export const queryAllArticles = () => dispatch => {
             }
             return response.json()
         })
-        .then(json => dispatch(listArticles(json)))
+        .then(json => {
+            console.log('listarticles ', listArticles(json))
+            dispatch(listArticles(json))})
         .catch(error => console.error(error))
 }
 

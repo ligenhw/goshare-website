@@ -12,6 +12,7 @@ import { getQueryStringByName } from '../../utils/url'
 
 const styles = theme => ({
     layout: {
+        display: 'flex',
         height: '100vh',
     },
     textField: {
@@ -22,6 +23,7 @@ const styles = theme => ({
         marginTop: 16,
     },
     pannel: {
+        height: '800px',
         overflow: 'auto',
     },
     rightPannel: {

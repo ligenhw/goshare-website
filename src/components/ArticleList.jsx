@@ -26,7 +26,8 @@ const styles = theme => ({
 });
 
 const ListItemLink = ({ primary, secondary, to, classes, item }) => (
-  <ListItem divider button component={props => <RouterLink to={to} {...props} />}>
+  //component={props => <RouterLink to={to} {...props} />}
+  <ListItem divider button >
     <ListItemText
       primary={primary}
       primaryTypographyProps={{ variant: "h5" }}
@@ -55,7 +56,6 @@ class ArticleList extends Component {
 
   render() {
     const { classes, articles } = this.props;
-    console.log(this.props)
 
     return (
       <List className={classes.root}>
