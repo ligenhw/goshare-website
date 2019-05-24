@@ -78,7 +78,7 @@ class CommentInput extends Component {
                             <Button variant="contained" color="secondary" className={classes.button} onClick={e => history.push('/login')}>
                                 登录
                             </Button>
-                            <Typography variant="h6" inline>
+                            <Typography variant="h6" display='inline'>
                                 后发表评论
                         </Typography>
                         </Grid>

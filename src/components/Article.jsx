@@ -58,7 +58,7 @@ const Meta = ({ classes, meta }) => (
     <EyeIcon /> 1
     <MessageIcon type="message" /> 0
     <FavoriteIcon type="heart" /> 2
-    <Typography inline component="span" className={classes.meta}>
+    <Typography display='inline' component="span" className={classes.meta}>
       {new Date(meta.time).toLocaleString()}
     </Typography>
   </React.Fragment>

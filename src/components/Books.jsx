@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -14,7 +13,7 @@ import { Link } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 const styles = theme => ({
-  layout: {
+  cardGrid: {
     width: '600px',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
@@ -23,16 +22,14 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
+    padding: theme.spacing.unit * 8,
   },
   card: {
     display: 'flex',
   },
   cardDetail: {
-      display: 'flex',
-      flexDirection: 'column',
+    display: 'flex',
+    flexDirection: 'column',
   },
   cardMedia: {
     margin: theme.spacing.unit * 2,
@@ -44,11 +41,7 @@ const styles = theme => ({
     width: '400px',
   },
   action: {
-      align: 'bottom',
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6,
+    align: 'bottom',
   },
 });
 
@@ -75,43 +68,38 @@ function Projects(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <main>
-        <div className={{...classes.layout, ...classes.cardGrid}}>
-          {/* End hero unit */}
-          <Grid container spacing={40} justify='center'>
-            {cards.map(card => (
-              <Grid item key={card} >
-                <Card className={classes.card}>
-                 <CardMedia
-                    className={classes.cardMedia}
-                    image={card.img} // eslint-disable-line max-len
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {card.title}
-                    </Typography>
-                    <Typography>
-                      {card.subTitle}
-                    </Typography>
+      <Grid container className={classes.cardGrid} spacing={5} justify='center'>
+        {cards.map(card => (
+          <Grid item key={card} >
+            <Card className={classes.card}>
+              <CardMedia
+                className={classes.cardMedia}
+                image={card.img} // eslint-disable-line max-len
+                title="Image title"
+              />
+              <CardContent className={classes.cardContent}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {card.title}
+                </Typography>
+                <Typography>
+                  {card.subTitle}
+                </Typography>
 
-                    <CardActions className={classes.action}>
-                    <Link underline='none' target='_blank' href={card.href}>
-                      <Button size="small" color="primary">
-                        下载地址
+                <CardActions className={classes.action}>
+                  <Link underline='none' target='_blank' href={card.href}>
+                    <Button size="small" color="primary">
+                      下载地址
                       </Button>
-                      <Typography>
-                      提取码: { user === null ? '登录后可见' : card.code }
-                      </Typography>
-                    </Link>
-                    </CardActions>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+                    <Typography>
+                      提取码: {user === null ? '登录后可见' : card.code}
+                    </Typography>
+                  </Link>
+                </CardActions>
+              </CardContent>
+            </Card>
           </Grid>
-        </div>
-      </main>
+        ))}
+      </Grid>
     </React.Fragment>
   );
 }

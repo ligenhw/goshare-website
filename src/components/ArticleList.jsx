@@ -10,6 +10,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import EyeIcon from '@material-ui/icons/RemoveRedEye';
 import { Link as RouterLink } from 'react-router-dom'
 import Hidden from '@material-ui/core/Hidden';
+import { Box } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -27,7 +28,7 @@ const styles = theme => ({
 
 const ListItemLink = ({ primary, secondary, to, classes, item }) => (
   //component={props => <RouterLink to={to} {...props} />}
-  <ListItem divider button >
+  <ListItem divider button gutterBottom>
     <ListItemText
       primary={primary}
       primaryTypographyProps={{ variant: "h5" }}
@@ -46,7 +47,7 @@ const Meta = ({ classes, item }) => (
     <EyeIcon /> {item.views}
     <MessageIcon type="message" /> {item.comments}
     <FavoriteIcon type="heart" /> {item.likes}
-    <Typography inline component="span" className={classes.meta}>
+    <Typography display='inline' className={classes.meta}>
       {new Date(item.time).toLocaleString()}
     </Typography>
   </React.Fragment>
@@ -65,12 +66,12 @@ class ArticleList extends Component {
               classes={classes} item={item}
               primary={item.title}
               secondary={
-                <React.Fragment>
-                  <Typography component="span">
+                <Box>
+                  <Typography gutterBottom>
                     {item.desc}
                   </Typography>
                   <Meta classes={classes} item={item} />
-                </React.Fragment>
+                </Box>
               }
               to={`/articleDetail?article_id=${item.id}`} />
           ))

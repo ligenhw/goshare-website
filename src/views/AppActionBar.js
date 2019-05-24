@@ -28,7 +28,7 @@ const styles = {
   button: {
     marginLeft: 10,
     marginRight: 10,
-  },
+  }
 };
 
 class ButtonAppBar extends Component {
@@ -69,7 +69,7 @@ class ButtonAppBar extends Component {
     return (
       <div className={classes.root}>
         <AppBar position="sticky">
-          <Toolbar>
+          <Toolbar className={classes.content}>
             <IconButton onClick={menuClick}
               className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />

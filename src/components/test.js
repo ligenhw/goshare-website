@@ -1,17 +1,21 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Hidden from '@material-ui/core/Hidden';
+import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import Container from '@material-ui/core/Container';
 
 function MadeWithLove() {
   return (
@@ -26,103 +30,237 @@ function MadeWithLove() {
 }
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    height: '100vh',
+  toolbar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
+  toolbarTitle: {
+    flex: 1,
+  },
+  toolbarSecondary: {
+    justifyContent: 'space-between',
+    overflowX: 'auto',
+  },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+  },
+  mainFeaturedPost: {
+    position: 'relative',
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing(4),
+    backgroundImage: 'url(https://source.unsplash.com/user/erondu)',
     backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   },
-  paper: {
-    margin: theme.spacing(8, 4),
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: 'rgba(0,0,0,.3)',
+  },
+  mainFeaturedPostContent: {
+    position: 'relative',
+    padding: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(6),
+      paddingRight: 0,
+    },
+  },
+  mainGrid: {
+    marginTop: theme.spacing(3),
+  },
+  card: {
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  cardDetails: {
+    flex: 1,
   },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+  cardMedia: {
+    width: 160,
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  markdown: {
+    ...theme.typography.body2,
+    padding: theme.spacing(3, 0),
+  },
+  sidebarAboutBox: {
+    padding: theme.spacing(2),
+    backgroundColor: theme.palette.grey[200],
+  },
+  sidebarSection: {
+    marginTop: theme.spacing(3),
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    marginTop: theme.spacing(8),
+    padding: theme.spacing(6, 0),
   },
 }));
 
-export default function SignInSide() {
+const sections = [
+  'Technology',
+  'Design',
+  'Culture',
+  'Business',
+  'Politics',
+  'Opinion',
+  'Science',
+  'Health',
+  'Style',
+  'Travel',
+];
+
+const featuredPosts = [
+  {
+    title: 'Featured post',
+    date: 'Nov 12',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+  },
+];
+
+const archives = [
+  'March 2020',
+  'February 2020',
+];
+
+const social = ['GitHub', 'Twitter', 'Facebook'];
+
+export default function Blog() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <React.Fragment>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
+      <Container maxWidth="lg">
+        <main>
+          {/* Main featured post */}
+          <Paper className={classes.mainFeaturedPost}>
+            {/* Increase the priority of the hero background image */}
+            {
+              <img
+                style={{ display: 'none' }}
+                src="https://source.unsplash.com/user/erondu"
+                alt="background"
+              />
+            }
+            <div className={classes.overlay} />
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+              <Grid item md={6}>
+                <div className={classes.mainFeaturedPostContent}>
+                  <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                    Title of a longer featured blog post
+                  </Typography>
+                  <Typography variant="h5" color="inherit" paragraph>
+                    Multiple lines of text that form the lede, informing new readers quickly and
+                    efficiently about what&apos;s most interesting in this post&apos;s contents.
+                  </Typography>
+                  <Link variant="subtitle1" href="#">
+                    Continue reading…
+                  </Link>
+                </div>
               </Grid>
             </Grid>
-            <Box mt={5}>
-              <MadeWithLove />
-            </Box>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
+          </Paper>
+          {/* End main featured post */}
+          {/* Sub featured posts */}
+          <Grid container spacing={4} className={classes.cardGrid}>
+            {featuredPosts.map(post => (
+              <Grid item key={post.title} xs={12} md={6}>
+                <CardActionArea component="a" href="#">
+                  <Card className={classes.card}>
+                    <div className={classes.cardDetails}>
+                      <CardContent>
+                        <Typography component="h2" variant="h5">
+                          {post.title}
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary">
+                          {post.date}
+                        </Typography>
+                        <Typography variant="subtitle1" paragraph>
+                          {post.description}
+                        </Typography>
+                        <Typography variant="subtitle1" color="primary">
+                          Continue reading...
+                        </Typography>
+                      </CardContent>
+                    </div>
+                    <Hidden xsDown>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image="https://source.unsplash.com/random"
+                        title="Image title"
+                      />
+                    </Hidden>
+                  </Card>
+                </CardActionArea>
+              </Grid>
+            ))}
+          </Grid>
+          {/* End sub featured posts */}
+          <Grid container spacing={5} className={classes.mainGrid}>
+            {/* Main content */}
+            <Grid item xs={12} md={8}>
+              <Typography variant="h6" gutterBottom>
+                From the Firehose
+              </Typography>
+              <Divider />
+            </Grid>
+            {/* End main content */}
+            {/* Sidebar */}
+            <Grid item xs={12} md={4}>
+              <Paper elevation={0} className={classes.sidebarAboutBox}>
+                <Typography variant="h6" gutterBottom>
+                  About
+                </Typography>
+                <Typography>
+                  Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
+                  amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+                </Typography>
+              </Paper>
+              <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
+                Archives
+              </Typography>
+              {archives.map(archive => (
+                <Link display="block" variant="body1" href="#" key={archive}>
+                  {archive}
+                </Link>
+              ))}
+              <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
+                Social
+              </Typography>
+              {social.map(network => (
+                <Link display="block" variant="body1" href="#" key={network}>
+                  {network}
+                </Link>
+              ))}
+            </Grid>
+            {/* End sidebar */}
+          </Grid>
+        </main>
+      </Container>
+      {/* Footer */}
+      <footer className={classes.footer}>
+        <Container maxWidth="lg">
+          <Typography variant="h6" align="center" gutterBottom>
+            Footer
+          </Typography>
+          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+            Something here to give the footer a purpose!
+          </Typography>
+          <MadeWithLove />
+        </Container>
+      </footer>
+      {/* End footer */}
+    </React.Fragment>
   );
 }
