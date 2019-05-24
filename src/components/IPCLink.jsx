@@ -11,7 +11,6 @@ const styles = theme => ({
     },
     img: {
         width: '20px',
-        display: 'inline'
     },
     content: {
         margin: theme.spacing.unit,
@@ -27,7 +26,7 @@ const IPCLink = ({ classes, user }) => (
           <img className={classes.img}
            alt={'img'}
            src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" />
-          <Typography inline align="center" className={classes.content}>
+          <Typography display='inline' align="center" className={classes.content}>
           京ICP备19021303号
           </Typography>
         </Link>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -38,80 +38,74 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default class SignInSide extends Component {
+export default ({ onClick, title, children }) => {
 
-    state = {
-        user: {
-            username: '',
-            password: '',
-        }
-    }
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const classes = useStyles();
 
-    onChange = label => event => {
-        this.setState({
-            user: {
-                ...this.state.user,
-                [label]: event.target.value
-            }
-        })
-    }
-
-    render() {
-        const classes = useStyles();
-        const { signUp, title, } = this.props;
-        return (
-            <Grid container component="main" className={classes.root}>
-                <CssBaseline />
-                <Grid item xs={false} sm={4} md={7} className={classes.image} />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-                    <div className={classes.paper}>
-                        <Avatar className={classes.avatar}>
-                            <LockOutlinedIcon />
-                        </Avatar>
-                        <Typography component="h1" variant="h5">
+    return (
+        <Grid container component="main" className={classes.root}>
+            <CssBaseline />
+            <Grid item xs={false} sm={4} md={7} className={classes.image} />
+            <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        {title}
+                    </Typography>
+                    <form className={classes.form} noValidate>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="用户名"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                            onChange={e => {
+                                setUsername(e.target.value)
+                            }}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="密码"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            onChange={e => {
+                                setPassword(e.target.value)
+                            }}
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={event => {
+                                event.preventDefault()
+                                onClick({
+                                    username,
+                                    password,
+                                })
+                            }}
+                        >
                             {title}
-                        </Typography>
-                        <form className={classes.form} noValidate>
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="用户名"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                            />
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="密码"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                            />
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                                onClick={event => {
-                                    event.preventDefault()
-                                    signUp(this.state.user)
-                                }}
-                            >
-                                {title}
-                            </Button>
-                        </form>
-                    </div>
-                </Grid>
+                        </Button>
+                    </form>
+                    { children }
+                </div>
             </Grid>
-        );
-    }
+        </Grid>
+    );
 }
 

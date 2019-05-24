@@ -30,7 +30,7 @@ const styles = theme => ({
   heroButtons: {
     marginTop: theme.spacing.unit * 4,
   },
-  layout: {
+  cardGrid: {
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
@@ -39,8 +39,6 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-  },
-  cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`,
   },
   card: {
@@ -88,9 +86,9 @@ function Projects(props) {
     <React.Fragment>
       <CssBaseline />
       <main>
-        <div className={ {...classes.layout, ...classes.cardGrid } }>
+        <div className={ classes.cardGrid }>
           {/* End hero unit */}
-          <Grid container spacing={40}>
+          <Grid container spacing={5}>
             {cards.map(card => (
               <Grid item key={card} sm={6} md={4} lg={3}>
                 <Card className={classes.card}>
