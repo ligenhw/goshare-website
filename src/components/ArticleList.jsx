@@ -26,9 +26,13 @@ const styles = theme => ({
   }
 });
 
+
+
 const ListItemLink = ({ primary, secondary, to, classes, item }) => (
   //component={props => <RouterLink to={to} {...props} />}
-  <ListItem divider button gutterBottom>
+  <ListItem divider button gutterBottom component={React.forwardRef((props, ref) => (
+    <RouterLink innerRef={ref} to={to} {...props} />
+  ))}>
     <ListItemText
       primary={primary}
       primaryTypographyProps={{ variant: "h5" }}
