@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
-import {getQueryStringByName} from '../../utils/url'
-import {ghSignIn} from '../../store/actions/user'
+import { getQueryStringByName } from '../../utils/url'
+import { ghSignIn } from '../../store/actions/user'
 import ghsvg from '../../assets/github.svg'
 
 const styles = theme => ({
@@ -24,7 +24,7 @@ class GhLogin extends Component {
     componentWillMount() {
         const code = getQueryStringByName('code')
         const state = getQueryStringByName('state')
-        
+
         console.log('check ghlogin ', code, state)
         if (code !== '' && state === 'gh') {
             this.props.ghSignIn(code)
@@ -32,13 +32,13 @@ class GhLogin extends Component {
     }
 
     render() {
-        const {classes} = this.props
+        const { classes } = this.props
 
         return (
-            <Link className={classes.title}  color='primary' rel ="noopener"
-             href={loginUrl}>
-                 <img className={classes.icon} src={ghsvg} alt='github'/>
-             </Link>
+            <Link className={classes.title} color='primary' rel="noopener"
+                href={loginUrl}>
+                <img className={classes.icon} src={ghsvg} alt='github' />
+            </Link>
         )
     }
 }
