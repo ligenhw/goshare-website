@@ -18,7 +18,7 @@ export const mainPages = [
     path: '/',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/home/index'),
+      loader: () => import('../components/home/IndexContainer'),
       loading: Loading,
       delay: 300,
     }),
