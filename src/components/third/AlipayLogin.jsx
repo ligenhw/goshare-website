@@ -17,7 +17,7 @@ const styles = theme => ({
     }
 });
 
-const loginUrl = "https://openauth.alipay.com/oauth2/publicAppAuthorize.htm?app_id=2019051864987632&scope=auth_user&redirect_uri=http%3a%2f%2fbestlang.cn%2flogin&state=alipay"
+const loginUrl = "https://openauth.alipay.com/oauth2/publicAppAuthorize.htm?app_id=2019051864987632&scope=auth_user&redirect_uri=https%3a%2f%2fwww.bestlang.cn%2flogin&state=alipay"
 
 class AlipayLogin extends Component {
 

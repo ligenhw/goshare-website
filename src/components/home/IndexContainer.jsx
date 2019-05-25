@@ -3,15 +3,11 @@ import { connect } from 'react-redux';
 import { queryAllArticles } from '../../store/actions/articles'
 import Index from './Index'
 
-const IndexContainer = ({ queryAllArticles, other }) => {
+const IndexContainer = ({ queryAllArticles, ...other }) => {
 
     useEffect(() => {
         queryAllArticles()
-    })
-    
-    console.log('debug IndexContainer')
-    console.log(queryAllArticles)
-    console.log(other)
+    }, [])
 
     return (
         <Index {...other}/>

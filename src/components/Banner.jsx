@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
       },
 }));
 
-export default ({ post }) => {
+export default () => {
 
     const classes = useStyles();
 
@@ -56,11 +56,13 @@ export default ({ post }) => {
               <Grid item md={6}>
                 <div className={classes.mainFeaturedPostContent}>
                   <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                    Title of a longer featured blog post
+                    Welcome
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
-                    Multiple lines of text that form the lede, informing new readers quickly and
-                    efficiently about what&apos;s most interesting in this post&apos;s contents.
+                  “The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.” by Albert Einstein
+                  </Typography>
+                  <Typography variant="h6" color="inherit" paragraph>
+                  by Albert Einstein
                   </Typography>
                 </div>
               </Grid>
