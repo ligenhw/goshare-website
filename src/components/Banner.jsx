@@ -59,7 +59,7 @@ export default () => {
                     Welcome
                   </Typography>
                   <Typography variant="h5" color="inherit" paragraph>
-                  “The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.” by Albert Einstein
+                  “The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”
                   </Typography>
                   <Typography variant="h6" color="inherit" paragraph>
                   by Albert Einstein
