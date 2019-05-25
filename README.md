@@ -14,8 +14,8 @@
 https://zh-hans.reactjs.org/docs/getting-started.html
 
 ## material-ui
- 
-https://material-ui.com/getting-started/installation/
+
+https://material-ui.com/zh/getting-started/installation/
 
 icon:
 
