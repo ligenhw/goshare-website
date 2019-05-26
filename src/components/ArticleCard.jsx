@@ -9,6 +9,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 const useStyles = makeStyles(theme => ({
   card: {
+    marginTop: theme.spacing(3),
     display: 'flex',
   },
   cardDetails: {
@@ -32,7 +33,7 @@ export default ({ post }) => {
               {post.title}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              {post.time}
+              {new Date(post.time).toLocaleString()}
             </Typography>
             <Typography variant="subtitle1" paragraph>
               {post.desc}

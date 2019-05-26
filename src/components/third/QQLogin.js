@@ -17,7 +17,7 @@ const styles = theme => ({
     }
 });
 
-const loginUrl = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101576375&redirect_uri=http%3a%2f%2fbestlang.cn%2flogin&state=qq"
+const loginUrl = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101576375&redirect_uri=https%3a%2f%2fwww.bestlang.cn%2flogin&state=qq"
 
 class QQLogin extends Component {
 

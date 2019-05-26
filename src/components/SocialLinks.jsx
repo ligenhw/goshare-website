@@ -27,7 +27,10 @@ export default () => {
     return (
     <React.Fragment>
         <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-            链接 🔗
+            链接 
+            <span role="img" aria-label="achieve">
+              🔗
+            </span>
         </Typography>
         {
             social.map(network => (

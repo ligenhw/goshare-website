@@ -27,8 +27,8 @@ class AppDrawer extends React.Component {
     const { classes, open, onClose, onMenuClick } = this.props;
 
     const sideList = (
-      <div className={classes.list}>
-        <List>
+      <div >
+        <List className={classes.list}>
           { mainPages.map((page, index) => (
             <ListItem button key={index} onClick={ e => {
               onMenuClick(page.title)
@@ -52,7 +52,6 @@ class AppDrawer extends React.Component {
     );
 
     return (
-      <div>
         <Drawer open={open} onClose={onClose}>
           <div
             tabIndex={0}
@@ -63,7 +62,6 @@ class AppDrawer extends React.Component {
             {sideList}
           </div>
         </Drawer>
-      </div>
     );
   }
 }
