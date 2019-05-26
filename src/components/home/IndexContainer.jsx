@@ -7,7 +7,7 @@ const IndexContainer = ({ queryAllArticles, ...other }) => {
 
     useEffect(() => {
         queryAllArticles()
-    }, [])
+    }, [queryAllArticles])
 
     return (
         <Index {...other}/>

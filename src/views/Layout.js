@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import AppActionBar from "./AppActionBar";
 import Typography from '@material-ui/core/Typography';
 import AppDrawer from './AppDrawer'
@@ -32,6 +33,7 @@ class Layouts extends React.Component {
 
         return (
             <React.Fragment>
+                <CssBaseline />
                 <AppActionBar
                     menuClick={() => this.setState({ openDrawer: true })}
                     onThemeChanged={onThemeChanged}
@@ -50,7 +52,7 @@ class Layouts extends React.Component {
                     </Typography>
                     <Typography variant="subtitle1" align="center" gutterBottom
                      color="inherit" >
-                        全栈分享 ©2019
+                        goshare ©2019
                     </Typography>
                     <IPCLink />
                 </Paper>

@@ -20,7 +20,7 @@ const archives = [
     'February 2020',
 ];
 
-export default ({ post }) => {
+export default () => {
 
     const classes = useStyles();
 
@@ -28,14 +28,20 @@ export default ({ post }) => {
         <React.Fragment>
             <Paper elevation={0} className={classes.sidebarAboutBox}>
                 <Typography variant="h6" gutterBottom>
-                    公告 🔥
+                    公告 
+                    <span role="img" aria-label="dashbord">
+                      🔥
+                    </span>
                 </Typography>
                 <Typography>
-                    致力于分享web开发中的流行技术, 目前本站也在持续开发优化中...
+                    致力于分享web开发中的流行技术, 目前本站在持续开发优化中...
                 </Typography>
             </Paper>
             <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-                归档 📚
+                归档 
+                <span role="img" aria-label="achieve">
+                  📚
+                </span>
               </Typography>
             {
                 archives.map(archive => (

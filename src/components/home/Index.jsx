@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
@@ -10,10 +9,8 @@ import Banner from '../Banner'
 import ArticleCardList from '../ArticleCardList'
 
 const useStyles = makeStyles(theme => ({
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0),
+  mainGrid: {
+    marginTop: theme.spacing(3),
   },
 }));
 
@@ -22,7 +19,6 @@ export default ({ articles }) => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       {/* Main featured post */}
       <Banner />
       {/* Main featured post end */}

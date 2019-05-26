@@ -25,6 +25,17 @@ export const mainPages = [
     title: '文章'
   },
   {
+    name: 'achive',
+    path: '/achive',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../components/archive'),
+      loading: Loading,
+      delay: 300,
+    }),
+    title: '归档'
+  },
+  {
     name: 'projects',
     path: '/projects',
     exact: true,
@@ -47,11 +58,22 @@ export const mainPages = [
     title: '书籍'
   },
   {
+    name: 'link',
+    path: '/link',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../components/link'),
+      loading: Loading,
+      delay: 300,
+    }),
+    title: '友链'
+  },
+  {
     name: 'about',
     path: '/about',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/about/About'),
+      loader: () => import('../components/about'),
       loading: Loading,
       delay: 300,
     }),
