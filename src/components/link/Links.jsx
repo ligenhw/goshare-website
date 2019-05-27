@@ -1,24 +1,43 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
-import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import links from './data'
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        display: 'flex',                 // 使用flex布局
+        flexWrap: 'wrap',                // 换行
+        justifyContent: 'space-between', //将末尾的空白 平均分到内容间隔中。
+    },
     item: {
-
+        flex: `1 150px`,               // 动态尺寸 flex : 比例 最小值
+        margin: theme.spacing(2),
+        height: '30px',
+        display: 'flex',               // 嵌套flex
+        alignItems: 'center',          // 子条目 交叉轴剧中对齐
+        '&:after': {
+            content: '',
+            flex: 'auto',
+        }
+    },
+    img: {
+        height: '36px',
+        widht: '36px',
+        marginRight: theme.spacing(1),
+    },
+    link: {
+        fontSize: '1rem',
     }
 }));
 
 const render = (link, classes) => (
-    <Grid item>
-        <Avatar>
-        </Avatar>
-        <Link href={link.url} className={classes.item}>
+    <Box className={classes.item}>
+        <img src={link.img} alt='logo' className={classes.img}></img>
+        <Link href={link.url} className={classes.link}>
             {link.name}
         </Link>
-    </Grid>
+    </Box>
 )
 
 export default () => {
@@ -26,10 +45,10 @@ export default () => {
     const classes = useStyles();
 
     return (
-        <Grid container direction='row'>
+        <Box className={classes.root}>
             {
                 links.map(link => render(link, classes))
             }
-        </Grid>
+        </Box>
     )
 }

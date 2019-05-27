@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const archives = [
-    'March 2020',
-    'February 2020',
+    '2019 年5月',
+    '2019 年4月',
 ];
 
 export default () => {
@@ -45,7 +45,7 @@ export default () => {
               </Typography>
             {
                 archives.map(archive => (
-                    <Link display="block" variant="body1" href="#" key={archive}>
+                    <Link display="block" variant="body1" href='/achive' key={archive}>
                         {archive}
                     </Link>
                 ))

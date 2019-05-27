@@ -6,7 +6,7 @@ import Links from './Links';
 
 const useStyles = makeStyles(theme => ({
     mainGrid: {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(6),
         minHeight: '80vh',
     }
 }));
