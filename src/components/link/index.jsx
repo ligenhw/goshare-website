@@ -8,9 +8,6 @@ const useStyles = makeStyles(theme => ({
     mainGrid: {
         marginTop: theme.spacing(3),
         minHeight: '80vh',
-    },
-    content: {
-        background: "#444"
     }
 }));
 
@@ -19,7 +16,7 @@ export default () => {
     const classes = useStyles();
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" className={classes.mainGrid}>
             <Typography variant="h4" gutterBottom>
                 友情链接
             </Typography>

@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, ListItem, ListItemAvatar } from '@material-ui/core';
-import ListItemText from '@material-ui/core/ListItemText';
+import { Link } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import links from './links'
+import links from './data'
 
 const useStyles = makeStyles(theme => ({
     item: {
@@ -25,7 +24,6 @@ const render = (link, classes) => (
 export default () => {
 
     const classes = useStyles();
-    console.log('links debug', links)
 
     return (
         <Grid container direction='row'>
