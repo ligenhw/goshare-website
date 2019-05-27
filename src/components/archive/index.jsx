@@ -9,9 +9,6 @@ const useStyles = makeStyles(theme => ({
     mainGrid: {
         marginTop: theme.spacing(3),
         minHeight: '80vh',
-    },
-    content: {
-        background: "#444"
     }
 }));
 
