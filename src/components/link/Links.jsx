@@ -6,20 +6,19 @@ import links from './data'
 
 const useStyles = makeStyles(theme => ({
     root: {
+        marginTop: theme.spacing(3),
         display: 'flex',                 // 使用flex布局
         flexWrap: 'wrap',                // 换行
-        justifyContent: 'space-between', //将末尾的空白 平均分到内容间隔中。
+        // justifyContent: 'space-between', //将末尾的空白 平均分到内容间隔中。
     },
     item: {
-        flex: `1 150px`,               // 动态尺寸 flex : 比例 最小值
+        width: '21%',
+        flexGrow: 0,
         margin: theme.spacing(2),
         height: '30px',
         display: 'flex',               // 嵌套flex
         alignItems: 'center',          // 子条目 交叉轴剧中对齐
-        '&:after': {
-            content: '',
-            flex: 'auto',
-        }
+
     },
     img: {
         height: '36px',
