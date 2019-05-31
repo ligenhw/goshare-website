@@ -36,7 +36,7 @@ class CommentList extends Component {
                 <List>
                     {
                         comments.map((comment, i) => (
-                            <Comment key={comment.id} user={users.filter(u => u.id === comment.userId)[0]} comment={comment} />
+                            <Comment key={comment.id} user={users.filter(u => u.id === comment.parentUserId)[0]} comment={comment} />
                         ))
                     }
                 </List>

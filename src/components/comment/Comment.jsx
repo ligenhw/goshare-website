@@ -23,16 +23,27 @@ const Comment = ({ classes, user, comment }) => (
                 <ListItemText
                     primary={user.username}
                     primaryTypographyProps={{ variant: "h5" }}
-                    secondary={new Date(comment.time).toLocaleString()}
+                    secondary={new Date(comment.parentTime).toLocaleString()}
                 />
+                <Typography component="pre">
+                {comment.parentContent}
+            </Typography>
             </Grid>}
-            secondary={<Typography variant="h5">
-                {comment.content}
-            </Typography>}
+            secondary={
+                comment.subComments ? 
+                    comment.subComments.map(sub => {
+                        return sub ? (
+                            <div>
+                            <Typography display='block' variant='h5'>{sub.content}</Typography>
+                            </div>
+                        ): ''
+                    })
+                : ''
+            }
         >
         </ListItemText>
+        
     </ListItem>
-
 )
 
 export default withStyles(styles)(Comment);
