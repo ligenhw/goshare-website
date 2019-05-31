@@ -58,7 +58,7 @@ class CommentInput extends Component {
                                 onChange={this.onChange}
                                 label="写下你的评论..."
                                 multiline
-                                rows="2"
+                                rows="4"
                                 fullWidth
                                 className={classes.textField}
                                 margin="normal"
