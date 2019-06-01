@@ -9,6 +9,7 @@
     "connected-react-router": "^6.3.2",
     "highlight.js": "^9.15.6",
     "marked": "^0.6.1",
+    "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loadable": "^5.5.0",

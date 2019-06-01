@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import { getQueryStringByName } from '../../utils/url'
 import { ghSignIn } from '../../store/actions/user'
-import ghsvg from '../../assets/github.svg'
+import GithubIcon from '../../assets/Github'
 
 const styles = theme => ({
     title: {
@@ -14,6 +14,11 @@ const styles = theme => ({
     icon: {
         height: '32px',
         width: '28px',
+    },
+    dark: {
+        height: '32px',
+        width: '28px',
+        color: 'black',
     }
 });
 
@@ -37,7 +42,7 @@ class GhLogin extends Component {
         return (
             <Link className={classes.title} color='primary' rel="noopener"
                 href={loginUrl}>
-                <img className={classes.icon} src={ghsvg} alt='github' />
+                <GithubIcon className={classes.dark} />
             </Link>
         )
     }

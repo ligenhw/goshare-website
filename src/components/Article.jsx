@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Markdown from './markdown/Markdown';
+import MarkdownDocs from './markdown/MarkdownDocs';
 import { connect } from 'react-redux';
 import { queryArticle, deleteArticle } from '../store/actions/articles'
 import { getQueryStringByName } from '../utils/url'
@@ -16,6 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import { history } from '../store/configureStore'
 import CommentList from './comment/CommentList'
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container'
 
 const styles = theme => ({
   title: {
@@ -33,12 +34,7 @@ const styles = theme => ({
   content: {
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
-    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-      width: 900,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      backgroundColor: 'theme.primary'
-    },
+
   },
   meta: {
     margin: theme.spacing.unit * 2,
@@ -69,7 +65,7 @@ const Author = ({ classes, article, edite, deleteArticle }) => (
     <Avatar user={article.user} />
 
     <Grid item xs className={classes.author}>
-      <Typography  variant="h5" color="textSecondary">
+      <Typography variant="h5" color="textSecondary">
         {article.user.username}
       </Typography>
       <Meta classes={classes} meta={article.blog} />
@@ -99,17 +95,25 @@ class Article extends Component {
     const edite = user !== null && user.id === article.user.id
 
     return (
-      <div className={classes.content}>
+      <div >
+        <Container maxWidth="md">
         <CssBaseline />
         <p className={classes.title}></p>
         <Typography variant="h3" align="center">
           {article.blog.title}
         </Typography>
         <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
-        <Markdown className={classes.markdown}
-          markdown={article.blog.content}>
-        </Markdown>
+        </Container>
+
+        {article.blog.content ?
+          <MarkdownDocs
+            markdown={article.blog.content}>
+          </MarkdownDocs> : ''
+        }
+
+<Container maxWidth="md">
         <CommentList blogID={article.blog.id} />
+        </Container>
       </div>
     )
   }

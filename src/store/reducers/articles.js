@@ -27,7 +27,7 @@ export const article = (state={
 const re_img = /!\S+\((\S+)\)/
 
 //
-const re_subTitle=/#\s?前言\n+([^\n]+)/
+const re_subTitle=/#{1,2}\s?\S+\n+([^\n]+)/
 
 const prepareArticle = (a) => ({
   ...a,

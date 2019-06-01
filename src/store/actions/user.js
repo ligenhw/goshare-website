@@ -39,7 +39,7 @@ export const signIn = user => dispatch => {
         })
         .then(response => {
             history.push('/')
-            dispatch(getUser())
+            dispatch(getUser)
         }) //TODO: change it
         .catch(error => dispatch(publishMsg('用户名或密码错误')))
 }
@@ -62,7 +62,7 @@ export const ghSignIn = code => dispatch => {
         })
         .then(response => {
             history.push('/')
-            dispatch(getUser())
+            dispatch(getUser)
         }) //TODO: change it
         .catch(error => dispatch(publishMsg('Github 登录失败, 请重试')))
 }
@@ -85,7 +85,7 @@ export const qqSignIn = code => dispatch => {
         })
         .then(response => {
             history.push('/')
-            dispatch(getUser())
+            dispatch(getUser)
         }) //TODO: change it
         .catch(error => dispatch(publishMsg('QQ 登录失败, 请重试')))
 }
@@ -113,7 +113,7 @@ export const alipaySignIn = code => dispatch => {
         .catch(error => dispatch(publishMsg('支付宝 登录失败, 请重试')))
 }
 
-export const logout = () => dispatch => {
+export const logout = dispatch => {
     fetch('/api/logout/', {
         method: 'post',
         headers: {
@@ -135,7 +135,7 @@ const user = (data) => ({
     payload: data,
 })
 
-export const getUser = () => dispatch => {
+export const getUser = dispatch => {
     fetch('/api/user/', {
         credentials: 'same-origin'
     })

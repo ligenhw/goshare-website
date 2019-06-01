@@ -4,9 +4,11 @@ import { articles, article } from './articles'
 import { user } from "./user";
 import { comments } from './comments'
 import { msg } from './msg'
+import theme from './themeReducer'
 
 const rootReducer = history =>
   combineReducers({
+    theme,
     user,
     articles,
     article,
