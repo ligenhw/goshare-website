@@ -4,11 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import SaveIcon from '@material-ui/icons/Save';
-import Markdown from '../markdown/Markdown';
+
 import Fab from '@material-ui/core/Fab';
 import { connect } from 'react-redux';
 import { createArticle, queryArticle, modifyArticle } from '../../store/actions/articles'
 import { getQueryStringByName } from '../../utils/url'
+import MarkdownDocs from '../markdown/MarkdownDocs';
 
 const styles = theme => ({
     layout: {
@@ -125,7 +126,7 @@ class Editor extends Component {
                     </Fab>
                 </Grid>
                 <Grid item className={classes.rightPannel} xs={12} md={6}>
-                    <Markdown markdown={md} />
+                    <MarkdownDocs markdown={md} disableToc/>
                 </Grid>
             </Grid>
         )

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import Markdown from '../markdown/Markdown'
+import MarkdownDocs from '../markdown/MarkdownDocs'
 import md from './about.md'
 
 export default () => {
@@ -13,12 +12,11 @@ export default () => {
     }, [])
 
     return (
-        <Container maxWidth="md">
-            <p></p>
+        <div>
             {data ?
-                <Markdown
+                <MarkdownDocs
                     markdown={data}>
-                </Markdown> : ''}
-        </Container>
+                </MarkdownDocs> : ''}
+                </div>
     )
 }

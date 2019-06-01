@@ -12,7 +12,10 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { logout, getUser } from '../store/actions/user'
 import { history } from '../store/configureStore'
-import InvertColors from '@material-ui/icons/InvertColors'
+import GithubIcon from '../assets/Github'
+import { THEME_CHANGE } from '../store/types'
+import LightbulbOutlineIcon from '../assets/LightbulbOutline';
+import LightbulbFullIcon from '../assets/LightbulbFull';
 
 const styles = {
   root: {
@@ -34,11 +37,24 @@ const styles = {
 class ButtonAppBar extends Component {
 
   componentWillMount() {
-    this.props.getUser()
+    console.log('ButtonAppBar')
+    this.props.dispatch(getUser)
   }
 
+  handleTogglePaletteType = () => {
+    const paletteType = this.props.reduxTheme.paletteType === 'light' ? 'dark' : 'light';
+    document.cookie = `paletteType=${paletteType};path=/;max-age=31536000`;
+
+    this.props.dispatch({
+      type: THEME_CHANGE,
+      payload: {
+        paletteType,
+      },
+    });
+  };
+
   render() {
-    const { classes, title, menuClick, user, logout, onThemeChanged } = this.props;
+    const { classes, title, menuClick, user, reduxTheme, dispatch } = this.props;
 
     const renderSign = classes => (
       <React.Fragment>
@@ -49,8 +65,18 @@ class ButtonAppBar extends Component {
 
     const renderUser = () => (
       <React.Fragment>
-        <IconButton onClick={onThemeChanged}>
-          <InvertColors />
+        <IconButton
+          color="inherit"
+          onClick={this.handleTogglePaletteType}
+          aria-label={'toggleTheme'}
+          data-ga-event-category="AppBar"
+          data-ga-event-action="dark"
+        >
+          {reduxTheme.paletteType === 'light' ? (
+            <LightbulbOutlineIcon />
+          ) : (
+              <LightbulbFullIcon />
+            )}
         </IconButton>
         <Typography variant="h6" color="inherit" >
           {user.username}
@@ -60,9 +86,22 @@ class ButtonAppBar extends Component {
         }}>
           写文章
       </Button>
-        <Button color="inherit" onClick={logout}>
+        <Button color="inherit" onClick={()=>dispatch(logout)}>
           登出
       </Button>
+
+        <IconButton
+          edge="end"
+          component="a"
+          color="inherit"
+          href="https://github.com/ligenhw/goshare-website"
+          aria-label='github'
+          data-ga-event-category="AppBar"
+          data-ga-event-action="github"
+        >
+          <GithubIcon />
+        </IconButton>
+
       </React.Fragment>
     )
 
@@ -90,13 +129,19 @@ class ButtonAppBar extends Component {
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-const mapStateToProps = state => ({ user: state.user })
+const mapStateToProps = state => ({
+  user: state.user,
+  reduxTheme: state.theme,
+})
 
-const mapDispatchToProps = { logout, getUser }
+const mapDispatchToProps = ({
+  logout,
+  getUser,
+
+})
 
 const ButtonAppBarContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(withStyles(styles)(ButtonAppBar))
 
 export default ButtonAppBarContainer;

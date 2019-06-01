@@ -28,7 +28,8 @@ class Layouts extends React.Component {
     }
 
     render() {
-        const { classes, children, onThemeChanged } = this.props
+        const { classes, children } = this.props
+        console.log('debug layout', this.props)
         const buildBy = 'Built with ❤️ by gen'
 
         return (
@@ -36,7 +37,6 @@ class Layouts extends React.Component {
                 <CssBaseline />
                 <AppActionBar
                     menuClick={() => this.setState({ openDrawer: true })}
-                    onThemeChanged={onThemeChanged}
                     title={this.state.title} />
                 <AppDrawer
                     open={this.state.openDrawer}
