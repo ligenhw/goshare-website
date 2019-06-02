@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import MarkdownDocs from './markdown/MarkdownDocs';
 import { connect } from 'react-redux';
 import { queryArticle, deleteArticle } from '../store/actions/articles'
 import { getQueryStringByName } from '../utils/url'
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import MessageIcon from '@material-ui/icons/Message';
-import EyeIcon from '@material-ui/icons/RemoveRedEye';
 import Avatar from './Avatar'
 import deepOrange from '@material-ui/core/colors/deepOrange';
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { history } from '../store/configureStore'
-import CommentList from './comment/CommentList'
+import CommentPage from './comment'
 import Container from '@material-ui/core/Container'
 
 const styles = theme => ({
@@ -50,9 +46,6 @@ const styles = theme => ({
 
 const Meta = ({ classes, meta }) => (
   <React.Fragment>
-    <EyeIcon /> 1
-    <MessageIcon type="message" /> 0
-    <FavoriteIcon type="heart" /> 2
     <Typography display='inline' component="span" className={classes.meta}>
       {new Date(meta.time).toLocaleString()}
     </Typography>
@@ -96,30 +89,24 @@ class Article extends Component {
     return (
       <div >
         <Container maxWidth="md">
-        <p className={classes.title}></p>
-        <Typography variant="h3" align="center">
-          {article.blog.title}
-        </Typography>
-        <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
+          <p className={classes.title}></p>
+          <Typography variant="h3" align="center">
+            {article.blog.title}
+          </Typography>
+          <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />
         </Container>
 
-        {article.blog.content ?
-          <MarkdownDocs
-            markdown={article.blog.content}>
-          </MarkdownDocs> : ''
-        }
+        {article.blog.content ? <MarkdownDocs markdown={article.blog.content}> </MarkdownDocs> : null}
 
-<Container maxWidth="md">
-        <CommentList blogID={article.blog.id} />
-        </Container>
+        {article.blog.id ?
+          <Container maxWidth="lg">
+            <CommentPage blogId={article.blog.id} />
+          </Container> : null}
+
       </div>
     )
   }
 }
-
-Article.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 const mapStateToProps = state => ({
   article: state.article,

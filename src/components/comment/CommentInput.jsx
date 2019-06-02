@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '../Avatar'
-import indigo from '@material-ui/core/colors/indigo';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -15,11 +14,6 @@ const styles = theme => ({
     content: {
         marginTop: theme.spacing.unit * 10,
         marginBottom: theme.spacing.unit * 10,
-    },
-    orangeAvatar: {
-        margin: 10,
-        color: '#fff',
-        backgroundColor: indigo[500],
     },
     button: {
         margin: theme.spacing.unit,
@@ -38,7 +32,9 @@ class CommentInput extends Component {
 
     onPublish = (e) => {
         const content = this.state.content
-        this.props.createComment(this.props.blog.id, content)
+        const { createComment, blog, replyTo, parentId } = this.props
+
+        createComment(blog.id, content, replyTo, parentId)
         this.setState({
             content: ''
         })
