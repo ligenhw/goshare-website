@@ -8,9 +8,6 @@ import MarkdownElement from './MarkdownElement';
 import AppContent from './AppContent'
 import AppTableOfContents from './AppTableOfContents';
 import MarkdownDocsContents from './MarkdownDocsContents';
-import {
-  getHeaders,
-} from '../../utils/parseMarkdown';
 
 const styles = theme => ({
   header: {
@@ -76,7 +73,6 @@ function MarkdownDocs(props) {
 
   let markdown = markdownProp;
 
-  const headers = getHeaders(markdown);
   // eslint-disable-next-line no-underscore-dangle
   global.__MARKED_UNIQUE__ = {};
 

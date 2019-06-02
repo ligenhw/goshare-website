@@ -304,7 +304,6 @@ MarkdownElement.propTypes = {
   className: PropTypes.string,
   dispatch: PropTypes.func,
   text: PropTypes.string,
-  userLanguage: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles, { flip: false })(MarkdownElement)

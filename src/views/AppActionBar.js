@@ -134,12 +134,6 @@ const mapStateToProps = state => ({
   reduxTheme: state.theme,
 })
 
-const mapDispatchToProps = ({
-  logout,
-  getUser,
-
-})
-
 const ButtonAppBarContainer = connect(
   mapStateToProps
 )(withStyles(styles)(ButtonAppBar))
