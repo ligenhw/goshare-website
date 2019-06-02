@@ -108,7 +108,7 @@ export const alipaySignIn = code => dispatch => {
         })
         .then(response => {
             history.push('/')
-            dispatch(getUser())
+            dispatch(getUser)
         }) //TODO: change it
         .catch(error => dispatch(publishMsg('支付宝 登录失败, 请重试')))
 }
