@@ -33,16 +33,14 @@ const Comment = ({ classes, user, comment }) => (
                 comment.subComments ? 
                     comment.subComments.map(sub => {
                         return sub ? (
-                            <div>
-                            <Typography display='block' variant='h5'>{sub.content}</Typography>
-                            </div>
+                            <Typography display='block' variant='h5'>{sub.content}
+                            </Typography>
                         ): ''
                     })
                 : ''
             }
         >
         </ListItemText>
-        
     </ListItem>
 )
 

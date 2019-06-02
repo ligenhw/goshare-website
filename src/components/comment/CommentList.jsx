@@ -24,10 +24,9 @@ class CommentList extends Component {
     }
 
     render() {
-        console.log(this.props)
         const { blogID, comments, users } = this.props
         if (!blogID) {
-            return (<div>没有评论!</div>)
+            return <div></div>
         }
         return (
             <React.Fragment>

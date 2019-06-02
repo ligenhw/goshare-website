@@ -15,7 +15,6 @@ import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { history } from '../store/configureStore'
 import CommentList from './comment/CommentList'
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container'
 
 const styles = theme => ({
@@ -97,7 +96,6 @@ class Article extends Component {
     return (
       <div >
         <Container maxWidth="md">
-        <CssBaseline />
         <p className={classes.title}></p>
         <Typography variant="h3" align="center">
           {article.blog.title}

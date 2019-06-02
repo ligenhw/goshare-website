@@ -17,17 +17,17 @@
 
 之前有过几年移动端 Android开发经验。
 
-## 技术栈相关：
+## 技术栈相关
 
 - 前端：js、react ；
 
-之前工作中有需求, 是基于Angular的项目开发，所以也接触过AngularJs。
+熟悉React Redux 相关框架, 也接触过AngularJs。至于Vue有时间计划学习一下。
 
 目前在工作中, 前端部分使用的是React框架开发。
 
 - 后端：java, kotlin, golang, python, MySql, Redis 等 ；
 
-工作中使用 **Java** , **Kotlin** 作为开发语言。web开发部分主要使用 **Spring** 相关框架，数据层使用 **MyBatis** 。涉及到一些运维工具的开发，也会使用到 **Python** 。
+工作中使用 **Java** , **Kotlin** 作为开发语言。web部分主要使用 **Spring** 相关框架，数据层使用 **MyBatis** 。涉及到一些运维工具的开发，也会使用到 **Python** 。
 
 业余时间，也会使用 **Go**, **Python** 做一些个人项目开发。
 

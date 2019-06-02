@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
 import { lightTheme, darkTheme, setPrismTheme } from '../components/markdown/prism';
 import getTheme from '../store/styles/getTheme'
-import cyan from '@material-ui/core/colors/cyan'
 
 function themeSideEffect(reduxTheme) {
   setPrismTheme(reduxTheme.paletteType === 'light' ? lightTheme : darkTheme);

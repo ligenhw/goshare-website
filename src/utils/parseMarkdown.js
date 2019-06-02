@@ -35,16 +35,10 @@ export function getHeaders(markdown) {
 export const demoRegexp = /^"demo": "(.*)"/;
 
 export function getContents(markdown) {
-  console.log("debug-------")
-  console.log(markdown)
   return markdown
 
     .split(/^{{|}}$/gm) // Split markdown into an array, separating demos
-    .filter(content => {
-      console.log('--------debug------')
-      console.log(content)
-      return !emptyRegExp.test(content)
-    }); // Remove empty lines
+    .filter(content => !emptyRegExp.test(content)) // Remove empty lines
 }
 
 export function getTitle(markdown) {
