@@ -18,20 +18,27 @@ export const queryComments = (blogId) => dispatch => {
     .catch(error => console.error(error))
 }
 
-export const createComment = (blogId, data) => dispatch => {
+export const createComment = (blogId, data, replyTo, parentId) => dispatch => {
     if (data.trim() === '') {
         dispatch(publishMsg("请输入评论内容"))
         return
     }
 
-    fetch('/api/comments/' + blogId, {
+    let body = {
+        blogId,
+        content: data
+    }
+    if (replyTo !== null && parentId !== null) {
+        body.replyTo = replyTo
+        body.parentCommentId = parentId
+    }
+
+    fetch('/api/comments/', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            content: data
-        })
+        body: JSON.stringify(body)
     })
     .then(response => {
         if (!response.ok) {
