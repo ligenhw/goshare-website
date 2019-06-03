@@ -15,24 +15,13 @@ import Container from '@material-ui/core/Container'
 
 const styles = theme => ({
   title: {
-    margin: theme.spacing.unit * 3,
+    margin: theme.spacing(3),
   },
   author: {
-    margin: theme.spacing.unit * 2,
-  },
-  markdown: {
-    width: 'auto',
-    marginTop: theme.spacing.unit * 100,
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-  },
-  content: {
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-
+    margin: theme.spacing(2),
   },
   meta: {
-    margin: theme.spacing.unit * 2,
+    margin: theme.spacing(2),
   },
   orangeAvatar: {
     margin: 10,
@@ -85,6 +74,11 @@ class Article extends Component {
   render() {
     const { classes, article, user, deleteArticle } = this.props
     const edite = user !== null && user.id === article.user.id
+
+    // if (!article.blog.id) {
+    //   return null
+    // }
+    console.log('article debug', article.blog)
 
     return (
       <div >

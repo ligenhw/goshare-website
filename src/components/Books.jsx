@@ -15,14 +15,14 @@ import { connect } from 'react-redux';
 const styles = theme => ({
   cardGrid: {
     width: '600px',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(1100 + theme.spacing(3 * 2))]: {
       width: 1100,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-    padding: theme.spacing.unit * 8,
+    padding: theme.spacing(8),
   },
   card: {
     display: 'flex',
@@ -32,12 +32,12 @@ const styles = theme => ({
     flexDirection: 'column',
   },
   cardMedia: {
-    margin: theme.spacing.unit * 2,
+    margin: theme.spacing(2),
     height: '310px',
     width: '250px',
   },
   cardContent: {
-    marginLeft: theme.spacing.unit * 5,
+    marginLeft: theme.spacing(5),
     width: '400px',
   },
   action: {
@@ -49,7 +49,7 @@ const cards = [
   {
     img: "//img10.360buyimg.com/n1/jfs/t28996/317/185501197/59681/3c7e1ade/5bea770cNce1ad221.jpg",
     title: "Go 语言实战",
-    subTitle: `  作为学习Go语言的入门书籍，非常适合Go语言的初学者。起初，想学习Go语言，就是读的这本书，看完之后非常有帮助。整体上内容不多，但是包含了入门需要的重点知识。`,
+    subTitle: `  学习Go语言的入门书籍，适合Go语言的初学者。起初，想学习Go语言，就是读的这本书，看完之后非常有帮助。整体上内容不多，但是包含了入门需要的重点知识。`,
     href: "https://pan.baidu.com/s/1iLNSfPR_qiq9XAw4FxysjA",
     code: "7i4p",
   },

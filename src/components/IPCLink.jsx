@@ -13,7 +13,7 @@ const styles = theme => ({
         width: '20px',
     },
     content: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         height: '20px',
         lineHeight: '20px',
         color: '#939393'
