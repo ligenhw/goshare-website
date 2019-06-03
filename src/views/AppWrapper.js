@@ -7,7 +7,6 @@ import getTheme from '../store/styles/getTheme'
 
 function themeSideEffect(reduxTheme) {
   setPrismTheme(reduxTheme.paletteType === 'light' ? lightTheme : darkTheme);
-  document.body.dir = reduxTheme.direction;
 }
 
 class AppWrapper extends React.Component {
