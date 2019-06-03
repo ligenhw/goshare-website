@@ -11,7 +11,7 @@ import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-tsx';
 
-let styleNode;
+let styleNode = {};
 let lightTheme;
 let darkTheme;
 
