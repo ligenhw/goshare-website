@@ -75,11 +75,6 @@ class Article extends Component {
     const { classes, article, user, deleteArticle } = this.props
     const edite = user !== null && user.id === article.user.id
 
-    // if (!article.blog.id) {
-    //   return null
-    // }
-    console.log('article debug', article.blog)
-
     return (
       <div >
         <Container maxWidth="md">
