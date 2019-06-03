@@ -6,8 +6,8 @@ import { queryArticle } from '../store/actions/articles'
 
 const styles = theme => ({
     title: {
-      marginLeft: theme.spacing.unit * 3,
-      marginRight: theme.spacing.unit * 3,
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
     }
 });
 

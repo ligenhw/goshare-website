@@ -9,7 +9,7 @@ import GithubIcon from '../../assets/Github'
 
 const styles = theme => ({
     title: {
-        marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing(3),
     },
     icon: {
         height: '32px',

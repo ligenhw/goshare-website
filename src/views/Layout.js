@@ -11,10 +11,10 @@ import IPCLink from '../components/IPCLink';
 
 const styles = theme => ({
     footer: {
-        paddingTop: theme.spacing.unit * 4,
-        paddingBottom: theme.spacing.unit * 10,
+        paddingTop: theme.spacing(4),
+        paddingBottom: theme.spacing(10),
         width: 'auto',
-        marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing(3),
         color: theme.palette.common.white,
         backgroundColor: theme.palette.grey[900],
     },

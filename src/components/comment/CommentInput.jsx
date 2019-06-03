@@ -12,11 +12,11 @@ import { createComment } from '../../store/actions/comments'
 
 const styles = theme => ({
     content: {
-        marginTop: theme.spacing.unit * 10,
-        marginBottom: theme.spacing.unit * 10,
+        marginTop: theme.spacing(10),
+        marginBottom: theme.spacing(10),
     },
     button: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
     },
 })
 

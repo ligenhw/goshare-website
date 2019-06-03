@@ -17,8 +17,8 @@ const styles = theme => ({
         height: '100vh',
     },
     textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
     },
     dense: {
         marginTop: 16,
@@ -32,18 +32,18 @@ const styles = theme => ({
         height: '100%',
     },
     leftIcon: {
-        marginRight: theme.spacing.unit,
+        marginRight: theme.spacing(1),
     },
     rightIcon: {
-        marginLeft: theme.spacing.unit,
+        marginLeft: theme.spacing(1),
     },
     iconSmall: {
         fontSize: 20,
     },
     fab: {
         position: 'absolute',
-        bottom: theme.spacing.unit * 2,
-        right: theme.spacing.unit * 2,
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
     },
 });
 
