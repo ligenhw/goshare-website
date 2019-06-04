@@ -86,22 +86,9 @@ class ButtonAppBar extends Component {
         }}>
           写文章
       </Button>
-        <Button color="inherit" onClick={()=>dispatch(logout)}>
+        <Button color="inherit" onClick={() => dispatch(logout)}>
           登出
       </Button>
-
-        <IconButton
-          edge="end"
-          component="a"
-          color="inherit"
-          href="https://github.com/ligenhw/goshare-website"
-          aria-label='github'
-          data-ga-event-category="AppBar"
-          data-ga-event-action="github"
-        >
-          <GithubIcon />
-        </IconButton>
-
       </React.Fragment>
     )
 
@@ -119,6 +106,17 @@ class ButtonAppBar extends Component {
             {
               user === null ? renderSign(classes) : renderUser()
             }
+            <IconButton
+              edge="end"
+              component="a"
+              color="inherit"
+              href="https://github.com/ligenhw/goshare-website"
+              aria-label='github'
+              data-ga-event-category="AppBar"
+              data-ga-event-action="github"
+            >
+              <GithubIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
       </div>
