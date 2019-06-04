@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         // justifyContent: 'space-between', //将末尾的空白 平均分到内容间隔中。
     },
     item: {
-        width: '21%',
+        width: '21%',                 // 使用百分比而不是数值，可是最后元素左对齐
         flexGrow: 0,
         margin: theme.spacing(2),
         height: '30px',
