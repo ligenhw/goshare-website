@@ -1,15 +1,19 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getTags } from '../../store/actions/tag'
+import Tags from './Tags'
 
-const useStyles = makeStyles(theme => ({
+export default connect(
+    state => ({
+        tags: state.tags
+    })
+) (({ tags, dispatch }) => {
 
-}));
-
-export default ({ post }) => {
-
-    const classes = useStyles();
+    useEffect(() => {
+        dispatch(getTags)
+    }, [dispatch])
 
     return (
-        <div className={classes}></div>
+        <Tags tags={tags}/>
     )
-}
+})

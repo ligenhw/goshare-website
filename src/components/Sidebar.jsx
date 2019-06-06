@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import SocialLinks from './SocialLinks'
+import Tags from './tag'
 
 const useStyles = makeStyles(theme => ({
     sidebarAboutBox: {
@@ -37,12 +38,15 @@ export default () => {
                     致力于分享web开发中的流行技术, 目前本站在持续开发优化中...
                 </Typography>
             </Paper>
+            <div className={classes.sidebarSection}>
+                <Tags />
+            </div>
             <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
                 归档 
                 <span role="img" aria-label="achieve">
                   📚
                 </span>
-              </Typography>
+            </Typography>
             {
                 archives.map(archive => (
                     <Link display="block" variant="body1" href='/achive' key={archive}>
