@@ -13,5 +13,10 @@ export default [
         "name": "goshare",
         "url": "https://github.com/ligenhw/goshare",
         "img": "https://avatars3.githubusercontent.com/u/7815460?s=460&v=4"
+    },
+    {
+        "name": "Szx's Blog",
+        "url": "https://songzixian.com/",
+        "img": "https://cdn.sinaimg.cn.52ecy.cn/large/005BYqpgly1g2wgcd57ctj30hs0hsjsc.jpg"
     }
 ]
