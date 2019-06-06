@@ -22,13 +22,13 @@ export default connect(
     
     return (
         <React.Fragment>
-            <CommentInput />
+            <CommentInput blogId={blogId} />
             <Typography variant="h5" gutterBottom>
                 {other.comments.length} 条评论
             </Typography>
             <Divider />
 
-            <CommentList {...other}/>
+            <CommentList blogId={blogId} {...other}/>
         </React.Fragment>
     )
 })

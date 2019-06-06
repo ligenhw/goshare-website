@@ -32,9 +32,9 @@ class CommentInput extends Component {
 
     onPublish = (e) => {
         const content = this.state.content
-        const { createComment, blog, replyTo, parentId } = this.props
+        const { createComment, blogId, replyTo, parentId } = this.props
 
-        createComment(blog.id, content, replyTo, parentId)
+        createComment(blogId, content, replyTo, parentId)
         this.setState({
             content: ''
         })
@@ -91,7 +91,6 @@ CommentInput.propTypes = {
 
 const mapStateToProps = state => ({
     user: state.user,
-    blog: state.article.blog,
 })
 
 const mapDispatchToProps = { createComment }
