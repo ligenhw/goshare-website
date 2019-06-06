@@ -46,7 +46,7 @@ const Sub = ({ sub, getUserById, onReplyAction }) => {
     )
 }
 
-export default ({ getUserById, comment }) => {
+export default ({ blogId, getUserById, comment }) => {
 
     const user = getUserById(comment.parentUserId)
 
@@ -84,7 +84,7 @@ export default ({ getUserById, comment }) => {
                 : null}
             <Divider />
 
-            {reply ? <CommentInput replyTo={reply} parentId={comment.parentId}/> : null}
+            {reply ? <CommentInput blogId={blogId} replyTo={reply} parentId={comment.parentId}/> : null}
         </div>
     )
 }

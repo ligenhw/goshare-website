@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MarkdownDocs from '../markdown/MarkdownDocs'
 import md from './about.md'
+import CommentPage from '../comment'
+import Container from '@material-ui/core/Container'
 
 export default () => {
     const [data, setData] = useState('')
@@ -17,6 +19,9 @@ export default () => {
                 <MarkdownDocs
                     markdown={data}>
                 </MarkdownDocs> : ''}
+            <Container maxWidth="lg">
+                <CommentPage blogId={-1} />
+            </Container>
         </div>
     )
 }
