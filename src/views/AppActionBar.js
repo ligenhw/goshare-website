@@ -111,6 +111,7 @@ class ButtonAppBar extends Component {
               component="a"
               color="inherit"
               href="https://github.com/ligenhw/goshare-website"
+              target='_blank'
               aria-label='github'
               data-ga-event-category="AppBar"
               data-ga-event-action="github"
