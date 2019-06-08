@@ -34,7 +34,7 @@ export default () => {
         </Typography>
         {
             social.map(network => (
-                <Link display="block" variant="body1" href={network.link} key={network.link}>
+                <Link display="block" target='_blank' variant="body1" href={network.link} key={network.link}>
                     {network.name}
                 </Link>
             ))

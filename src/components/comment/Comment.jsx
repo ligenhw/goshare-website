@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
             }`,
         padding: theme.spacing(0.5, 0, 0.5, 3),
         margin: theme.spacing(1,0,1,2)
+    },
+    content: {
+        overflow: 'scroll',
     }
 }));
 
@@ -33,7 +36,7 @@ const Sub = ({ sub, getUserById, onReplyAction }) => {
                 {' @ '}
             {getUserById(sub.replyTo).username} : 
             </Typography>
-            <Typography variant='h6' component='pre' gutterBottom>{sub.content}
+            <Typography variant='h6' component='pre' className={classes.content} gutterBottom>{sub.content}
             </Typography>
             <Typography variant='body2' display='inline'>{new Date(sub.time).toLocaleString()}
             </Typography>
@@ -64,7 +67,7 @@ export default ({ blogId, getUserById, comment }) => {
                     secondary={new Date(comment.parentTime).toLocaleString()}
                 />
             </Grid>
-            <Typography variant='h6' component='pre'>
+            <Typography variant='h6' component='pre' className={classes.content}>
                 {comment.parentContent}
             </Typography>
 
