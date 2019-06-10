@@ -43,5 +43,10 @@ export default [
         "name": "低调小熊猫",
         "url": "https://aodeng.cc",
         "img": "https://avatars1.githubusercontent.com/u/35907367?v=4"
-    }
+    },
+    {
+        "name": "CrazyCodes",
+        "url": "https://blog.fastrun.cn",
+        "img": "https://avatars3.githubusercontent.com/u/9151227?v=4"
+    },
 ]

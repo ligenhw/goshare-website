@@ -23,7 +23,8 @@ const styles = theme => ({
 class CommentInput extends Component {
 
     state = {
-        content: ''
+        content: '',
+        redirect: false,
     }
 
     onChange = (e) => this.setState({
@@ -42,6 +43,7 @@ class CommentInput extends Component {
 
     render() {
         const { classes, user } = this.props
+
         return (
             <Grid container className={classes.content}>
                 {user ? <Avatar user={user} /> : ''}
@@ -71,12 +73,14 @@ class CommentInput extends Component {
                         </Grid>
                         :
                         <Grid container justify='center' alignItems='center'>
-                            <Button variant="contained" color="secondary" className={classes.button} onClick={e => history.push('/login')}>
+                            <Button variant="contained" color="secondary" className={classes.button} onClick={e => history.push('/login', {
+                                from: history.location.pathname,
+                            })}>
                                 登录
                             </Button>
                             <Typography variant="h6" display='inline'>
                                 后发表评论
-                        </Typography>
+                            </Typography>
                         </Grid>
                     }
                 </Grid>

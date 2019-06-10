@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container'
 
 const styles = theme => ({
   title: {
+    fontSize: '4rem',
     margin: theme.spacing(3),
   },
   author: {
@@ -78,8 +79,8 @@ class Article extends Component {
     return (
       <div >
         <Container maxWidth="md">
-          <p className={classes.title}></p>
-          <Typography variant="h3" align="center">
+
+          <Typography variant="h1" align="center" className={classes.title}>
             {article.blog.title}
           </Typography>
           <Author classes={classes} article={article} edite={edite} deleteArticle={deleteArticle} />

@@ -8,6 +8,8 @@ import Paper from '@material-ui/core/Paper';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom"
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -38,11 +40,20 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default ({ onClick, title, children }) => {
+export default connect(state => ({
+    user: state.user,
+}))(({ onClick, title, children, location, user }) => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const classes = useStyles();
+
+    const { from } = location.state || { from: { pathname: "/" } }
+
+    console.log('sign from : ', location)
+    if (user !== null) {
+        return <Redirect to={from} />
+    }
 
     return (
         <Grid container component="main" className={classes.root}>
@@ -107,5 +118,4 @@ export default ({ onClick, title, children }) => {
             </Grid>
         </Grid>
     );
-}
-
+})
