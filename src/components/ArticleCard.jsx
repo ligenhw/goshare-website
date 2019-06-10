@@ -25,7 +25,7 @@ export default ({ post }) => {
   const classes = useStyles();
 
   return (
-    <CardActionArea component="a" href={`/articleDetail?article_id=${post.id}`}>
+    <CardActionArea component="a" href={`/article/${post.id}`}>
       <Card className={classes.card}>
         <div className={classes.cardDetails}>
           <CardContent>

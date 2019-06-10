@@ -33,5 +33,15 @@ export default [
         "name": "曾中杰's world",
         "url": "https://www.zengzhongjie.com",
         "img": "https://www.zengzhongjie.com/images/thelittleprince.jpg"
+    },
+    {
+        "name": "Ryan0up'S Blog",
+        "url": "https://ryanc.cc",
+        "img": "https://q1.qlogo.cn/g?b=qq&nk=709831589&s=5"
+    },
+    {
+        "name": "低调小熊猫",
+        "url": "https://aodeng.cc",
+        "img": "https://avatars1.githubusercontent.com/u/35907367?v=4"
     }
 ]

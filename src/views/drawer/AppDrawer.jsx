@@ -9,8 +9,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail'
-import { mainPages } from '../router/index'
-import { history } from '../store/configureStore'
+import { mainPages, profilePages } from '../../router/index'
+import { history } from '../../store/configureStore'
 
 const styles = {
   list: {
@@ -21,10 +21,26 @@ const styles = {
   },
 };
 
+const ProfilePages = ({onMenuClick}) => (
+  <List>
+          { profilePages.map((page, index) => (
+            <ListItem button key={index} onClick={ e => {
+              onMenuClick(page.title)
+              history.push(page.path)
+            }}>
+              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemText primary={page.title} />
+            </ListItem>
+          ))}
+        </List>
+)
+
 class AppDrawer extends React.Component {
 
   render() {
-    const { classes, open, onClose, onMenuClick } = this.props;
+    const { classes, user, open, onClose, onMenuClick } = this.props;
+
+    console.log('app drawer',user)
 
     const sideList = (
       <div >
@@ -40,14 +56,7 @@ class AppDrawer extends React.Component {
           ))}
         </List>
         <Divider />
-        <List>
-          {['测试',].map((text, index) => (
-            <ListItem button key={text} o>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        { user === null ? null : <ProfilePages onMenuClick={onMenuClick}/>}
       </div>
     );
 

@@ -70,7 +70,7 @@ export const modifyArticle = article => dispatch => {
         }
         return response
     })
-    .then(json => history.push('/articleDetail?article_id=' + article.id)) //TODO: change it
+    .then(json => history.push('/article/' + article.id)) //TODO: change it
     .catch(error => console.error(error))
 }
 

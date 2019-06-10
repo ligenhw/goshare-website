@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppActionBar from "./AppActionBar";
 import Typography from '@material-ui/core/Typography';
-import AppDrawer from './AppDrawer'
+import AppDrawer from './drawer'
 import SimpleSnackbar from './SimpleSnackbar'
 import Paper from '@material-ui/core/Paper';
 import IPCLink from '../components/IPCLink';
@@ -14,7 +14,6 @@ const styles = theme => ({
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(10),
         width: 'auto',
-        marginTop: theme.spacing(3),
         color: theme.palette.common.white,
         backgroundColor: theme.palette.grey[900],
     },
