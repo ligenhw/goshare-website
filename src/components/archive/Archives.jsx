@@ -30,7 +30,7 @@ export default ({ archives }) => {
                                     </Typography>
                                     <Divider />
                                     <ListItem >
-                                        <Link href={`/articleDetail?article_id=${a.id}`}>{dayAndTitle}</Link>
+                                        <Link href={`/article/${a.id}`}>{dayAndTitle}</Link>
                                     </ListItem>
                                 </div>
                             )
@@ -38,7 +38,7 @@ export default ({ archives }) => {
 
                         return (
                             <ListItem >
-                                <Link key={a.id} display='block' href={`/articleDetail?article_id=${a.id}`}>
+                                <Link key={a.id} display='block' href={`/article/${a.id}`}>
                                     {date.getDate() + '日 ' + a.title}
                                 </Link>
                             </ListItem>

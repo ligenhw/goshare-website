@@ -39,6 +39,7 @@ export const signIn = user => dispatch => {
         })
         .then(response => {
             history.push('/')
+            console.log('push log in ')
             dispatch(getUser)
         }) //TODO: change it
         .catch(error => dispatch(publishMsg('用户名或密码错误')))
@@ -107,7 +108,7 @@ export const alipaySignIn = code => dispatch => {
             return response
         })
         .then(response => {
-            history.push('/')
+            history.push('/profile')
             dispatch(getUser)
         }) //TODO: change it
         .catch(error => dispatch(publishMsg('支付宝 登录失败, 请重试')))

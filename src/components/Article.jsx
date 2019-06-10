@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import MarkdownDocs from './markdown/MarkdownDocs';
 import { connect } from 'react-redux';
 import { queryArticle, deleteArticle } from '../store/actions/articles'
-import { getQueryStringByName } from '../utils/url'
 import Avatar from './Avatar'
 import deepOrange from '@material-ui/core/colors/deepOrange';
 import { Button } from '@material-ui/core';
@@ -51,7 +50,7 @@ const Author = ({ classes, article, edite, deleteArticle }) => (
       </Typography>
       <Meta classes={classes} meta={article.blog} />
     </Grid>
-    {edite ?
+    { edite ?
       (<Grid container xs justify='flex-end'>
         <Button className={classes.edite} onClick={event => history.push('/editor?article_id=' + article.blog.id)}>
           编辑
@@ -68,10 +67,11 @@ class Article extends Component {
 
   componentWillMount() {
     window.scrollTo(0, 0)
-    this.props.queryArticle(getQueryStringByName('article_id'))
+    this.props.queryArticle(this.props.match.params.id)
   }
 
   render() {
+    
     const { classes, article, user, deleteArticle } = this.props
     const edite = user !== null && user.id === article.user.id
 

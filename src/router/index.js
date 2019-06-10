@@ -78,8 +78,22 @@ export const mainPages = [
       delay: 300,
     }),
     title: '关于'
-  },
+  }
 ];
+
+export const profilePages = [
+  {
+    name: 'profile',
+    path: '/profile',
+    exact: true,
+    component: Loadable({
+      loader: () => import('../components/profile'),
+      loading: Loading,
+      delay: 300,
+    }),
+    title: '我的'
+  },
+]
 
 const subPages = [
   {
@@ -103,8 +117,8 @@ const subPages = [
     }),
   },
   {
-    name: 'articleDetail',
-    path: '/articleDetail',
+    name: 'article',
+    path: '/article/:id',
     exact: true,
     component: Loadable({
       loader: () => import('../components/Article'),
@@ -134,4 +148,4 @@ const subPages = [
   },
 ]
 
-export default mainPages.concat(subPages)
+export default mainPages.concat(subPages).concat(profilePages)

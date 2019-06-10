@@ -6,6 +6,7 @@ import Layouts from './views/Layout'
 import configureStore, { history } from './store/configureStore'
 import { Provider } from 'react-redux';
 import AppWrapper from './views/AppWrapper.js';
+import NoMatch from './views/NoMatch.jsx';
 
 const store = configureStore()
 
@@ -26,6 +27,7 @@ class App extends Component {
                     path={r.path}
                   />
                 ))}
+                <Route component={NoMatch} />
               </Switch>
             </Layouts>
           </AppWrapper>
