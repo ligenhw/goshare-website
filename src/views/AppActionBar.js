@@ -59,7 +59,15 @@ class ButtonAppBar extends Component {
     const renderSign = classes => (
       <React.Fragment>
         <Link color='inherit' className={classes.button} component={RouterLink} to={'/signup'}>注册</Link>
-        <Link color='inherit' className={classes.button} component={RouterLink} to={'/login'}>登录</Link>
+        <Link
+          className={classes.button} component={RouterLink}
+          color='inherit'
+          to={{
+            pathname: "/login",
+            state: { from: history.location.pathname, }
+          }}>
+          登录
+        </Link>
       </React.Fragment>
     )
 

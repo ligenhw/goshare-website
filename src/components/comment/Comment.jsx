@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1,0,1,2)
     },
     content: {
-        overflow: 'scroll',
+        overflow: 'auto',
     }
 }));
 

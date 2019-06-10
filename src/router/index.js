@@ -78,7 +78,7 @@ export const mainPages = [
       delay: 300,
     }),
     title: '关于'
-  }
+  },
 ];
 
 export const profilePages = [
