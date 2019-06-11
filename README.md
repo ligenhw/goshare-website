@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/ligenhw/goshare-website.svg?branch=master)](https://travis-ci.org/ligenhw/goshare-website)
 [![codecov](https://codecov.io/gh/ligenhw/goshare-website/branch/master/graph/badge.svg)](https://codecov.io/gh/ligenhw/goshare-website)
 [![codebeat badge](https://codebeat.co/badges/d4eed87f-188e-414e-ab63-169af4583092)](https://codebeat.co/projects/github-com-ligenhw-goshare-website-master)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website?ref=badge_shield)
 
 后端项目: https://github.com/ligenhw/goshare
 
@@ -84,3 +84,7 @@ http://wiki.connect.qq.com/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C_oauth2-0
 docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website?ref=badge_large)
