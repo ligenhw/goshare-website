@@ -49,4 +49,9 @@ export default [
         "url": "https://blog.fastrun.cn",
         "img": "https://avatars3.githubusercontent.com/u/9151227?v=4"
     },
+    {
+        "name": "爱皮哇",
+        "url": "https://ipwa.cn/",
+        "img": "https://secure.gravatar.com/avatar/e2e253a13204e0d2080166873c7fb37c?s=100&d=mm"
+    },
 ]

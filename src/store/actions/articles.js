@@ -1,4 +1,4 @@
-import { LIST_ARTICLES, QUERY_ARTICLE } from '../types.js';
+import { LIST_ARTICLES, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
 import { history } from '../configureStore'
 
 const listArticles = (data) => ({
@@ -16,6 +16,24 @@ export const queryAllArticles = () => dispatch => {
         })
         .then(json => {
             dispatch(listArticles(json))})
+        .catch(error => console.error(error))
+}
+
+const listProfileArticles = data => ({
+    type: GET_PROFILE_ARTICLES,
+    payload: data,
+})
+
+export const queryArticlesByUid = userId => dispatch => {
+    fetch('/api/blog/?userId=' + userId)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error, status = " + response.status);
+            }
+            return response.json()
+        })
+        .then(json => {
+            dispatch(listProfileArticles(json))})
         .catch(error => console.error(error))
 }
 

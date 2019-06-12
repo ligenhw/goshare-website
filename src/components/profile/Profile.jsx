@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import { Avatar, Typography, Tabs, Tab } from '@material-ui/core';
 import { history } from '../../store/configureStore'
-import ArticleList from '../articlelist'
+import Articles from './Articles'
 
 const useStyles = makeStyles(theme => ({
   avatar: {
@@ -32,8 +32,6 @@ function ProfilePage({ user }) {
   const [tabIndex, setTabIndex] = React.useState(0);
   const classes = useStyles();
   const upSm = true
-
-  console.log('profile page ', user)
 
   if (user === null) {
     history.push('/')
@@ -101,7 +99,7 @@ function ProfilePage({ user }) {
           <Tab label="留言 " />
           <Tab label="喜欢 ❤️"/>
         </Tabs>
-        <ArticleList />
+        <Articles userId={user.id}/>
       </Box>
     </React.Fragment>
   );
