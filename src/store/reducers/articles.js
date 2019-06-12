@@ -1,14 +1,23 @@
-import { LIST_ARTICLES, QUERY_ARTICLE } from '../types.js';
+import { LIST_ARTICLES, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
 
 export const articles = (state=[], action) => {
     switch(action.type) {
         case LIST_ARTICLES:
           const lists = action.payload.map(a=> prepareArticle(a))
-          console.log('debug', lists)
           return lists
         default:
           return state
     }
+}
+
+export const profileArticles = (state=[], action) => {
+  switch(action.type) {
+      case GET_PROFILE_ARTICLES:
+        const lists = action.payload.map(a=> prepareArticle(a))
+        return lists
+      default:
+        return state
+  }
 }
 
 export const article = (state={
