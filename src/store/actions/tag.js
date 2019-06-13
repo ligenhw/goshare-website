@@ -6,9 +6,7 @@ const tags = (data) => ({
 })
 
 export const getTags = dispatch => {
-    fetch('/api/tag/', {
-        credentials: 'same-origin'
-    })
+    fetch('/api/tag')
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);
