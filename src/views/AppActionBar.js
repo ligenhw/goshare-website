@@ -16,6 +16,7 @@ import GithubIcon from '../assets/Github'
 import { THEME_CHANGE } from '../store/types'
 import LightbulbOutlineIcon from '../assets/LightbulbOutline';
 import LightbulbFullIcon from '../assets/LightbulbFull';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const styles = {
   root: {
@@ -73,19 +74,7 @@ class ButtonAppBar extends Component {
 
     const renderUser = () => (
       <React.Fragment>
-        <IconButton
-          color="inherit"
-          onClick={this.handleTogglePaletteType}
-          aria-label={'toggleTheme'}
-          data-ga-event-category="AppBar"
-          data-ga-event-action="dark"
-        >
-          {reduxTheme.paletteType === 'light' ? (
-            <LightbulbOutlineIcon />
-          ) : (
-              <LightbulbFullIcon />
-            )}
-        </IconButton>
+
         <Typography variant="h6" color="inherit" >
           {user.username}
         </Typography>
@@ -114,18 +103,35 @@ class ButtonAppBar extends Component {
             {
               user === null ? renderSign(classes) : renderUser()
             }
-            <IconButton
-              edge="end"
-              component="a"
-              color="inherit"
-              href="https://github.com/ligenhw/goshare-website"
-              target='_blank'
-              aria-label='github'
-              data-ga-event-category="AppBar"
-              data-ga-event-action="github"
-            >
-              <GithubIcon />
-            </IconButton>
+            <Tooltip title='改变主题' enterDelay={300}>
+              <IconButton
+                color="inherit"
+                onClick={this.handleTogglePaletteType}
+                aria-label={'toggleTheme'}
+                data-ga-event-category="AppBar"
+                data-ga-event-action="dark"
+              >
+                {reduxTheme.paletteType === 'light' ? (
+                  <LightbulbOutlineIcon />
+                ) : (
+                    <LightbulbFullIcon />
+                  )}
+              </IconButton>
+            </Tooltip>
+            <Tooltip title='github代码仓' enterDelay={300}>
+              <IconButton
+                edge="end"
+                component="a"
+                color="inherit"
+                href="https://github.com/ligenhw/goshare-website"
+                target='_blank'
+                aria-label='github'
+                data-ga-event-category="AppBar"
+                data-ga-event-action="github"
+              >
+                <GithubIcon />
+              </IconButton>
+            </Tooltip>
           </Toolbar>
         </AppBar>
       </div>

@@ -7,7 +7,7 @@ const comments = (data) => ({
 })
 
 export const queryComments = (blogId) => dispatch => {
-    fetch("/api/comments/" + blogId)
+    fetch("/api/comment/" + blogId)
     .then(response => {
         if (!response.ok) {
             throw new Error("HTTP error, status = " + response.status);
@@ -33,7 +33,7 @@ export const createComment = (blogId, data, replyTo, parentId) => dispatch => {
         body.parentCommentId = parentId
     }
 
-    fetch('/api/comments/', {
+    fetch('/api/comment', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
