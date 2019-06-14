@@ -3,7 +3,7 @@ import { GET_USER } from "../types"
 import { publishMsg } from './msg'
 
 export const signUp = user => dispatch => {
-    fetch('/api/user/', {
+    fetch('/api/user', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ export const signUp = user => dispatch => {
 }
 
 export const signIn = user => dispatch => {
-    fetch('/api/login/', {
+    fetch('/api/login', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export const signIn = user => dispatch => {
 }
 
 export const ghSignIn = code => dispatch => {
-    fetch('/api/ghlogin/', {
+    fetch('/api/ghlogin', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ export const ghSignIn = code => dispatch => {
 }
 
 export const qqSignIn = code => dispatch => {
-    fetch('/api/qqlogin/', {
+    fetch('/api/qqlogin', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ export const qqSignIn = code => dispatch => {
 }
 
 export const alipaySignIn = code => dispatch => {
-    fetch('/api/alipaylogin/', {
+    fetch('/api/alipaylogin', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ export const alipaySignIn = code => dispatch => {
 }
 
 export const logout = dispatch => {
-    fetch('/api/logout/', {
+    fetch('/api/logout', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -132,9 +132,7 @@ const user = (data) => ({
 })
 
 export const getUser = dispatch => {
-    fetch('/api/user/', {
-        credentials: 'same-origin'
-    })
+    fetch('/api/user')
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);

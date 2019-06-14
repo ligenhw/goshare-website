@@ -7,7 +7,7 @@ const listArticles = (data) => ({
 })
 
 export const queryAllArticles = () => dispatch => {
-    fetch('/api/blog/')
+    fetch('/api/article')
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);
@@ -25,7 +25,7 @@ const listProfileArticles = data => ({
 })
 
 export const queryArticlesByUid = userId => dispatch => {
-    fetch('/api/blog/?userId=' + userId)
+    fetch('/api/article?userId=' + userId)
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);
@@ -43,7 +43,7 @@ const article = (data) => ({
 })
 
 export const queryArticle = (id) => dispatch => {
-    fetch('/api/blog/' + id)
+    fetch('/api/article/' + id)
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);
@@ -56,7 +56,7 @@ export const queryArticle = (id) => dispatch => {
 
 
 export const createArticle = article => dispatch => {
-    fetch('/api/blog/', {
+    fetch('/api/article', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ export const createArticle = article => dispatch => {
 }
 
 export const modifyArticle = article => dispatch => {
-    fetch('/api/blog/' + article.id, {
+    fetch('/api/article', {
         method: 'put',
         headers: {
             'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ export const modifyArticle = article => dispatch => {
 }
 
 export const deleteArticle = id => dispatch => {
-    fetch('/api/blog/' + id, {
+    fetch('/api/article/' + id, {
         method: 'delete',
         headers: {
             'Content-Type': 'application/json'
