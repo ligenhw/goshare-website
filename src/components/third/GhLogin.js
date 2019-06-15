@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import { getQueryStringByName } from '../../utils/url'
 import { ghSignIn } from '../../store/actions/user'
 import GithubIcon from '../../assets/Github'
+import config from '../../config'
 
 const styles = theme => ({
     title: {
@@ -22,7 +23,9 @@ const styles = theme => ({
     }
 });
 
-const loginUrl = "https://github.com/login/oauth/authorize?client_id=bb7525d0a2624d0d43f5&scope=user:email&state=gh"
+const client_id = config.gh_client_id
+
+const loginUrl = "https://github.com/login/oauth/authorize?client_id=" + client_id + "&scope=user:email&state=gh"
 
 class GhLogin extends Component {
 
