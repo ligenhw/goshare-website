@@ -10,6 +10,9 @@ import Paper from '@material-ui/core/Paper';
 import IPCLink from '../components/IPCLink';
 
 const styles = theme => ({
+    content: {
+        minHeight: '80vh',
+    },
     footer: {
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(10),
@@ -43,7 +46,9 @@ class Layouts extends React.Component {
                     onMenuClick={ (title) => this.setState({ title })}
                 />
                 <SimpleSnackbar />
-                {children}
+                <div className={classes.content}>
+                    {children}
+                </div>
                 {/* Footer */}
                 <Paper className={classes.footer} >
                     <Typography variant="h6" align="center" gutterBottom color="inherit">

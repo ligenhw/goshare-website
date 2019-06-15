@@ -20,7 +20,7 @@ export const mainPages = [
     component: Loadable({
       loader: () => import('../components/home/IndexContainer'),
       loading: Loading,
-      delay: 300,
+      delay: 3000,
     }),
     title: '文章'
   },

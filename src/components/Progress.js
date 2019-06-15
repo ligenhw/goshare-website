@@ -1,27 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = {
-  root: {
-    flexGrow: 1,
+const useStyles = makeStyles(theme => ({
+  progress: {
+    marginTop: theme.spacing(20),
+    textAlign: 'center'
   },
-};
 
-function LinearQuery(props) {
-  const { classes } = props;
+}));
+
+export default function CircularIndeterminate() {
+  const classes = useStyles();
+
   return (
-    <div className={classes.root}>
-      {/* <LinearProgress variant="query" />
-      <br /> */}
-      <LinearProgress color="secondary" variant="query" />
+    <div className={classes.progress}>
+      <CircularProgress  />
     </div>
   );
 }
-
-LinearQuery.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(LinearQuery);
