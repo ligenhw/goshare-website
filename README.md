@@ -1,6 +1,7 @@
-# goshare-website
+<h1 align="center"><a href="https://www.bestlang.cn" target="_blank">goshare-website</a></h1>
 
-基于 React + Material-ui 实现的 博客前端 
+> 基于 React + Material-ui 实现的 博客前端
+
 
 [![Build Status](https://travis-ci.org/ligenhw/goshare-website.svg?branch=master)](https://travis-ci.org/ligenhw/goshare-website)
 [![codecov](https://codecov.io/gh/ligenhw/goshare-website/branch/master/graph/badge.svg)](https://codecov.io/gh/ligenhw/goshare-website)
@@ -9,82 +10,100 @@
 
 后端项目: https://github.com/ligenhw/goshare
 
-> 项目参考 以下开源库 及 文档:
 
-## react
+## Contents 目录
+
+- [Introduction 介绍 ✨](#introduction-介绍-)
+- [功能 🔥](#功能-)
+- [线上效果 ✨](#线上效果-)
+- [Usage 🚀](#Usage-)
+- [技术栈 ](#技术栈)
+- [部署 📦](#部署-)
+- [Show your support ⭐️](#Show-your-support-)
+- [License 📝](#License-)
+
+
+## Introduction 介绍 ✨
+
+goshare-website is a blog front-end based on React + Material-ui
+
+goshare-website 是基于 React + Material-ui 实现的 博客前端
+
+
+## 功能 🔥
+
+* 文章管理
+* 用户注册登录
+* 评论及回复
+* 主题切换
+
+## 线上效果 ✨
+
+https://www.bestlang.cn
+
+
+## Usage 🚀
+
+```bash
+git clone git@github.com:ligenhw/goshare-website.git
+
+cd goshare-website
+
+yarn & yarn start
+```
+
+## 技术栈
+
+### react  ui框架
 
 https://zh-hans.reactjs.org/docs/getting-started.html
 
-## material-ui
+
+### material-ui  material风格界面组件
 
 https://material-ui.com/zh/getting-started/installation/
 
-icon:
 
-https://material.io/tools/icons/
-
-## redux
-
-https://www.redux.org.cn/
+### redux  统一管理应用数据
 
 https://redux.js.org/introduction/getting-started
 
-## react-router
 
-http://react-guide.github.io/react-router-cn/docs/Introduction.html
+### react-router  前端页面路由
+
+https://reacttraining.com/react-router/web/guides/quick-start
 
 https://github.com/ReactTraining/react-router
 
-## connected-react-router
 
-https://github.com/supasate/connected-react-router
-
-## Markd
+### Markd  解析markdown格式文章
 
 https://marked.js.org/#/README.md
 
-## prismjs
+
+### prismjs  代码语法高亮
 
 https://prismjs.com/
 
-## React Loadable
+
+### React Loadable  代码分割
 
 https://github.com/jamiebuilds/react-loadable
 
 
-## 使用 create-react-app 配置代理服务器
+## 部署 📦
 
-https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development#docsNav
-
-## 正则表达式
-
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions
-
-## Fetch API
-
-https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch
-
-## github develop
-
-https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
-https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
-
-## icon
-
-https://www.flaticon.com
-http://www.faviconico.org/
-https://icons8.com
-
-## qq登录
-
-http://wiki.connect.qq.com/%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C_oauth2-0
-
-## 部署
+```bash
+yarn build
 
 docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
+```
 
 
+## Show your support ⭐️
+
+Please ⭐️ this repository if this project helped you!
 
 
-## License
+## License 📝
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website?ref=badge_large)
