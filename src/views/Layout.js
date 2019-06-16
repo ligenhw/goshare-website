@@ -8,6 +8,7 @@ import AppDrawer from './drawer'
 import SimpleSnackbar from './SimpleSnackbar'
 import Paper from '@material-ui/core/Paper';
 import IPCLink from '../components/IPCLink';
+import CdnLink from '../components/CdnLink'
 
 const styles = theme => ({
     content: {
@@ -59,6 +60,7 @@ class Layouts extends React.Component {
                         goshare ©2019
                     </Typography>
                     <IPCLink />
+                    <CdnLink />
                 </Paper>
                 {/* End footer */}
             </React.Fragment>
