@@ -94,7 +94,7 @@ https://github.com/jamiebuilds/react-loadable
 ## 部署 📦
 
 ```bash
-yarn build
+GENERATE_SOURCEMAP=false yarn build
 
 docker run --name some-nginx -p 80:80 -d -v  ~/goshare-website/build:/usr/share/nginx/html nginx
 ```
