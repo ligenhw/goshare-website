@@ -6,8 +6,8 @@ export default ({ articles }) => {
 
     return (
         articles ?
-        articles.map((item, i) => (
-            <ArticleCard key={item.id} post={item} />
-        )): ''
+            articles.map((item, i) => (
+                <ArticleCard key={item.id} post={item} />
+            )) : ''
     )
 }

@@ -3,6 +3,8 @@ export const THEME_CHANGE = 'THEME_CHANGE'
 
 export const LIST_ARTICLES = 'LIST_ARTICLES'
 
+export const LOAD_TYPE = 'LOAD_TYPE'
+
 export const QUERY_ARTICLE = 'QUERY_ARTICLE'
 
 export const GET_USER = 'GET_USER'

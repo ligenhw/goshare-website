@@ -89,8 +89,8 @@ function Projects(props) {
         <div className={ classes.cardGrid }>
           {/* End hero unit */}
           <Grid container spacing={5}>
-            {cards.map(card => (
-              <Grid item key={card} sm={6} md={4} lg={3}>
+            {cards.map((card, index) => (
+              <Grid item key={index} sm={6} md={4} lg={3}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
