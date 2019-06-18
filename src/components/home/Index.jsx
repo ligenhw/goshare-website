@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import Sidebar from '../Sidebar';
 import Banner from '../Banner'
 import ArticleCardList from '../ArticleCardList'
+import LoadMore from '../LoadMore'
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({ articles }) => {
+export default ({ articles, loadType, loadMoreFn }) => {
   const classes = useStyles();
 
   return (
@@ -32,6 +33,10 @@ export default ({ articles }) => {
               </Typography>
               <Divider />
               <ArticleCardList articles={articles} />
+              <LoadMore loadType={loadType} loadMoreFn={() => {
+                loadMoreFn()
+                console.log('listview loading more')
+              }}/>
             </Grid>
             {/* End main content */}
             {/* Sidebar */}

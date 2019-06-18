@@ -1,10 +1,23 @@
-import { LIST_ARTICLES, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
+import { LIST_ARTICLES, LOAD_TYPE, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
 
-export const articles = (state=[], action) => {
+export const articles = (state={
+  articles: [],
+  loadType: 0
+}, action) => {
+    console.log('articles ', action.type)
     switch(action.type) {
         case LIST_ARTICLES:
           const lists = action.payload.map(a=> prepareArticle(a))
-          return lists
+          const articles = state.articles.concat(lists)
+          return {
+            ...state,
+            articles,
+          }
+        case LOAD_TYPE:
+          return {
+            ...state,
+            loadType: action.payload,
+          }
         default:
           return state
     }

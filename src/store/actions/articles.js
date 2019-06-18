@@ -1,4 +1,4 @@
-import { LIST_ARTICLES, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
+import { LIST_ARTICLES, LOAD_TYPE, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
 import { history } from '../configureStore'
 
 const listArticles = (data) => ({
@@ -6,8 +6,9 @@ const listArticles = (data) => ({
     payload: data,
 })
 
-export const queryAllArticles = () => dispatch => {
-    fetch('/api/article')
+export const queryArticles = (offset) => dispatch => {
+    dispatch(loadMoreType(loadingTypeMenu.LOADING))
+    fetch('/api/article?limit=5&offset=' + offset)
         .then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error, status = " + response.status);
@@ -15,9 +16,26 @@ export const queryAllArticles = () => dispatch => {
             return response.json()
         })
         .then(json => {
-            dispatch(listArticles(json))})
-        .catch(error => console.error(error))
+            console.log('dispatch listArticles')
+            dispatch(listArticles(json))
+            dispatch(loadMoreType(json.length > 0 ? loadingTypeMenu.MORE : loadingTypeMenu.NOMORE))
+        })
+        .catch(error => {
+            dispatch(loadMoreType(loadingTypeMenu.MORE))
+            console.error(error)
+        })
 }
+
+export const loadingTypeMenu = {
+    MORE: 0,
+    LOADING: 1,
+    NOMORE: 2,
+}
+
+const loadMoreType = (date) => ({
+    type: LOAD_TYPE,
+    payload: date,
+})
 
 const listProfileArticles = data => ({
     type: GET_PROFILE_ARTICLES,
