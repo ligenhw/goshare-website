@@ -2,16 +2,17 @@ import { LIST_ARTICLES, LOAD_TYPE, QUERY_ARTICLE, GET_PROFILE_ARTICLES, LIST_ARC
 
 export const articles = (state={
   articles: [],
+  offset: 0,
   loadType: 0
 }, action) => {
-    console.log('articles ', action.type)
     switch(action.type) {
         case LIST_ARTICLES:
-          const lists = action.payload.map(a=> prepareArticle(a))
+          const lists = action.payload.articles.map(a=> prepareArticle(a))
           const articles = state.articles.concat(lists)
           return {
             ...state,
             articles,
+            offset: lists.length < 5 ? action.payload.offset + lists.length + 1 : action.payload.offset + lists.length
           }
         case LOAD_TYPE:
           return {

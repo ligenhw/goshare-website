@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { List, ListItem, Divider, Link } from '@material-ui/core';
+import { List, ListItem, Divider } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -29,18 +30,16 @@ export default ({ archives }) => {
                                         {date.getFullYear() + ' 年' + (date.getMonth() + 1) + '月'}
                                     </Typography>
                                     <Divider />
-                                    <ListItem >
-                                        <Link href={`/article/${a.id}`}>{dayAndTitle}</Link>
+                                    <ListItem button component={RouterLink} to={`/article/${a.id}`}>
+                                        {dayAndTitle}
                                     </ListItem>
                                 </div>
                             )
                         }
 
                         return (
-                            <ListItem >
-                                <Link key={a.id} display='block' href={`/article/${a.id}`}>
-                                    {date.getDate() + '日 ' + a.title}
-                                </Link>
+                            <ListItem button component={RouterLink} to={`/article/${a.id}`}>
+                                {date.getDate() + '日 ' + a.title}
                             </ListItem>
                         )
                     })
