@@ -1,4 +1,4 @@
-import { LIST_ARTICLES, LOAD_TYPE, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
+import { LIST_ARTICLES, LOAD_TYPE, LIST_ARCHIVES, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
 import { history } from '../configureStore'
 
 const listArticles = (data) => ({
@@ -36,6 +36,24 @@ const loadMoreType = (date) => ({
     type: LOAD_TYPE,
     payload: date,
 })
+
+const listArchives = (date) => ({
+    type: LIST_ARCHIVES,
+    payload: date,
+})
+
+export const queryArchives = () => dispatch => {
+    fetch('/api/archives')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error, status = " + response.status);
+            }
+            return response.json()
+        })
+        .then(json => {
+            dispatch(listArchives(json))})
+        .catch(error => console.error(error))
+}
 
 const listProfileArticles = data => ({
     type: GET_PROFILE_ARTICLES,

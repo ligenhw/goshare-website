@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Archives from './Archives'
-import { queryArticles } from '../../store/actions/articles'
+import { queryArchives } from '../../store/actions/articles'
 
-const ArchievesContainer = ({ queryArticles, ...other}) => {
+const ArchievesContainer = ({ queryArchives, ...other}) => {
 
     // disable
     useEffect(() => {
-        queryArticles(0)
-    }, [queryArticles])
+        queryArchives()
+    }, [queryArchives])
 
     return (
         <Archives {...other} />
@@ -17,9 +17,9 @@ const ArchievesContainer = ({ queryArticles, ...other}) => {
 
 export default connect(
     state => ({
-        archives: state.articles
+        archives: state.archives
     }), {
-        queryArticles
+        queryArchives
     }
 )(ArchievesContainer);
 
