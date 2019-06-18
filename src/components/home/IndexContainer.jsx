@@ -1,35 +1,34 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { queryArticles } from '../../store/actions/articles'
 import Index from './Index'
 
-const IndexContainer = ({ queryArticles,...other }) => {
+const IndexContainer = ({ queryArticles, offset, articles, ...other }) => {
 
-    const [offset, setOffset] = useState(0)
     const prevOffsetRef = useRef()
     prevOffsetRef.current = offset
-
-    console.log('IndexContainer ', offset)
+    const prevArticlesRef = useRef()
+    prevArticlesRef.current = articles
 
     useEffect(() => {
-        console.log('use effect query articles offset : ' + offset)
-        queryArticles(offset)
-    }, [queryArticles, offset])
-
-    console.log('Index container offset ', offset)
+        if (prevOffsetRef.current <= prevArticlesRef.current.length) {
+            queryArticles(prevOffsetRef.current)
+        }
+    }, [queryArticles])
 
     return (
         <Index loadMoreFn={() => {
-            const value = prevOffsetRef.current + 5
-            setOffset(value)
-            console.log('loadmore fn ', value)
-        }} {...other} />
+            if (prevOffsetRef.current <= prevArticlesRef.current.length) {
+                queryArticles(prevOffsetRef.current)
+            }
+        }} {...other} articles={articles}/>
     )
 }
 
 const mapStateToProps = state => ({
     user: state.user,
     articles: state.articles.articles,
+    offset: state.articles.offset,
     loadType: state.articles.loadType
 })
 

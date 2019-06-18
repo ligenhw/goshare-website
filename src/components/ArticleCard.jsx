@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -24,8 +25,12 @@ export default ({ post }) => {
 
   const classes = useStyles();
 
+  const RouteLink = React.forwardRef((props, ref) => (
+    <Link innerRef={ref} to={`/article/${post.id}`} {...props} />
+  ));
+
   return (
-    <CardActionArea component="a" href={`/article/${post.id}`}>
+    <CardActionArea component={RouteLink} href={`/article/${post.id}`}>
       <Card className={classes.card}>
         <div className={classes.cardDetails}>
           <CardContent>

@@ -1,9 +1,12 @@
 import { LIST_ARTICLES, LOAD_TYPE, LIST_ARCHIVES, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
 import { history } from '../configureStore'
 
-const listArticles = (data) => ({
+const listArticles = (data, offset) => ({
     type: LIST_ARTICLES,
-    payload: data,
+    payload: {
+        articles: data,
+        offset,
+    },
 })
 
 export const queryArticles = (offset) => dispatch => {
@@ -16,9 +19,8 @@ export const queryArticles = (offset) => dispatch => {
             return response.json()
         })
         .then(json => {
-            console.log('dispatch listArticles')
-            dispatch(listArticles(json))
-            dispatch(loadMoreType(json.length > 0 ? loadingTypeMenu.MORE : loadingTypeMenu.NOMORE))
+            dispatch(listArticles(json, offset))
+            dispatch(loadMoreType(json.length === 5 ? loadingTypeMenu.MORE : loadingTypeMenu.NOMORE))
         })
         .catch(error => {
             dispatch(loadMoreType(loadingTypeMenu.MORE))
