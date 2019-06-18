@@ -1,4 +1,4 @@
-import { LIST_ARTICLES, LOAD_TYPE, QUERY_ARTICLE, GET_PROFILE_ARTICLES } from '../types.js';
+import { LIST_ARTICLES, LOAD_TYPE, QUERY_ARTICLE, GET_PROFILE_ARTICLES, LIST_ARCHIVES } from '../types.js';
 
 export const articles = (state={
   articles: [],
@@ -43,6 +43,15 @@ export const article = (state={
         default:
           return state
     }
+}
+
+export const archives = (state=[], action) => {
+  switch(action.type) {
+    case LIST_ARCHIVES:
+      return action.payload
+    default:
+      return state
+  }
 }
 
 // ![...](url) get first img url in the markdown 

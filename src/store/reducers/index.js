@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import { articles, article, profileArticles } from './articles'
+import { articles, article, archives, profileArticles } from './articles'
 import { user } from "./user";
 import { comments } from './comments'
 import { msg } from './msg'
@@ -16,6 +16,7 @@ const rootReducer = history =>
     comments,
     tags,
     msg,
+    archives,
     profileArticles,
     router: connectRouter(history),
   });

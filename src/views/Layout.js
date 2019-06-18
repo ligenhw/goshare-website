@@ -32,7 +32,6 @@ class Layouts extends React.Component {
 
     render() {
         const { classes, children } = this.props
-        console.log('debug layout', this.props)
         const buildBy = 'Built with ❤️ by gen'
 
         return (
