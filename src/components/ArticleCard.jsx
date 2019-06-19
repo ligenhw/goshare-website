@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   cardMedia: {
     width: 160,
   },
+  link: {
+    display: 'block',
+  }
 }));
 
 export default ({ post }) => {
@@ -30,8 +33,8 @@ export default ({ post }) => {
   ));
 
   return (
-    <CardActionArea component={RouteLink} href={`/article/${post.id}`}>
-      <Card className={classes.card}>
+    <Card className={classes.card}>
+      <CardActionArea component={RouteLink} href={`/article/${post.id}`}>
         <div className={classes.cardDetails}>
           <CardContent>
             <Typography component="h2" variant="h5">
@@ -55,8 +58,8 @@ export default ({ post }) => {
             title="Image title"
           />
         </Hidden>
-      </Card>
-    </CardActionArea>
+      </CardActionArea>
+    </Card>
   )
 }
 
