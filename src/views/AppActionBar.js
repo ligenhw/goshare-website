@@ -38,7 +38,6 @@ const styles = {
 class ButtonAppBar extends Component {
 
   componentWillMount() {
-    console.log('ButtonAppBar')
     this.props.dispatch(getUser)
   }
 

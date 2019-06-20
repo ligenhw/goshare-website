@@ -8,6 +8,10 @@ import { Provider } from 'react-redux';
 import AppWrapper from './views/AppWrapper.js';
 import NoMatch from './views/NoMatch.jsx';
 
+if (process.browser) {
+  console.log('version : v0.0.5')
+}
+
 const store = configureStore()
 
 class App extends Component {

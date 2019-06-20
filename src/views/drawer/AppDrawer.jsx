@@ -40,8 +40,6 @@ class AppDrawer extends React.Component {
   render() {
     const { classes, user, open, onClose, onMenuClick } = this.props;
 
-    console.log('app drawer',user)
-
     const sideList = (
       <div >
         <List className={classes.list}>

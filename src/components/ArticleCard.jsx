@@ -33,33 +33,35 @@ export default ({ post }) => {
   ));
 
   return (
-    <Card className={classes.card}>
+    <div>
       <CardActionArea component={RouteLink} href={`/article/${post.id}`}>
-        <div className={classes.cardDetails}>
-          <CardContent>
-            <Typography component="h2" variant="h5">
-              {post.title}
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary">
-              {new Date(post.time).toLocaleString()}
-            </Typography>
-            <Typography variant="subtitle1" paragraph>
-              {post.desc}
-            </Typography>
-            <Typography variant="subtitle1" color="primary">
-              继续阅读...
+        <Card className={classes.card}>
+          <div className={classes.cardDetails}>
+            <CardContent>
+              <Typography component="h2" variant="h5">
+                {post.title}
               </Typography>
-          </CardContent>
-        </div>
-        <Hidden xsDown>
-          <CardMedia
-            className={classes.cardMedia}
-            image={post.img_url}
-            title="Image title"
-          />
-        </Hidden>
+              <Typography variant="subtitle1" color="textSecondary">
+                {new Date(post.time).toLocaleString()}
+              </Typography>
+              <Typography variant="subtitle1" paragraph>
+                {post.desc}
+              </Typography>
+              <Typography variant="subtitle1" color="primary">
+                继续阅读...
+              </Typography>
+            </CardContent>
+          </div>
+          <Hidden xsDown>
+            <CardMedia
+              className={classes.cardMedia}
+              image={post.img_url}
+              title="Image title"
+            />
+          </Hidden>
+        </Card>
       </CardActionArea>
-    </Card>
+    </div>
   )
 }
 
