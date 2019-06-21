@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import { history } from '../store/configureStore'
 import CommentPage from './comment'
 import Container from '@material-ui/core/Container'
+import Ad from './Ad'
 
 const styles = theme => ({
   title: {
@@ -90,6 +91,7 @@ class Article extends Component {
 
         {article.blog.id ?
           <Container maxWidth="lg">
+            <Ad slot='1703381255'/>
             <CommentPage blogId={article.blog.id} />
           </Container> : null}
 
