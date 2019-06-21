@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Links from './Links';
 import CommentPage from '../comment'
+import Ad from '../Ad'
 
 const useStyles = makeStyles(theme => ({
     mainGrid: {
@@ -25,6 +26,7 @@ export default () => {
             <Links />
             </Container>
             <Container maxWidth="lg">
+                <Ad slot='6035122905' />
                 <CommentPage blogId={-2} />
             </Container>
         </div>

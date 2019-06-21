@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import SocialLinks from './SocialLinks'
 import Tags from './tag'
+import Ad from './Ad'
 
 const useStyles = makeStyles(theme => ({
     sidebarAboutBox: {
@@ -55,6 +56,12 @@ export default () => {
                 ))
             }
             <SocialLinks />
+            <div className={classes.sidebarSection}>
+               <Ad slot='4482368086'/>
+            </div>
+            <div className={classes.sidebarSection}>
+               <Ad slot='7149303147'/>
+            </div>
         </React.Fragment>
     )
 }
