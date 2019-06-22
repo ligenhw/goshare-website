@@ -49,4 +49,9 @@ export default [
         "url": "https://blog.fastrun.cn",
         "img": "https://avatars3.githubusercontent.com/u/9151227?v=4"
     },
+    {
+        "name": "水寒的博客",
+        "url": "https://dp2px.com",
+        "img": "https://dp2px.com/images/download_head.png"
+    },
 ]
