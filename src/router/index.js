@@ -141,7 +141,7 @@ const subPages = [
     path: '/test',
     exact: true,
     component: Loadable({
-      loader: () => import('../components/test'),
+      loader: () => import('../components/search'),
       loading: Loading,
       delay: 300,
     }),
