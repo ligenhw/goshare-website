@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getLinks } from '../../store/actions/link'
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
-import links from './data'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -38,7 +39,15 @@ const render = (link, classes) => (
     </Box>
 )
 
-export default () => {
+export default connect(
+    state => ({
+        links: state.links
+    })
+) (({ links, dispatch }) => {
+
+    useEffect(() => {
+        dispatch(getLinks)
+    }, [dispatch])
 
     const classes = useStyles();
 
@@ -49,4 +58,4 @@ export default () => {
             }
         </Box>
     )
-}
+})
