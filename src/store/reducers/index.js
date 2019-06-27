@@ -6,6 +6,7 @@ import { comments } from './comments'
 import { msg } from './msg'
 import theme from './themeReducer'
 import { tags } from './tag'
+import { links } from './link'
 
 const rootReducer = history =>
   combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = history =>
     article,
     comments,
     tags,
+    links,
     msg,
     archives,
     profileArticles,
