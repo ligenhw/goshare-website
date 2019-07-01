@@ -7,6 +7,8 @@ import { msg } from './msg'
 import theme from './themeReducer'
 import { tags } from './tag'
 import { links } from './link'
+import { books } from './book'
+import { projects } from './project'
 
 const rootReducer = history =>
   combineReducers({
@@ -20,6 +22,8 @@ const rootReducer = history =>
     msg,
     archives,
     profileArticles,
+    books,
+    projects,
     router: connectRouter(history),
   });
 
