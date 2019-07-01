@@ -24,6 +24,8 @@ export const GET_PROFILE_ARTICLES = 'GET_PROFILE_ARTICLES'
 export const GET_PROFILE_COMMENTS = 'GET_PROFILE_COMMENTS'
 
 export const LIST_LINKS = 'LIST_LINKS'
+export const LIST_BOOKS = 'LIST_BOOKS'
+export const LIST_PROJECTS = 'LIST_PROJECTS'
 // export const SIGN_UP = 'SIGN_UP'
 
 // export const SIGN_IN = 'SIGN_IN'
