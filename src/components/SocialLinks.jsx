@@ -7,10 +7,6 @@ const social = [
     {
         name: 'github',
         link: 'https://github.com/ligenhw/',
-    },
-    {
-        name: '简书',
-        link: 'https://www.jianshu.com/u/0cc81b23c1f0',
     }
 ]
 

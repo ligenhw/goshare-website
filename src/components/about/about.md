@@ -9,7 +9,6 @@
 ## 其他社区
 
 - [github](https://github.com/ligenhw)
-- [简书](https://www.jianshu.com/u/91717b553bfd)
 
 ## 关于我
 
