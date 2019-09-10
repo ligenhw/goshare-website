@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ThemeProvider } from '@material-ui/styles';
-import { lightTheme, darkTheme, setPrismTheme } from '../components/markdown/prism';
+import { darkTheme, setPrismTheme } from '../components/markdown/prism';
 import getTheme from '../store/styles/getTheme'
 
 function themeSideEffect(reduxTheme) {
-  setPrismTheme(reduxTheme.paletteType === 'light' ? lightTheme : darkTheme);
+  setPrismTheme(darkTheme);
 }
 
 class AppWrapper extends React.Component {
