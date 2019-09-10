@@ -1,14 +1,14 @@
-import blue from '@material-ui/core/colors/blue';
-import pink from '@material-ui/core/colors/pink';
-import { darken } from '@material-ui/core/styles/colorManipulator';
+import { blue, pink } from '@material-ui/core/colors';
+import { darken } from '@material-ui/core/styles';;
 
 const themeInitialState = {
   paletteType: 'light',
   paletteColors: {
-    primary: blue,
+    primary: {
+      main: blue[700],
+    },
     secondary: {
-      // Darken so we reach the AA contrast ratio level.
-      main: darken(pink.A400, 0.08),
+      main: darken(pink.A400, 0.1),
     },
   },
 };
