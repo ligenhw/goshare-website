@@ -18,17 +18,22 @@
 
 ## 技术栈相关
 
-- 前端：js、react ；
-
-熟悉React Redux 相关框架, 也接触过AngularJs。至于Vue有时间计划学习一下。
-
-目前在工作中, 前端部分使用的是React框架开发。
 
 - 后端：java, kotlin, golang, python, MySql, Redis 等 ；
 
 工作中使用 **Java** , **Kotlin** 作为开发语言。web部分主要使用 **Spring** 相关框架，数据层使用 **MyBatis** 。涉及到一些运维工具的开发，也会使用到 **Python** 。
 
 业余时间，也会使用 **Go**, **Python** 做一些个人项目开发。
+
+- 大数据: scala, hadoop, spark, flink
+
+目前工作中，主要使用 spark 和 flink开发离线任务 和 实时监控系统。
+
+- 前端：js、react ；
+
+熟悉React Redux 相关框架, 也接触过AngularJs。至于Vue有时间计划学习一下。
+
+目前在工作中, 前端部分使用的是React框架开发。
 
 - 运维：熟悉linux环境，shell, docker等
 
