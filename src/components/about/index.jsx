@@ -4,7 +4,7 @@ import md from './about.md'
 import CommentPage from '../comment'
 import Container from '@material-ui/core/Container'
 
-export default () => {
+export default function About() {
     const [data, setData] = useState('')
 
     useEffect(() => {

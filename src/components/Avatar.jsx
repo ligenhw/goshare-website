@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar as MAvatar } from '@material-ui/core';
 
-export default ({ user }) => {
+export default function Avatar({ user }) {
 
     return (
         <React.Fragment>

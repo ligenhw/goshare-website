@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
       },
 }));
 
-export default () => {
+export default function Banner () {
 
     const classes = useStyles();
 

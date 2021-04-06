@@ -12,14 +12,14 @@
 
 ## 关于我
 
-目前主要从事 web后端开发，也会做一些前端开发，是一枚软件开发攻城狮～
+目前主要从事 web后端 , 大数据相关开发，是一枚软件开发攻城狮～
 
-之前有过几年移动端 Android开发经验。
+之前有过几年移动端 Android开发经验。也是一个业余前端开发。
 
 ## 技术栈相关
 
 
-- 后端：java, kotlin, golang, python, MySql, Redis 等 ；
+- 后端：java, kotlin, golang, python, MySql, Redis, Kafka, Es, Mongo 等 ；
 
 工作中使用 **Java** , **Kotlin** 作为开发语言。web部分主要使用 **Spring** 相关框架，数据层使用 **MyBatis** 。涉及到一些运维工具的开发，也会使用到 **Python** 。
 
@@ -33,13 +33,13 @@
 
 熟悉React Redux 相关框架, 也接触过AngularJs。至于Vue有时间计划学习一下。
 
-目前在工作中, 前端部分使用的是React框架开发。
+之前工作中, 前端部分使用的是React框架开发。
 
 - 运维：熟悉linux环境，shell, docker等
 
 - 移动端: Android
 
-有三年的android应用开发经验，熟悉android常用开源组件 **Okhttp** , **Retrofit**, **Glide** 等
+有两三年的android应用开发经验，熟悉android常用开源组件 **Okhttp** , **Retrofit**, **Glide** 等
 
 也熟悉一些framework层 相关知识。
 

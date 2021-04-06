@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default () => {
+export default function NoMatch() {
 
     const classes = useStyles();
 

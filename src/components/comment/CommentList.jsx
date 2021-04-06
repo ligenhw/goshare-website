@@ -2,7 +2,8 @@ import React from 'react'
 import List from '@material-ui/core/List';
 import Comment from './Comment'
 
-export default ({ blogId, comments, users }) => (
+export default function CommentList({ blogId, comments, users }) {
+    return (
     < List >
         {
             comments.map((comment, i) => (
@@ -11,5 +12,5 @@ export default ({ blogId, comments, users }) => (
                 } comment={comment} />
             ))
         }
-    </List >
-)
+    </List >)
+}

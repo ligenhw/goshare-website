@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default ({ archives }) => {
+export default function Archives ({ archives }) {
 
     const classes = useStyles();
 

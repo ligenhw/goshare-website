@@ -26,7 +26,7 @@ const ArticleCardAd = ({ key, post }) => (
 )
 
 // TODO: change to HOC
-export default ({ articles }) => {
+export default function ArticleCardList({ articles }) {
 
     return (
         articles ?

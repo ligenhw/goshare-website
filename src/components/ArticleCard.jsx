@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default ({ post }) => {
+export default function ArticleCard({ post }) {
 
   const classes = useStyles();
 

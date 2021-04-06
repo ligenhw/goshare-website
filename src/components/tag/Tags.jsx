@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
 
 const colors = ['primary', 'info', 'success', 'warning', 'danger', 'rose']
 
-export default ({ tags }) => {
+export default function Tags({ tags }) {
 
     const classes = useStyles();
 

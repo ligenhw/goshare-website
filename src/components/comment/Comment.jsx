@@ -49,7 +49,7 @@ const Sub = ({ sub, getUserById, onReplyAction }) => {
     )
 }
 
-export default ({ blogId, getUserById, comment }) => {
+export default function Comment({ blogId, getUserById, comment }) {
 
     const user = getUserById(comment.parentUserId)
 

@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({ articles, loadType, loadMoreFn }) => {
+export default function Home({ articles, loadType, loadMoreFn }) {
   const classes = useStyles();
 
   return (

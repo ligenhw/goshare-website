@@ -22,7 +22,7 @@ const archives = [
     '2019 年6月',
 ];
 
-export default () => {
+export default function Sidebar() {
 
     const classes = useStyles();
 
