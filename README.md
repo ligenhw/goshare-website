@@ -2,11 +2,15 @@
 
 > 基于 React + Material-ui 实现的 博客前端
 
-
+[![GitHub Actions CI][ciBadge]][ciLink]
 [![Build Status](https://travis-ci.org/ligenhw/goshare-website.svg?branch=master)](https://travis-ci.org/ligenhw/goshare-website)
 [![codecov](https://codecov.io/gh/ligenhw/goshare-website/branch/master/graph/badge.svg)](https://codecov.io/gh/ligenhw/goshare-website)
 [![codebeat badge](https://codebeat.co/badges/d4eed87f-188e-414e-ab63-169af4583092)](https://codebeat.co/projects/github-com-ligenhw-goshare-website-master)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fligenhw%2Fgoshare-website?ref=badge_shield)
+
+[ciBadge]: https://github.com/ligenhw/goshare-website/workflows/CI/badge.svg
+[ciLink]: https://github.com/ligenhw/goshare-website/actions
+
 
 后端项目: https://github.com/ligenhw/goshare
 
