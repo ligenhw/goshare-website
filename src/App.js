@@ -7,9 +7,10 @@ import configureStore, { history } from './store/configureStore'
 import { Provider } from 'react-redux';
 import AppWrapper from './views/AppWrapper.js';
 import NoMatch from './views/NoMatch.jsx';
+import { PageView } from './starry.js'
 
 if (process.browser) {
-  console.log('version : v0.0.8')
+  console.log('version : v0.0.9')
 }
 
 const store = configureStore()
@@ -23,6 +24,7 @@ class App extends Component {
           <AppWrapper>
             <Layouts>
               <Switch>
+                <PageView>
                 {routers.map((r, key) => (
                   <Route
                     component={r.component}
@@ -32,6 +34,7 @@ class App extends Component {
                   />
                 ))}
                 <Route component={NoMatch} />
+                </PageView>
               </Switch>
             </Layouts>
           </AppWrapper>
