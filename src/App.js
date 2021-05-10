@@ -10,7 +10,7 @@ import NoMatch from './views/NoMatch.jsx';
 import { PageView } from './starry.js'
 
 if (process.browser) {
-  console.log('version : v0.0.9')
+  console.log('version : v0.0.10')
 }
 
 const store = configureStore()
@@ -33,7 +33,8 @@ class App extends Component {
                     path={r.path}
                   />
                 ))}
-                <Route component={NoMatch} />
+                {/* TODO fix no match */}
+                {/* <Route component={NoMatch} /> */}
                 </PageView>
               </Switch>
             </Layouts>
